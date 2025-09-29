@@ -350,6 +350,18 @@
             100% { transform: rotate(360deg); }
         }
 
+        .loading-text {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .loading-subtext {
+            font-size: 14px;
+            color: #666;
+        }
+
         .confirmation-overlay {
             position: fixed;
             top: 0;
@@ -421,16 +433,9 @@
             margin-top: 25px;
         }
 
-        .loading-text {
-            font-size: 18px;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        .loading-subtext {
-            font-size: 14px;
-            color: #666;
+        .confirmation-buttons .button {
+            flex: 1;
+            margin: 0;
         }
 
         input:disabled, button:disabled {
@@ -494,7 +499,7 @@
 
             <div class="status" id="status"></div>
             <div class="cooldown-indicator" id="cooldownIndicator">
-                ⏱️ Procesando... Espera 2 segundos para el próximo registro
+                ⏱️ Procesando... Espera 1 segundo para el próximo registro
             </div>
 
             <div class="loading-overlay" id="loadingOverlay">
@@ -584,6 +589,17 @@
         // URL de Google Sheets configurada
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwin2KNZMoptNisCTlIIp0LRZJ7c5lIoM_07ks3xBUgGeFZRiXSCdeffOFyuQMMNn3m/exec';
 
+        // Enter para enviar código manual
+        document.addEventListener('DOMContentLoaded', function() {
+            const manualCodeInput = document.getElementById('manualCode');
+            manualCodeInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' && !isProcessing) {
+                    e.preventDefault();
+                    submitManualCode();
+                }
+            });
+        });
+
         // Cambiar entre modos
         function switchMode(mode) {
             const tabs = document.querySelectorAll('.mode-tab');
@@ -605,17 +621,6 @@
             }
         }
 
-        // Enter para enviar código manual
-        document.addEventListener('DOMContentLoaded', function() {
-            const manualCodeInput = document.getElementById('manualCode');
-            manualCodeInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter' && !isProcessing) {
-                    e.preventDefault();
-                    submitManualCode();
-                }
-            });
-        });
-
         function showStatus(message, type) {
             const statusDiv = document.getElementById('status');
             statusDiv.textContent = message;
@@ -627,7 +632,7 @@
             }, 3000);
         }
 
-        function startCooldown(duration = 2000) {
+        function startCooldown(duration = 1000) {
             canScan = false;
             const cooldownDiv = document.getElementById('cooldownIndicator');
             cooldownDiv.style.display = 'block';
@@ -711,24 +716,55 @@
         async function sendToGoogleSheets(record) {
             if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL === 'TU_URL_DE_GOOGLE_SCRIPT_AQUI') {
                 console.warn('URL de Google Sheets no configurada');
-                return false;
+                return { success: false };
             }
 
-            try {
-                const response = await fetch(GOOGLE_SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(record)
-                });
-                
-                return true;
-            } catch (error) {
-                console.error('Error al enviar a Google Sheets:', error);
-                return false;
-            }
+            return new Promise((resolve) => {
+                try {
+                    // Usar un formulario oculto para evitar problemas de CORS
+                    const form = document.createElement('form');
+                    form.method = 'POST';
+                    form.action = GOOGLE_SCRIPT_URL;
+                    form.target = 'hidden_iframe_' + Date.now();
+                    form.style.display = 'none';
+
+                    // Crear campos del formulario
+                    const fields = {
+                        date: record.date,
+                        space: record.space,
+                        code: record.code
+                    };
+
+                    for (const key in fields) {
+                        const input = document.createElement('input');
+                        input.type = 'hidden';
+                        input.name = key;
+                        input.value = fields[key];
+                        form.appendChild(input);
+                    }
+
+                    // Crear iframe oculto para recibir la respuesta
+                    const iframe = document.createElement('iframe');
+                    iframe.name = form.target;
+                    iframe.style.display = 'none';
+                    document.body.appendChild(iframe);
+
+                    // Enviar formulario
+                    document.body.appendChild(form);
+                    form.submit();
+
+                    // Esperar un poco para que se procese
+                    setTimeout(() => {
+                        document.body.removeChild(form);
+                        document.body.removeChild(iframe);
+                        resolve({ success: true });
+                    }, 800);
+
+                } catch (error) {
+                    console.error('Error al enviar a Google Sheets:', error);
+                    resolve({ success: false });
+                }
+            });
         }
 
         async function performRegistration(code, forceRegister = false) {
@@ -752,11 +788,8 @@
                 return;
             }
 
-            // Mostrar overlay de carga con duración reducida
+            // Mostrar overlay de carga
             showLoading(true);
-
-            // Simular un delay mínimo de 1 segundo para el overlay
-            await new Promise(resolve => setTimeout(resolve, 1000));
 
             const now = new Date();
             const formattedDate = now.toLocaleString('es-ES', {
@@ -786,7 +819,7 @@
             // Guardar como último código registrado
             lastRegisteredCode = code.trim();
             
-            if (sent) {
+            if (sent.success) {
                 showStatus('✅ Asistencia registrada en Google Sheets', 'success');
             } else {
                 showStatus('✅ Asistencia registrada localmente', 'success');
@@ -797,7 +830,7 @@
             }
 
             isProcessing = false;
-            startCooldown(2000);
+            startCooldown(1000);
         }
 
         async function registerCode(code) {
