@@ -33,6 +33,15 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TrendBoosters 2025 | Universidad Santo Tomás</title>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F82MVG4WR9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-F82MVG4WR9');
+    </script>
     <style>
         * {
             margin: 0;
@@ -59,7 +68,7 @@
 
         .rolling-content {
             display: flex;
-            animation: scroll 30s linear infinite;
+            animation: scroll 15s linear infinite;
             white-space: nowrap;
         }
 
@@ -699,11 +708,6 @@
             margin-bottom: 20px;
         }
 
-        .faq-subtitle {
-            font-size: 1.3em;
-            color: #333;
-        }
-
         .faq-list {
             display: flex;
             flex-direction: column;
@@ -718,12 +722,8 @@
             transition: all 0.3s ease;
         }
 
-        .faq-item:hover {
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
         .faq-question {
-            padding: 20px 25px;
+            padding: 25px;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
@@ -732,41 +732,50 @@
             font-weight: 600;
             font-size: 1.1em;
             user-select: none;
+            transition: background 0.2s ease;
         }
 
         .faq-question:hover {
             background: #fafafa;
         }
 
+        .faq-question-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex: 1;
+        }
+
         .faq-icon {
-            font-size: 1.5em;
-            margin-right: 15px;
+            font-size: 1.8em;
             flex-shrink: 0;
         }
 
         .faq-toggle {
-            font-size: 1.5em;
+            font-size: 1.8em;
             color: #666;
             transition: transform 0.3s ease;
             flex-shrink: 0;
+            font-weight: 300;
         }
 
-        .faq-item.active .faq-toggle {
+        .faq-item.open .faq-toggle {
             transform: rotate(45deg);
         }
 
         .faq-answer {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease;
-            padding: 0 25px;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            padding: 0 25px 0 70px;
             color: #666;
             line-height: 1.8;
+            font-size: 1.05em;
         }
 
-        .faq-item.active .faq-answer {
-            max-height: 500px;
-            padding: 0 25px 20px 65px;
+        .faq-item.open .faq-answer {
+            max-height: 1000px;
+            padding: 0 25px 25px 70px;
         }
 
         .sponsors-section {
@@ -785,7 +794,7 @@
 
         .sponsors-scroll {
             display: flex;
-            animation: sponsorScroll 25s linear infinite;
+            animation: sponsorScroll 15s linear infinite;
             gap: 60px;
         }
 
@@ -1122,7 +1131,7 @@
             <div class="faq-list">
                 <div class="faq-item">
                     <div class="faq-question">
-                        <div style="display: flex; align-items: center;">
+                        <div class="faq-question-content">
                             <span class="faq-icon">👥</span>
                             <span>¿Quiénes pueden asistir?</span>
                         </div>
@@ -1135,7 +1144,7 @@
 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <div style="display: flex; align-items: center;">
+                        <div class="faq-question-content">
                             <span class="faq-icon">💰</span>
                             <span>¿Tiene algún costo la entrada?</span>
                         </div>
@@ -1148,7 +1157,7 @@
 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <div style="display: flex; align-items: center;">
+                        <div class="faq-question-content">
                             <span class="faq-icon">🎟️</span>
                             <span>¿Qué incluye la inscripción?</span>
                         </div>
@@ -1161,7 +1170,7 @@
 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <div style="display: flex; align-items: center;">
+                        <div class="faq-question-content">
                             <span class="faq-icon">⏰</span>
                             <span>¿Para qué se me pide la jornada en la que quiero asistir?</span>
                         </div>
@@ -1250,20 +1259,26 @@
         updateNowBanner();
         setInterval(updateNowBanner, 60000);
 
-        // FAQ Accordion functionality
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const faqItem = question.parentElement;
-                const isActive = faqItem.classList.contains('active');
+        // FAQ Accordion functionality - Completely rewritten
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', function(e) {
+                e.preventDefault();
                 
-                // Close all FAQs
-                document.querySelectorAll('.faq-item').forEach(item => {
-                    item.classList.remove('active');
+                // Check if this item is currently open
+                const isOpen = item.classList.contains('open');
+                
+                // Close all items
+                faqItems.forEach(faq => {
+                    faq.classList.remove('open');
                 });
                 
-                // Open clicked FAQ if it wasn't active
-                if (!isActive) {
-                    faqItem.classList.add('active');
+                // If it wasn't open, open it
+                if (!isOpen) {
+                    item.classList.add('open');
                 }
             });
         });Banner();
