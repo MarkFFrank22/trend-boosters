@@ -1,1 +1,1036 @@
+<section class="ecosystem-section">
+        <div class="ecosystem-header">
+            <h2>El emprendedor en el centro<br><span class="highlight">y todo el ecosistema en el mismo lugar</span></h2>
+        </div>
+        <div class="ecosystem-grid">
+            <div class="ecosystem-card">
+                <div style="width: 100%; height: 100%; background: #2a2a2a;"></div>
+                <div class="ecosystem-overlay">INSPÍRATE</div>
+            </div>
+            <div class="ecosystem-card middle">
+                <div class="ecosystem-text">
+                    <div class="tracks-label">Ejes Temáticos:</div>
+                    <div class="tracks-grid">
+                        <div class="track-item">💼 Profesionalismo</div>
+                        <div class="track-item">🤝 Comunidad</div>
+                        <div class="track-item">📈 Tendencias</div>
+                        <div class="track-item">🚀 Emprendimiento</div>
+                    </div>
+                    <p style="margin-top: 25px; font-size: 0.95em; opacity: 0.8;">
+                        Conectamos profesionales con futuros profesionales en un espacio único para compartir experiencias, ideas y oportunidades.
+                    </p>
+                </div>
+            </div>
+            <div class="ecosystem-card">
+                <div style="width: 100%; height: 100%; background: #3a3a2a;"></div>
+                <div class="ecosystem-overlay">CONECTA</div>
+            </div>
+        </div>
+    </section><!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrendBoosters 2025 | Universidad Santo Tomás</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #c41e3a 0%, #8b0000 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-top {
+            font-size: 0.9em;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .hero-title {
+            font-size: clamp(3em, 10vw, 7em);
+            font-weight: 900;
+            margin-bottom: 0;
+            letter-spacing: -2px;
+            line-height: 0.9;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(2em, 6vw, 4em);
+            font-weight: 300;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .rocket-icon {
+            font-size: 0.8em;
+        }
+
+        .hero-info {
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 20px;
+            justify-content: start;
+            margin-bottom: 40px;
+        }
+
+        .info-item {
+            text-align: left;
+        }
+
+        .info-label {
+            font-size: 0.85em;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            font-size: 1.8em;
+            font-weight: 700;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 50px;
+            background: #fff;
+            color: #000;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid #fff;
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .about-section {
+            background: #1a1a2e;
+            padding: 100px 20px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-text h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        .about-text p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .pillars-section {
+            background: #000;
+            padding: 100px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 60px;
+            font-weight: 700;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pillar-card {
+            background: #1a1a1a;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+            aspect-ratio: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .pillar-front {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: opacity 0.3s ease;
+        }
+
+        .pillar-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            background: rgba(0, 0, 0, 0.95);
+        }
+
+        .pillar-card:hover .pillar-front {
+            opacity: 0;
+        }
+
+        .pillar-card:hover .pillar-back {
+            opacity: 1;
+        }
+
+        .pillar-back-title {
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #ffd700;
+        }
+
+        .pillar-back p {
+            font-size: 1em;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .pillar-card:nth-child(1) .pillar-front {
+            background: linear-gradient(135deg, #cd3333 0%, #000000 100%);
+        }
+
+        .pillar-card:nth-child(2) .pillar-front {
+            background: linear-gradient(135deg, #3533cd 0%, #000000 100%);
+        }
+
+        .pillar-card:nth-child(3) .pillar-front {
+            background: linear-gradient(135deg, #cd3333 0%, #3533cd 100%);
+        }
+
+        .pillar-card:nth-child(4) .pillar-front {
+            background: linear-gradient(135deg, #ff6b6b 0%, #cd3333 100%);
+        }
+
+        .ecosystem-section {
+            background: #0a0a0a;
+            padding: 100px 20px;
+            display: none;
+        }
+
+        .ecosystem-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .ecosystem-header h2 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .ecosystem-header .highlight {
+            font-weight: 700;
+        }
+
+        .ecosystem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        .ecosystem-card {
+            position: relative;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            overflow: hidden;
+            background: #1a1a1a;
+        }
+
+        .ecosystem-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(30%);
+        }
+
+        .ecosystem-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .ecosystem-card.middle {
+            background: #000;
+        }
+
+        .ecosystem-text {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .tracks-label {
+            color: #c41e3a;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .tracks-list {
+            font-size: 0.9em;
+            line-height: 1.8;
+            opacity: 0.8;
+        }
+
+        .tracks-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .track-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 0.9em;
+        }
+
+        .learn-more {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 40px;
+            background: #ffd700;
+            color: #000;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .learn-more:hover {
+            background: #ffed4e;
+            transform: translateY(-2px);
+        }
+
+        .agenda-section {
+            background: #1a1a2e;
+            padding: 100px 20px;
+        }
+
+        .agenda-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .agenda-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 40px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+
+        .tab-button {
+            padding: 12px 30px;
+            background: #0a0a0a;
+            border: 2px solid #333;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .tab-button:hover {
+            border-color: #ffd700;
+        }
+
+        .tab-button.active {
+            background: #ffd700;
+            color: #000;
+            border-color: #ffd700;
+        }
+
+        .schedule-wrapper {
+            overflow-x: auto;
+            margin-bottom: 40px;
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: 150px repeat(10, 180px);
+            gap: 1px;
+            background: #333;
+            border-radius: 10px;
+            overflow: hidden;
+            min-width: max-content;
+        }
+
+        .time-header {
+            background: #000;
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+            color: #ffd700;
+            font-size: 0.95em;
+        }
+
+        .time-salon {
+            background: #000;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-weight: 600;
+            gap: 5px;
+        }
+
+        .salon-header {
+            background: #0a0a0a;
+            padding: 20px 10px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .salon-name {
+            font-weight: 700;
+            font-size: 1em;
+            color: #ffd700;
+        }
+
+        .salon-floor {
+            font-size: 0.85em;
+            opacity: 0.7;
+        }
+
+        .time-cell {
+            background: #1a1a1a;
+            padding: 10px;
+            min-height: 80px;
+        }
+
+        .schedule-event {
+            background: linear-gradient(135deg, rgba(196, 30, 58, 0.3), rgba(196, 30, 58, 0.1));
+            border-left: 3px solid #c41e3a;
+            padding: 12px;
+            border-radius: 6px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .schedule-event:hover {
+            background: linear-gradient(135deg, rgba(196, 30, 58, 0.5), rgba(196, 30, 58, 0.2));
+            transform: translateY(-2px);
+        }
+
+        .schedule-event.active {
+            border-left-color: #4caf50;
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.3), rgba(76, 175, 80, 0.1));
+        }
+
+        .event-title-schedule {
+            font-size: 0.9em;
+            font-weight: 600;
+            line-height: 1.3;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .event-time-schedule {
+            font-size: 0.8em;
+            color: #ffd700;
+            font-weight: 600;
+        }
+
+        .event-speaker {
+            font-size: 0.75em;
+            opacity: 0.8;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .now-banner {
+            background: #c41e3a;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-bottom: 40px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            letter-spacing: 1px;
+        }
+
+        .agenda-grid {
+            display: none;
+        }
+
+        .venue-card {
+            background: #0a0a0a;
+            border-radius: 15px;
+            padding: 30px;
+            border-top: 3px solid #ffd700;
+            display: none;
+        }
+
+        .event-item {
+            background: #1a1a1a;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border-left: 3px solid #333;
+            transition: all 0.3s ease;
+            display: none;
+        }
+
+        .cta-section {
+            background: #000;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.8em;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            opacity: 0.8;
+        }
+
+        footer {
+            background: #0a0a0a;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid #222;
+        }
+
+        footer p {
+            opacity: 0.6;
+            font-size: 0.95em;
+        }
+
+                    @media (max-width: 968px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pillars-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .ecosystem-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .hero-info {
+                grid-template-columns: 1fr;
+            }
+
+            .schedule-grid {
+                font-size: 0.85em;
+            }
+
+            .tracks-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .pillars-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .schedule-wrapper {
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-top">Estudiantes de la <strong>Facultad de Mercadeo de la SantoTo</strong> presentan:</div>
+            <h1 class="hero-title">Trend</h1>
+            <h2 class="hero-subtitle"><span class="rocket-icon">🚀</span> Boosters</h2>
+            
+            <div class="hero-info">
+                <div class="info-item">
+                    <div class="info-label">Lunes</div>
+                    <div class="info-value">10<span style="font-size: 0.6em;"> de Noviembre</span></div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Universidad Santo Tomás</div>
+                    <div class="info-value" style="font-size: 1.2em;">Campus Doctor Angélico<br><span style="font-size: 0.7em; opacity: 0.8;">Cra 9 #72-90</span></div>
+                </div>
+            </div>
+
+            <a href="https://www.eventbrite.com/e/trendboosters-tickets-1439883172329" class="cta-button" target="_blank">
+                Reserva tu cupo aquí
+            </a>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <div class="about-grid">
+            <div class="about-text">
+                <h2>¿Qué es TrendBoosters?</h2>
+                <p>Un evento creado y gestionado por estudiantes de la Facultad de Mercadeo de la Universidad Santo Tomás. Un espacio único para conectar con profesionales, marcas y creadores de contenido, compartir experiencias, ideas y descubrir oportunidades que transforman el futuro.</p>
+            </div>
+            <div class="about-image">
+                <!-- Placeholder for student image -->
+                <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%); display: flex; align-items: center; justify-content: center;">
+                    <div style="width: 90%; height: 90%; background: #fff; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: #333; font-size: 1.2em; font-weight: 600; text-align: center; padding: 20px;">
+                        Estudiantes conectando<br>con el futuro
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pillars-section">
+        <h2 class="section-title">Ejes Temáticos</h2>
+        <div class="pillars-grid">
+            <div class="pillar-card">
+                <div class="pillar-front">PROFESIO-<br>NALISMO</div>
+                <div class="pillar-back">
+                    <div class="pillar-back-title">Profesionalismo</div>
+                    <p>La forma en que tú y yo somos profesionales es distinta, pero la variedad hace que podamos llegar a diferentes soluciones.</p>
+                </div>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-front">COMUNI-<br>DAD</div>
+                <div class="pillar-back">
+                    <div class="pillar-back-title">Comunidad</div>
+                    <p>Cuando se unen personas con objetivos en común, se crean comunidades capaces de promover una marca o idea.</p>
+                </div>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-front">TENDEN-<br>CIAS</div>
+                <div class="pillar-back">
+                    <div class="pillar-back-title">Tendencias</div>
+                    <p>El hoy no hace parte del ayer, pero sí del futuro.</p>
+                </div>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-front">EMPRENDE-<br>DURIA</div>
+                <div class="pillar-back">
+                    <div class="pillar-back-title">Emprendimiento</div>
+                    <p>Una idea se puede convertir en un cambio de por vida.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ecosystem-section">
+        <div class="ecosystem-header">
+            <h2>El emprendedor en el centro<br><span class="highlight">y todo el ecosistema en el mismo lugar</span></h2>
+        </div>
+        <div class="ecosystem-grid">
+            <div class="ecosystem-card">
+                <div style="width: 100%; height: 100%; background: #2a2a2a;"></div>
+                <div class="ecosystem-overlay">INSPÍRATE</div>
+            </div>
+            <div class="ecosystem-card middle">
+                <div class="ecosystem-text">
+                    <div class="tracks-label">Ejes Temáticos:</div>
+                    <div class="tracks-grid">
+                        <div class="track-item">💼 Profesionalismo</div>
+                        <div class="track-item">🤝 Comunidad</div>
+                        <div class="track-item">📈 Tendencias</div>
+                        <div class="track-item">🚀 Emprendimiento</div>
+                    </div>
+                    <p style="margin-top: 25px; font-size: 0.95em; opacity: 0.8;">
+                        Conectamos profesionales con futuros profesionales en un espacio único para compartir experiencias, ideas y oportunidades.
+                    </p>
+                </div>
+            </div>
+            <div class="ecosystem-card">
+                <div style="width: 100%; height: 100%; background: #3a3a2a;"></div>
+                <div class="ecosystem-overlay">CONECTA</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="agenda-section">
+        <div class="agenda-container">
+            <h2 class="section-title">Agenda del Evento</h2>
+            
+            <div class="now-banner" id="nowBanner">
+                ⏰ SUCEDIENDO AHORA
+            </div>
+
+            <div class="schedule-wrapper">
+                <div class="schedule-grid">
+                    <!-- Header Row -->
+                    <div class="time-salon">
+                        <span>Hora</span>
+                        <span style="font-size: 0.85em; opacity: 0.7;">Ubicación</span>
+                    </div>
+                    <div class="time-header">08:00</div>
+                    <div class="time-header">09:00</div>
+                    <div class="time-header">10:00</div>
+                    <div class="time-header">11:00</div>
+                    <div class="time-header">12:00</div>
+                    <div class="time-header">13:00</div>
+                    <div class="time-header">14:00</div>
+                    <div class="time-header">15:00</div>
+                    <div class="time-header">16:00</div>
+                    <div class="time-header">17:00</div>
+
+                    <!-- Auditorio Mayor Row -->
+                    <div class="salon-header">
+                        <div class="salon-name">🎭 Auditorio Mayor</div>
+                        <div class="salon-floor">Piso 2</div>
+                    </div>
+                    <div class="time-cell"></div>
+                    <div class="time-cell">
+                        <div class="schedule-event" data-start="09:00" data-end="10:00">
+                            <div class="event-time-schedule">09:00 - 10:00</div>
+                            <div class="event-title-schedule">Inauguración y Keynote</div>
+                            <div class="event-speaker">Dr. Ovidio Claros - CCB</div>
+                        </div>
+                    </div>
+                    <div class="time-cell">
+                        <div class="schedule-event" data-start="10:30" data-end="11:30">
+                            <div class="event-time-schedule">10:30 - 11:30</div>
+                            <div class="event-title-schedule">Tendencias en Marketing Digital</div>
+                            <div class="event-speaker">Panel de expertos</div>
+                        </div>
+                    </div>
+                    <div class="time-cell"></div>
+                    <div class="time-cell">
+                        <div class="schedule-event" data-start="12:00" data-end="13:00">
+                            <div class="event-time-schedule">12:00 - 13:00</div>
+                            <div class="event-title-schedule">Foro: Futuro del Consumidor</div>
+                            <div class="event-speaker">Líderes de industria</div>
+                        </div>
+                    </div>
+                    <div class="time-cell"></div>
+                    <div class="time-cell">
+                        <div class="schedule-event" data-start="14:00" data-end="15:00">
+                            <div class="event-time-schedule">14:00 - 15:00</div>
+                            <div class="event-title-schedule">Innovación y Tecnología</div>
+                            <div class="event-speaker">Tech Leaders</div>
+                        </div>
+                    </div>
+                    <div class="time-cell">
+                        <div class="schedule-event" data-start="15:00" data-end="16:00">
+                            <div class="event-time-schedule">15:00 - 16:00</div>
+                            <div class="event-title-schedule">IA en el Marketing</div>
+                            <div class="event-speaker">Expertos en AI</div>
+                        </div>
+                    </div>
+                    <div class="time-cell">
+                        <div class="schedule-event" data-start="16:00" data-end="17:00">
+                            <div class="event-time-schedule">16:00 - 17:00</div>
+                            <div class="event-title-schedule">Panel: Futuro del Trabajo</div>
+                            <div class="event-speaker">HR Leaders</div>
+                        </div>
+                    </div>
+                    <div class="time-cell">
+                        <div class="schedule-event" data-start="17:00" data-end="18:00">
+                            <div class="event-time-schedule">17:00 - 18:00</div>
+                            <div class="event-title-schedule">Cierre y Networking</div>
+                        </div>
+                    </div>
+
+                    <!-- Auditorio Menor Row -->
+                    <div class="salon-header">
+                        <div class="salon-name">🎪 Auditorio Menor</div>
+                        <div class="salon-floor">Piso 2</div>
+                    </div>
+                    <div class="time-cell"></div>
+                    <div class="time-cell">
+                        <div class="schedule-event" data-start="09:30" data-end="10:30">
+                            <div class="event-time-schedule">09:30 - 10:30</div>
+                            <div class="event-title-schedule">Creación de Contenido para Redes</div>
+                            <div class="event-speaker">Content Creators</div>
+                        </div>
+                    </div>
+                    <div class="time-cell"></div>
+                    <div class="time-cell">
+                        <div class="schedule-event" data-start="11:00" data-end="12:00">
+                            <div class="event-time-schedule">11:00 - 12:00</div>
+                            <div class="event-title-schedule">Branding Personal</div>
+                            <div class="event-speaker">Especialistas</div>
+                        </div>
+                    </div>
+                    <div class="time-cell"></div>
+                    <div class="time-cell"></div>
+                    <div class="time-cell">
+                        <div class="schedule-event" data-start="14:00" data-end="15:00">
+                            <div class="event-time-schedule">14:00 - 15:00</div>
+                            <div class="event-title-schedule">Estrategias de Growth Hacking</div>
+                            <div class="event-speaker">Growth Experts</div>
+                        </div>
+                    </div>
+                    <div class="time-cell">
+                        <div class="schedule-event" data-start="15:00" data-end="16:00">
+                            <div class="event-time-schedule">15:00 - 16:00</div>
+                            <div class="event-title-schedule">E-commerce del Futuro</div>
+                            <div class="event-speaker">Digital Commerce</div>
+                        </div>
+                    </div>
+                    <div class="time-cell">
+                        <div class="schedule-event" data-start="16:00" data-end="17:00">
+                            <div class="event-time-schedule">16:00 - 17:00</div>
+                            <div class="event-title-schedule">Analítica de Datos</div>
+                            <div class="event-speaker">Data Scientists</div>
+                        </div>
+                    </div>
+                    <div class="time-cell"></div>
+
+                    <!-- Aula Magistral Row -->
+                    <div class="salon-header">
+                        <div class="salon-name">📚 Aula Magistral</div>
+                        <div class="salon-floor">Piso 3</div>
+                    </div>
+                    <div class="time-cell"></div>
+                    <div class="time-cell"></div>
+                    <div class="time-cell" style="grid-column: span 2;">
+                        <div class="schedule-event" data-start="10:00" data-end="11:30">
+                            <div class="event-time-schedule">10:00 - 11:30</div>
+                            <div class="event-title-schedule">Workshop: Data Analytics</div>
+                            <div class="event-speaker">Taller práctico</div>
+                        </div>
+                    </div>
+                    <div class="time-cell"></div>
+                    <div class="time-cell" style="grid-column: span 2;">
+                        <div class="schedule-event" data-start="12:00" data-end="13:30">
+                            <div class="event-time-schedule">12:00 - 13:30</div>
+                            <div class="event-title-schedule">Workshop: Estrategia de Marca</div>
+                            <div class="event-speaker">Sesión interactiva</div>
+                        </div>
+                    </div>
+                    <div class="time-cell"></div>
+                    <div class="time-cell" style="grid-column: span 2;">
+                        <div class="schedule-event" data-start="14:00" data-end="15:30">
+                            <div class="event-time-schedule">14:00 - 15:30</div>
+                            <div class="event-title-schedule">Workshop: Design Thinking</div>
+                            <div class="event-speaker">Co-creación</div>
+                        </div>
+                    </div>
+                    <div class="time-cell"></div>
+                    <div class="time-cell"></div>
+
+                    <!-- Pasillo Segundo Piso Row -->
+                    <div class="salon-header">
+                        <div class="salon-name">🚶 Pasillo 2do Piso</div>
+                        <div class="salon-floor">Networking</div>
+                    </div>
+                    <div class="time-cell"></div>
+                    <div class="time-cell" style="grid-column: span 8;">
+                        <div class="schedule-event" data-start="09:00" data-end="17:00">
+                            <div class="event-time-schedule">09:00 - 17:00</div>
+                            <div class="event-title-schedule">Stands de Marcas y Networking Continuo</div>
+                        </div>
+                    </div>
+                    <div class="time-cell"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>¿Listo para la experiencia?</h2>
+            <p>No te pierdas esta oportunidad única de conectar con líderes, aprender de expertos y ser parte de una comunidad que está construyendo el futuro.</p>
+            <a href="https://www.eventbrite.com/e/trendboosters-tickets-1439883172329" class="cta-button" target="_blank" style="font-size: 1.2em; padding: 20px 60px;">
+                Reserva tu cupo aquí →
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>Organizado por estudiantes de la Facultad de Mercadeo | @mercadeosantoto</p>
+        <p style="margin-top: 10px;">Universidad Santo Tomás · Campus Doctor Angélico</p>
+    </footer>
+
+    <script>
+        function updateNowBanner() {
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const currentTime = hours * 60 + minutes;
+
+            // Update schedule grid events
+            const scheduleEvents = document.querySelectorAll('.schedule-event');
+            let hasActiveScheduleEvent = false;
+
+            scheduleEvents.forEach(event => {
+                const startTime = event.dataset.start;
+                const endTime = event.dataset.end;
+                
+                if (startTime && endTime) {
+                    const [startH, startM] = startTime.split(':').map(Number);
+                    const [endH, endM] = endTime.split(':').map(Number);
+                    
+                    const start = startH * 60 + startM;
+                    const end = endH * 60 + endM;
+                    
+                    if (currentTime >= start && currentTime <= end) {
+                        event.classList.add('active');
+                        hasActiveScheduleEvent = true;
+                    } else {
+                        event.classList.remove('active');
+                    }
+                }
+            });
+
+            const nowBanner = document.getElementById('nowBanner');
+            if (!hasActiveScheduleEvent) {
+                nowBanner.innerHTML = '📅 Próximos eventos';
+                nowBanner.style.background = '#1a1a2e';
+            } else {
+                nowBanner.innerHTML = '⏰ SUCEDIENDO AHORA';
+                nowBanner.style.background = '#c41e3a';
+            }
+        }
+
+        updateNowBanner();
+        setInterval(updateNowBanner, 60000);Banner();
+        setInterval(updateNowBanner, 60000); = parseInt(timeRange[5]);
+                    const endPeriod = timeRange[6];
+
+                    if (startPeriod === 'PM' && startHour !== 12) startHour += 12;
+                    if (startPeriod === 'AM' && startHour === 12) startHour = 0;
+                    if (endPeriod === 'PM' && endHour !== 12) endHour += 12;
+                    if (endPeriod === 'AM' && endHour === 12) endHour = 0;
+
+                    const startTime = startHour * 60 + startMin;
+                    const endTime = endHour * 60 + endMin;
+
+                    if (currentTime >= startTime && currentTime <= endTime) {
+                        event.style.borderLeft = '3px solid #4caf50';
+                        event.style.background = 'rgba(76, 175, 80, 0.15)';
+                        hasActiveEvent = true;
+                    } else {
+                        event.style.borderLeft = '3px solid #333';
+                        event.style.background = '#1a1a1a';
+                    }
+                }
+            });
+
+            const nowBanner = document.getElementById('nowBanner');
+            if (!hasActiveEvent) {
+                nowBanner.innerHTML = '📅 Próximos eventos';
+                nowBanner.style.background = '#1a1a2e';
+            }
+        }
+
+        updateNowBanner();
+        setInterval(updateNowBanner, 60000);
+    </script>
+</body>
+</html>
