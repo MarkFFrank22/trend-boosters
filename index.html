@@ -30,6 +30,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TrendBoosters 2025 | Universidad Santo Tomás</title>
     <style>
@@ -44,6 +45,32 @@
             background: #0a0a0a;
             color: #fff;
             overflow-x: hidden;
+        }
+
+        .rolling-banner {
+            background: #fff;
+            color: #000;
+            padding: 15px 0;
+            overflow: hidden;
+            position: relative;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .rolling-content {
+            display: flex;
+            animation: scroll 30s linear infinite;
+            white-space: nowrap;
+        }
+
+        .rolling-text {
+            display: flex;
+            padding-right: 0;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
         .hero {
@@ -68,10 +95,55 @@
         }
 
         .hero-content {
-            max-width: 1200px;
+            max-width: 1400px;
             width: 100%;
             position: relative;
             z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-right {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .hero-image {
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-image:nth-child(1) {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .hero-image:nth-child(2) {
+            grid-column: 2;
+            grid-row: 2;
+        }
+
+        .hero-image:nth-child(3) {
+            grid-column: 1;
+            grid-row: 1 / 3;
+            aspect-ratio: 3/4;
         }
 
         .hero-top {
@@ -188,6 +260,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            border-radius: 20px;
         }
 
         .pillars-section {
@@ -204,7 +277,7 @@
 
         .pillars-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 30px;
             max-width: 1200px;
             margin: 0 auto;
@@ -212,7 +285,7 @@
 
         .pillar-card {
             background: #1a1a1a;
-            border-radius: 15px;
+            border-radius: 50%;
             overflow: hidden;
             cursor: pointer;
             position: relative;
@@ -221,7 +294,7 @@
         }
 
         .pillar-card:hover {
-            transform: translateY(-5px);
+            transform: scale(1.05);
         }
 
         .pillar-front {
@@ -231,10 +304,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8em;
+            font-size: 1.5em;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            text-align: center;
+            padding: 20px;
             transition: opacity 0.3s ease;
         }
 
@@ -242,10 +315,12 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            padding: 30px;
+            padding: 40px;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            align-items: center;
+            text-align: center;
             opacity: 0;
             transition: opacity 0.3s ease;
             background: rgba(0, 0, 0, 0.95);
@@ -259,33 +334,26 @@
             opacity: 1;
         }
 
-        .pillar-back-title {
-            font-size: 1.5em;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: #ffd700;
-        }
-
         .pillar-back p {
-            font-size: 1em;
+            font-size: 0.9em;
             line-height: 1.6;
             opacity: 0.9;
         }
 
         .pillar-card:nth-child(1) .pillar-front {
-            background: linear-gradient(135deg, #cd3333 0%, #000000 100%);
+            background: linear-gradient(135deg, #cd3333 0%, #ff6b6b 100%);
         }
 
         .pillar-card:nth-child(2) .pillar-front {
-            background: linear-gradient(135deg, #3533cd 0%, #000000 100%);
+            background: linear-gradient(135deg, #b8860b 0%, #ffd700 100%);
         }
 
         .pillar-card:nth-child(3) .pillar-front {
-            background: linear-gradient(135deg, #cd3333 0%, #3533cd 100%);
+            background: linear-gradient(135deg, #20b2aa 0%, #40e0d0 100%);
         }
 
         .pillar-card:nth-child(4) .pillar-front {
-            background: linear-gradient(135deg, #ff6b6b 0%, #cd3333 100%);
+            background: linear-gradient(135deg, #9370db 0%, #ba55d3 100%);
         }
 
         .ecosystem-section {
@@ -461,7 +529,7 @@
             padding: 15px;
             text-align: center;
             font-weight: 600;
-            color: #ffd700;
+            color: #fff;
             font-size: 0.95em;
         }
 
@@ -473,6 +541,7 @@
             justify-content: center;
             font-weight: 600;
             gap: 5px;
+            color: #fff;
         }
 
         .salon-header {
@@ -487,12 +556,13 @@
         .salon-name {
             font-weight: 700;
             font-size: 1em;
-            color: #ffd700;
+            color: #fff;
         }
 
         .salon-floor {
             font-size: 0.85em;
             opacity: 0.7;
+            color: #fff;
         }
 
         .time-cell {
@@ -535,8 +605,8 @@
         }
 
         .event-time-schedule {
-            font-size: 0.8em;
-            color: #ffd700;
+            font-size: 0.9em;
+            color: #fff;
             font-weight: 600;
         }
 
@@ -607,6 +677,139 @@
             opacity: 0.8;
         }
 
+        .faq-section {
+            background: #f5f5f5;
+            padding: 100px 20px;
+        }
+
+        .faq-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .faq-title {
+            font-size: 3em;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 20px;
+        }
+
+        .faq-subtitle {
+            font-size: 1.3em;
+            color: #333;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .faq-item {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-question {
+            padding: 20px 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #333;
+            font-weight: 600;
+            font-size: 1.1em;
+            user-select: none;
+        }
+
+        .faq-question:hover {
+            background: #fafafa;
+        }
+
+        .faq-icon {
+            font-size: 1.5em;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .faq-toggle {
+            font-size: 1.5em;
+            color: #666;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 25px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 25px 20px 65px;
+        }
+
+        .sponsors-section {
+            background: #fff;
+            padding: 60px 20px;
+            overflow: hidden;
+        }
+
+        .sponsors-title {
+            text-align: center;
+            font-size: 2em;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 40px;
+        }
+
+        .sponsors-scroll {
+            display: flex;
+            animation: sponsorScroll 25s linear infinite;
+            gap: 60px;
+        }
+
+        .sponsor-logo {
+            height: 80px;
+            width: auto;
+            object-fit: contain;
+            flex-shrink: 0;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .sponsor-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        @keyframes sponsorScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
         footer {
             background: #0a0a0a;
             padding: 40px 20px;
@@ -633,6 +836,23 @@
                 gap: 20px;
             }
 
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-right {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image:nth-child(1),
+            .hero-image:nth-child(2),
+            .hero-image:nth-child(3) {
+                grid-column: 1;
+                grid-row: auto;
+                aspect-ratio: 4/3;
+            }
+
             .hero-info {
                 grid-template-columns: 1fr;
             }
@@ -654,32 +874,64 @@
             .schedule-wrapper {
                 font-size: 0.8em;
             }
+
+            .rolling-banner {
+                font-size: 0.9em;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="rolling-banner">
+        <div class="rolling-content">
+            <div class="rolling-text">↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓</div>
+            <div class="rolling-text">↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓</div>
+        </div>
+    </div>
+    
     <section class="hero">
         <div class="hero-content">
-            <div class="hero-top">Estudiantes de la <strong>Facultad de Mercadeo de la SantoTo</strong> presentan:</div>
-            <h1 class="hero-title">Trend</h1>
-            <h2 class="hero-subtitle"><span class="rocket-icon">🚀</span> Boosters</h2>
-            
-            <div class="hero-info">
-                <div class="info-item">
-                    <div class="info-label">Lunes</div>
-                    <div class="info-value">10<span style="font-size: 0.6em;"> de Noviembre</span></div>
+            <div class="hero-left">
+                <div class="hero-top">Estudiantes de la <strong>Facultad de Mercadeo de la SantoTo</strong> presentan:</div>
+                <h1 class="hero-title">Trend</h1>
+                <h2 class="hero-subtitle"><span class="rocket-icon">🚀</span> Boosters</h2>
+                
+                <div class="hero-info">
+                    <div class="info-item">
+                        <div class="info-label">Lunes</div>
+                        <div class="info-value">10<span style="font-size: 0.6em;"> de Noviembre</span></div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Universidad Santo Tomás</div>
+                        <div class="info-value" style="font-size: 1.2em;">Campus Doctor Angélico<br><span style="font-size: 0.7em; opacity: 0.8;">Cra 9 #72-90</span></div>
+                    </div>
                 </div>
-                <div class="info-item">
-                    <div class="info-label">Universidad Santo Tomás</div>
-                    <div class="info-value" style="font-size: 1.2em;">Campus Doctor Angélico<br><span style="font-size: 0.7em; opacity: 0.8;">Cra 9 #72-90</span></div>
-                </div>
+
+                <a href="https://www.eventbrite.com/e/trendboosters-tickets-1439883172329" class="cta-button" target="_blank">
+                    Reserva tu cupo aquí
+                </a>
             </div>
 
-            <a href="https://www.eventbrite.com/e/trendboosters-tickets-1439883172329" class="cta-button" target="_blank">
-                Reserva tu cupo aquí
-            </a>
+            <div class="hero-right">
+                <div class="hero-image">
+                    <img src="https://i.ibb.co/C5khhh8V/Screenshot-2025-09-29-at-11-41-33-PM.png" alt="TrendBoosters Event">
+                </div>
+                <div class="hero-image">
+                    <img src="https://i.ibb.co/C5khhh8V/Screenshot-2025-09-29-at-11-41-33-PM.png" alt="TrendBoosters Event">
+                </div>
+                <div class="hero-image">
+                    <img src="https://i.ibb.co/C5khhh8V/Screenshot-2025-09-29-at-11-41-33-PM.png" alt="TrendBoosters Event">
+                </div>
+            </div>
         </div>
     </section>
+
+    <div class="rolling-banner" style="display: none;">
+        <div class="rolling-content">
+            <div class="rolling-text">↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓</div>
+            <div class="rolling-text">↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓</div>
+        </div>
+    </div>
 
     <section class="about-section">
         <div class="about-grid">
@@ -688,12 +940,7 @@
                 <p>Un evento creado y gestionado por estudiantes de la Facultad de Mercadeo de la Universidad Santo Tomás. Un espacio único para conectar con profesionales, marcas y creadores de contenido, compartir experiencias, ideas y descubrir oportunidades que transforman el futuro.</p>
             </div>
             <div class="about-image">
-                <!-- Placeholder for student image -->
-                <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%); display: flex; align-items: center; justify-content: center;">
-                    <div style="width: 90%; height: 90%; background: #fff; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: #333; font-size: 1.2em; font-weight: 600; text-align: center; padding: 20px;">
-                        Estudiantes conectando<br>con el futuro
-                    </div>
-                </div>
+                <img src="https://i.ibb.co/C5khhh8V/Screenshot-2025-09-29-at-11-41-33-PM.png" alt="TrendBoosters Event" style="border-radius: 20px;">
             </div>
         </div>
     </section>
@@ -702,31 +949,27 @@
         <h2 class="section-title">Ejes Temáticos</h2>
         <div class="pillars-grid">
             <div class="pillar-card">
-                <div class="pillar-front">PROFESIO-<br>NALISMO</div>
+                <div class="pillar-front">Comunidad</div>
                 <div class="pillar-back">
-                    <div class="pillar-back-title">Profesionalismo</div>
-                    <p>La forma en que tú y yo somos profesionales es distinta, pero la variedad hace que podamos llegar a diferentes soluciones.</p>
-                </div>
-            </div>
-            <div class="pillar-card">
-                <div class="pillar-front">COMUNI-<br>DAD</div>
-                <div class="pillar-back">
-                    <div class="pillar-back-title">Comunidad</div>
                     <p>Cuando se unen personas con objetivos en común, se crean comunidades capaces de promover una marca o idea.</p>
                 </div>
             </div>
             <div class="pillar-card">
-                <div class="pillar-front">TENDEN-<br>CIAS</div>
+                <div class="pillar-front">Tendencias</div>
                 <div class="pillar-back">
-                    <div class="pillar-back-title">Tendencias</div>
                     <p>El hoy no hace parte del ayer, pero sí del futuro.</p>
                 </div>
             </div>
             <div class="pillar-card">
-                <div class="pillar-front">EMPRENDE-<br>DURIA</div>
+                <div class="pillar-front">Emprendimiento</div>
                 <div class="pillar-back">
-                    <div class="pillar-back-title">Emprendimiento</div>
                     <p>Una idea se puede convertir en un cambio de por vida.</p>
+                </div>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-front">Profesionalismo</div>
+                <div class="pillar-back">
+                    <p>La forma en que tú y yo somos profesionales es distinta, pero la variedad hace que podamos llegar a diferentes soluciones.</p>
                 </div>
             </div>
         </div>
@@ -801,49 +1044,14 @@
                             <div class="event-speaker">Dr. Ovidio Claros - CCB</div>
                         </div>
                     </div>
-                    <div class="time-cell">
-                        <div class="schedule-event" data-start="10:30" data-end="11:30">
-                            <div class="event-time-schedule">10:30 - 11:30</div>
-                            <div class="event-title-schedule">Tendencias en Marketing Digital</div>
-                            <div class="event-speaker">Panel de expertos</div>
-                        </div>
-                    </div>
                     <div class="time-cell"></div>
-                    <div class="time-cell">
-                        <div class="schedule-event" data-start="12:00" data-end="13:00">
-                            <div class="event-time-schedule">12:00 - 13:00</div>
-                            <div class="event-title-schedule">Foro: Futuro del Consumidor</div>
-                            <div class="event-speaker">Líderes de industria</div>
-                        </div>
-                    </div>
                     <div class="time-cell"></div>
-                    <div class="time-cell">
-                        <div class="schedule-event" data-start="14:00" data-end="15:00">
-                            <div class="event-time-schedule">14:00 - 15:00</div>
-                            <div class="event-title-schedule">Innovación y Tecnología</div>
-                            <div class="event-speaker">Tech Leaders</div>
-                        </div>
-                    </div>
-                    <div class="time-cell">
-                        <div class="schedule-event" data-start="15:00" data-end="16:00">
-                            <div class="event-time-schedule">15:00 - 16:00</div>
-                            <div class="event-title-schedule">IA en el Marketing</div>
-                            <div class="event-speaker">Expertos en AI</div>
-                        </div>
-                    </div>
-                    <div class="time-cell">
-                        <div class="schedule-event" data-start="16:00" data-end="17:00">
-                            <div class="event-time-schedule">16:00 - 17:00</div>
-                            <div class="event-title-schedule">Panel: Futuro del Trabajo</div>
-                            <div class="event-speaker">HR Leaders</div>
-                        </div>
-                    </div>
-                    <div class="time-cell">
-                        <div class="schedule-event" data-start="17:00" data-end="18:00">
-                            <div class="event-time-schedule">17:00 - 18:00</div>
-                            <div class="event-title-schedule">Cierre y Networking</div>
-                        </div>
-                    </div>
+                    <div class="time-cell"></div>
+                    <div class="time-cell"></div>
+                    <div class="time-cell"></div>
+                    <div class="time-cell"></div>
+                    <div class="time-cell"></div>
+                    <div class="time-cell"></div>
 
                     <!-- Auditorio Menor Row -->
                     <div class="salon-header">
@@ -859,36 +1067,12 @@
                         </div>
                     </div>
                     <div class="time-cell"></div>
-                    <div class="time-cell">
-                        <div class="schedule-event" data-start="11:00" data-end="12:00">
-                            <div class="event-time-schedule">11:00 - 12:00</div>
-                            <div class="event-title-schedule">Branding Personal</div>
-                            <div class="event-speaker">Especialistas</div>
-                        </div>
-                    </div>
                     <div class="time-cell"></div>
                     <div class="time-cell"></div>
-                    <div class="time-cell">
-                        <div class="schedule-event" data-start="14:00" data-end="15:00">
-                            <div class="event-time-schedule">14:00 - 15:00</div>
-                            <div class="event-title-schedule">Estrategias de Growth Hacking</div>
-                            <div class="event-speaker">Growth Experts</div>
-                        </div>
-                    </div>
-                    <div class="time-cell">
-                        <div class="schedule-event" data-start="15:00" data-end="16:00">
-                            <div class="event-time-schedule">15:00 - 16:00</div>
-                            <div class="event-title-schedule">E-commerce del Futuro</div>
-                            <div class="event-speaker">Digital Commerce</div>
-                        </div>
-                    </div>
-                    <div class="time-cell">
-                        <div class="schedule-event" data-start="16:00" data-end="17:00">
-                            <div class="event-time-schedule">16:00 - 17:00</div>
-                            <div class="event-title-schedule">Analítica de Datos</div>
-                            <div class="event-speaker">Data Scientists</div>
-                        </div>
-                    </div>
+                    <div class="time-cell"></div>
+                    <div class="time-cell"></div>
+                    <div class="time-cell"></div>
+                    <div class="time-cell"></div>
                     <div class="time-cell"></div>
 
                     <!-- Aula Magistral Row -->
@@ -906,21 +1090,9 @@
                         </div>
                     </div>
                     <div class="time-cell"></div>
-                    <div class="time-cell" style="grid-column: span 2;">
-                        <div class="schedule-event" data-start="12:00" data-end="13:30">
-                            <div class="event-time-schedule">12:00 - 13:30</div>
-                            <div class="event-title-schedule">Workshop: Estrategia de Marca</div>
-                            <div class="event-speaker">Sesión interactiva</div>
-                        </div>
-                    </div>
                     <div class="time-cell"></div>
-                    <div class="time-cell" style="grid-column: span 2;">
-                        <div class="schedule-event" data-start="14:00" data-end="15:30">
-                            <div class="event-time-schedule">14:00 - 15:30</div>
-                            <div class="event-title-schedule">Workshop: Design Thinking</div>
-                            <div class="event-speaker">Co-creación</div>
-                        </div>
-                    </div>
+                    <div class="time-cell"></div>
+                    <div class="time-cell"></div>
                     <div class="time-cell"></div>
                     <div class="time-cell"></div>
 
@@ -942,6 +1114,67 @@
         </div>
     </section>
 
+    <section class="faq-section">
+        <div class="faq-container">
+            <div class="faq-header">
+                <h2 class="faq-title">Respondemos tus dudas</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <div style="display: flex; align-items: center;">
+                            <span class="faq-icon">👥</span>
+                            <span>¿Quiénes pueden asistir?</span>
+                        </div>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Está dirigido a estudiantes, docentes, profesionales y todas las personas interesadas en conocer tendencias de mercado, innovación y sostenibilidad desde una perspectiva práctica.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <div style="display: flex; align-items: center;">
+                            <span class="faq-icon">💰</span>
+                            <span>¿Tiene algún costo la entrada?</span>
+                        </div>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        No, la entrada es gratuita. Sin embargo, es necesario registrarse previamente para asegurar el cupo y recibir la confirmación de asistencia.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <div style="display: flex; align-items: center;">
+                            <span class="faq-icon">🎟️</span>
+                            <span>¿Qué incluye la inscripción?</span>
+                        </div>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        El registro te da acceso a todas las charlas, talleres y experiencias programadas durante la jornada, además de materiales de apoyo y la posibilidad de participar en actividades interactivas y de networking.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <div style="display: flex; align-items: center;">
+                            <span class="faq-icon">⏰</span>
+                            <span>¿Para qué se me pide la jornada en la que quiero asistir?</span>
+                        </div>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Por temas de aforo, puedes asistir durante toda la jornada; sin embargo, puede que exista prioridad según lo que la persona indicó en la manilla.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="cta-section">
         <div class="cta-content">
             <h2>¿Listo para la experiencia?</h2>
@@ -949,6 +1182,22 @@
             <a href="https://www.eventbrite.com/e/trendboosters-tickets-1439883172329" class="cta-button" target="_blank" style="font-size: 1.2em; padding: 20px 60px;">
                 Reserva tu cupo aquí →
             </a>
+        </div>
+    </section>
+
+    <section class="sponsors-section">
+        <h2 class="sponsors-title">Evento con talento de:</h2>
+        <div class="sponsors-scroll">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Logo_de_la_Santo_Tom%C3%A1s.svg/1200px-Logo_de_la_Santo_Tom%C3%A1s.svg.png" alt="Universidad Santo Tomás" class="sponsor-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Logo_de_la_Santo_Tom%C3%A1s.svg/1200px-Logo_de_la_Santo_Tom%C3%A1s.svg.png" alt="Universidad Santo Tomás" class="sponsor-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Logo_de_la_Santo_Tom%C3%A1s.svg/1200px-Logo_de_la_Santo_Tom%C3%A1s.svg.png" alt="Universidad Santo Tomás" class="sponsor-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Logo_de_la_Santo_Tom%C3%A1s.svg/1200px-Logo_de_la_Santo_Tom%C3%A1s.svg.png" alt="Universidad Santo Tomás" class="sponsor-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Logo_de_la_Santo_Tom%C3%A1s.svg/1200px-Logo_de_la_Santo_Tom%C3%A1s.svg.png" alt="Universidad Santo Tomás" class="sponsor-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Logo_de_la_Santo_Tom%C3%A1s.svg/1200px-Logo_de_la_Santo_Tom%C3%A1s.svg.png" alt="Universidad Santo Tomás" class="sponsor-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Logo_de_la_Santo_Tom%C3%A1s.svg/1200px-Logo_de_la_Santo_Tom%C3%A1s.svg.png" alt="Universidad Santo Tomás" class="sponsor-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Logo_de_la_Santo_Tom%C3%A1s.svg/1200px-Logo_de_la_Santo_Tom%C3%A1s.svg.png" alt="Universidad Santo Tomás" class="sponsor-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Logo_de_la_Santo_Tom%C3%A1s.svg/1200px-Logo_de_la_Santo_Tom%C3%A1s.svg.png" alt="Universidad Santo Tomás" class="sponsor-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Logo_de_la_Santo_Tom%C3%A1s.svg/1200px-Logo_de_la_Santo_Tom%C3%A1s.svg.png" alt="Universidad Santo Tomás" class="sponsor-logo">
         </div>
     </section>
 
@@ -999,7 +1248,25 @@
         }
 
         updateNowBanner();
-        setInterval(updateNowBanner, 60000);Banner();
+        setInterval(updateNowBanner, 60000);
+
+        // FAQ Accordion functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all FAQs
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Open clicked FAQ if it wasn't active
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });Banner();
         setInterval(updateNowBanner, 60000); = parseInt(timeRange[5]);
                     const endPeriod = timeRange[6];
 
