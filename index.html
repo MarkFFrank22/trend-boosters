@@ -711,71 +711,39 @@
         .faq-list {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 40px;
         }
 
         .faq-item {
             background: #fff;
-            border: 1px solid #e0e0e0;
+            padding: 30px;
             border-radius: 10px;
-            overflow: hidden;
-            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
-        .faq-question {
-            padding: 25px;
-            cursor: pointer;
+        .faq-question-simple {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #333;
-            font-weight: 600;
-            font-size: 1.1em;
-            user-select: none;
-            transition: background 0.2s ease;
-        }
-
-        .faq-question:hover {
-            background: #fafafa;
-        }
-
-        .faq-question-content {
-            display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 15px;
-            flex: 1;
+            margin-bottom: 15px;
         }
 
         .faq-icon {
-            font-size: 1.8em;
+            font-size: 24px;
             flex-shrink: 0;
         }
 
-        .faq-toggle {
-            font-size: 1.8em;
-            color: #666;
-            transition: transform 0.3s ease;
-            flex-shrink: 0;
-            font-weight: 300;
+        .faq-question-text {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #333;
         }
 
-        .faq-item.open .faq-toggle {
-            transform: rotate(45deg);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease, padding 0.4s ease;
-            padding: 0 25px 0 70px;
-            color: #666;
-            line-height: 1.8;
+        .faq-answer-simple {
+            color: #555;
             font-size: 1.05em;
-        }
-
-        .faq-item.open .faq-answer {
-            max-height: 1000px;
-            padding: 0 25px 25px 70px;
+            line-height: 1.8;
+            margin-left: 39px;
         }
 
         .sponsors-section {
@@ -908,7 +876,7 @@
                 <div class="hero-info">
                     <div class="info-item">
                         <div class="info-label">Lunes</div>
-                        <div class="info-value">10<span style="font-size: 0.6em;"> de Noviembre</span></div>
+                        <div class="info-value">10<span style="font-size: 0.6em;"> de noviembre del 2025</span></div>
                     </div>
                     <div class="info-item">
                         <div class="info-label">Universidad Santo Tomás</div>
@@ -917,7 +885,7 @@
                 </div>
 
                 <a href="https://www.eventbrite.com/e/trendboosters-tickets-1439883172329" class="cta-button" target="_blank">
-                    Reserva tu cupo aquí
+                    Asegura tu cupo presencial gratis
                 </a>
             </div>
 
@@ -1043,7 +1011,7 @@
                     <!-- Auditorio Mayor Row -->
                     <div class="salon-header">
                         <div class="salon-name">🎭 Auditorio Mayor</div>
-                        <div class="salon-floor">Piso 2</div>
+                        <div class="salon-floor">Piso 3</div>
                     </div>
                     <div class="time-cell"></div>
                     <div class="time-cell">
@@ -1087,7 +1055,7 @@
                     <!-- Aula Magistral Row -->
                     <div class="salon-header">
                         <div class="salon-name">📚 Aula Magistral</div>
-                        <div class="salon-floor">Piso 3</div>
+                        <div class="salon-floor">Aula 401</div>
                     </div>
                     <div class="time-cell"></div>
                     <div class="time-cell"></div>
@@ -1105,10 +1073,10 @@
                     <div class="time-cell"></div>
                     <div class="time-cell"></div>
 
-                    <!-- Pasillo Segundo Piso Row -->
+                    <!-- Hall de Exposiciones Row -->
                     <div class="salon-header">
-                        <div class="salon-name">🚶 Pasillo 2do Piso</div>
-                        <div class="salon-floor">Networking</div>
+                        <div class="salon-name">🚶 Hall de Exposiciones</div>
+                        <div class="salon-floor">Piso 2</div>
                     </div>
                     <div class="time-cell"></div>
                     <div class="time-cell" style="grid-column: span 8;">
@@ -1130,53 +1098,41 @@
             </div>
             <div class="faq-list">
                 <div class="faq-item">
-                    <div class="faq-question">
-                        <div class="faq-question-content">
-                            <span class="faq-icon">👥</span>
-                            <span>¿Quiénes pueden asistir?</span>
-                        </div>
-                        <span class="faq-toggle">+</span>
+                    <div class="faq-question-simple">
+                        <span class="faq-icon">👥</span>
+                        <span class="faq-question-text">¿Quiénes pueden asistir?</span>
                     </div>
-                    <div class="faq-answer">
+                    <div class="faq-answer-simple">
                         Está dirigido a estudiantes, docentes, profesionales y todas las personas interesadas en conocer tendencias de mercado, innovación y sostenibilidad desde una perspectiva práctica.
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question">
-                        <div class="faq-question-content">
-                            <span class="faq-icon">💰</span>
-                            <span>¿Tiene algún costo la entrada?</span>
-                        </div>
-                        <span class="faq-toggle">+</span>
+                    <div class="faq-question-simple">
+                        <span class="faq-icon">💰</span>
+                        <span class="faq-question-text">¿Tiene algún costo la entrada?</span>
                     </div>
-                    <div class="faq-answer">
+                    <div class="faq-answer-simple">
                         No, la entrada es gratuita. Sin embargo, es necesario registrarse previamente para asegurar el cupo y recibir la confirmación de asistencia.
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question">
-                        <div class="faq-question-content">
-                            <span class="faq-icon">🎟️</span>
-                            <span>¿Qué incluye la inscripción?</span>
-                        </div>
-                        <span class="faq-toggle">+</span>
+                    <div class="faq-question-simple">
+                        <span class="faq-icon">🎟️</span>
+                        <span class="faq-question-text">¿Qué incluye la inscripción?</span>
                     </div>
-                    <div class="faq-answer">
+                    <div class="faq-answer-simple">
                         El registro te da acceso a todas las charlas, talleres y experiencias programadas durante la jornada, además de materiales de apoyo y la posibilidad de participar en actividades interactivas y de networking.
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question">
-                        <div class="faq-question-content">
-                            <span class="faq-icon">⏰</span>
-                            <span>¿Para qué se me pide la jornada en la que quiero asistir?</span>
-                        </div>
-                        <span class="faq-toggle">+</span>
+                    <div class="faq-question-simple">
+                        <span class="faq-icon">⏰</span>
+                        <span class="faq-question-text">¿Para qué se me pide la jornada en la que quiero asistir?</span>
                     </div>
-                    <div class="faq-answer">
+                    <div class="faq-answer-simple">
                         Por temas de aforo, puedes asistir durante toda la jornada; sin embargo, puede que exista prioridad según lo que la persona indicó en la manilla.
                     </div>
                 </div>
@@ -1259,26 +1215,26 @@
         updateNowBanner();
         setInterval(updateNowBanner, 60000);
 
-        // FAQ Accordion functionality - Completely rewritten
-        const faqItems = document.querySelectorAll('.faq-item');
-        
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question');
-            
-            question.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Check if this item is currently open
-                const isOpen = item.classList.contains('open');
-                
-                // Close all items
-                faqItems.forEach(faq => {
-                    faq.classList.remove('open');
+        // FAQ Accordion functionality - Using the working code
+        const questions = document.querySelectorAll('.faq-question');
+
+        questions.forEach(question => {
+            question.addEventListener('click', (event) => {
+                // El elemento '.faq-item' al que se le hizo clic
+                const currentItem = event.currentTarget.closest('.faq-item');
+
+                // Verificamos si el item clickeado ya estaba activo
+                const wasActive = currentItem.classList.contains('active');
+
+                // Primero, cerramos todos los items para asegurar un estado limpio
+                questions.forEach(q => {
+                    q.closest('.faq-item').classList.remove('active');
                 });
-                
-                // If it wasn't open, open it
-                if (!isOpen) {
-                    item.classList.add('open');
+
+                // Si el item no estaba activo, lo abrimos.
+                // Si ya estaba activo, el bucle anterior ya lo cerró y no hacemos nada más.
+                if (!wasActive) {
+                    currentItem.classList.add('active');
                 }
             });
         });Banner();
