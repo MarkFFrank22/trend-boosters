@@ -1,4 +1,4 @@
-    <section class="ecosystem-section">
+<section class="ecosystem-section">
         <div class="ecosystem-header">
             <h2>El emprendedor en el centro<br><span class="highlight">y todo el ecosistema en el mismo lugar</span></h2>
         </div>
@@ -33,6 +33,15 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TrendBoosters 2025 | Universidad Santo Tomás</title>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F82MVG4WR9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-F82MVG4WR9');
+    </script>
     <style>
         * {
             margin: 0;
@@ -59,7 +68,7 @@
 
         .rolling-content {
             display: flex;
-            animation: scroll 30s linear infinite;
+            animation: scroll 15s linear infinite;
             white-space: nowrap;
         }
 
@@ -94,6 +103,34 @@
             background: radial-gradient(circle at 30% 50%, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
         }
 
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(139, 0, 0, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 90% 20%, rgba(196, 30, 58, 0.2) 0%, transparent 50%);
+            animation: moveBackground 30s ease-in-out infinite;
+        }
+
+        @keyframes moveBackground {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(-5%, -5%) rotate(5deg);
+            }
+            50% {
+                transform: translate(-3%, 5%) rotate(-3deg);
+            }
+            75% {
+                transform: translate(5%, -3%) rotate(7deg);
+            }
+        }
+
         .hero-content {
             max-width: 1400px;
             width: 100%;
@@ -108,6 +145,8 @@
         .hero-left {
             display: flex;
             flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
 
         .hero-right {
@@ -273,6 +312,7 @@
             font-size: 2.5em;
             margin-bottom: 60px;
             font-weight: 700;
+            color: #fff;
         }
 
         .pillars-grid {
@@ -284,13 +324,15 @@
         }
 
         .pillar-card {
-            background: #1a1a1a;
             border-radius: 50%;
             overflow: hidden;
             cursor: pointer;
             position: relative;
+            width: 100%;
+            max-width: 300px;
             aspect-ratio: 1;
             transition: transform 0.3s ease;
+            margin: 0 auto;
         }
 
         .pillar-card:hover {
@@ -309,6 +351,7 @@
             text-align: center;
             padding: 20px;
             transition: opacity 0.3s ease;
+            color: #fff;
         }
 
         .pillar-back {
@@ -324,6 +367,7 @@
             opacity: 0;
             transition: opacity 0.3s ease;
             background: rgba(0, 0, 0, 0.95);
+            color: #fff;
         }
 
         .pillar-card:hover .pillar-front {
@@ -338,22 +382,23 @@
             font-size: 0.9em;
             line-height: 1.6;
             opacity: 0.9;
+            color: #fff;
         }
 
         .pillar-card:nth-child(1) .pillar-front {
-            background: linear-gradient(135deg, #cd3333 0%, #ff6b6b 100%);
+            background: linear-gradient(135deg, #e74c5c 0%, #ff6b6b 100%);
         }
 
         .pillar-card:nth-child(2) .pillar-front {
-            background: linear-gradient(135deg, #b8860b 0%, #ffd700 100%);
+            background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
         }
 
         .pillar-card:nth-child(3) .pillar-front {
-            background: linear-gradient(135deg, #20b2aa 0%, #40e0d0 100%);
+            background: linear-gradient(135deg, #5abfb8 0%, #7dd3c0 100%);
         }
 
         .pillar-card:nth-child(4) .pillar-front {
-            background: linear-gradient(135deg, #9370db 0%, #ba55d3 100%);
+            background: linear-gradient(135deg, #a78bfa 0%, #c4b5fd 100%);
         }
 
         .ecosystem-section {
@@ -699,74 +744,42 @@
             margin-bottom: 20px;
         }
 
-        .faq-subtitle {
-            font-size: 1.3em;
-            color: #333;
-        }
-
         .faq-list {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 40px;
         }
 
         .faq-item {
             background: #fff;
-            border: 1px solid #e0e0e0;
+            padding: 30px;
             border-radius: 10px;
-            overflow: hidden;
-            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
-        .faq-item:hover {
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .faq-question {
-            padding: 20px 25px;
-            cursor: pointer;
+        .faq-question-simple {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #333;
-            font-weight: 600;
-            font-size: 1.1em;
-            user-select: none;
-        }
-
-        .faq-question:hover {
-            background: #fafafa;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 15px;
         }
 
         .faq-icon {
-            font-size: 1.5em;
-            margin-right: 15px;
+            font-size: 24px;
             flex-shrink: 0;
         }
 
-        .faq-toggle {
-            font-size: 1.5em;
-            color: #666;
-            transition: transform 0.3s ease;
-            flex-shrink: 0;
+        .faq-question-text {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #333;
         }
 
-        .faq-item.active .faq-toggle {
-            transform: rotate(45deg);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            padding: 0 25px;
-            color: #666;
+        .faq-answer-simple {
+            color: #555;
+            font-size: 1.05em;
             line-height: 1.8;
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 500px;
-            padding: 0 25px 20px 65px;
+            margin-left: 39px;
         }
 
         .sponsors-section {
@@ -785,7 +798,7 @@
 
         .sponsors-scroll {
             display: flex;
-            animation: sponsorScroll 25s linear infinite;
+            animation: sponsorScroll 15s linear infinite;
             gap: 60px;
         }
 
@@ -829,6 +842,10 @@
 
             .pillars-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .pillar-card {
+                max-width: 200px;
             }
 
             .ecosystem-grid {
@@ -899,7 +916,7 @@
                 <div class="hero-info">
                     <div class="info-item">
                         <div class="info-label">Lunes</div>
-                        <div class="info-value">10<span style="font-size: 0.6em;"> de Noviembre</span></div>
+                        <div class="info-value">10<span style="font-size: 0.6em;"> de noviembre del 2025</span></div>
                     </div>
                     <div class="info-item">
                         <div class="info-label">Universidad Santo Tomás</div>
@@ -908,7 +925,7 @@
                 </div>
 
                 <a href="https://www.eventbrite.com/e/trendboosters-tickets-1439883172329" class="cta-button" target="_blank">
-                    Reserva tu cupo aquí
+                    Asegura tu cupo presencial gratis →
                 </a>
             </div>
 
@@ -917,10 +934,10 @@
                     <img src="https://i.ibb.co/C5khhh8V/Screenshot-2025-09-29-at-11-41-33-PM.png" alt="TrendBoosters Event">
                 </div>
                 <div class="hero-image">
-                    <img src="https://i.ibb.co/C5khhh8V/Screenshot-2025-09-29-at-11-41-33-PM.png" alt="TrendBoosters Event">
+                    <img src="https://i.ibb.co/JWsdRnjv/348464562-2439157062913459-679452860965265455-n.jpg" alt="TrendBoosters Event">
                 </div>
                 <div class="hero-image">
-                    <img src="https://i.ibb.co/C5khhh8V/Screenshot-2025-09-29-at-11-41-33-PM.png" alt="TrendBoosters Event">
+                    <img src="https://i.ibb.co/NgcHG5HX/347677343-944979920037920-8818329463793212604-n.jpg" alt="TrendBoosters Event">
                 </div>
             </div>
         </div>
@@ -940,7 +957,7 @@
                 <p>Un evento creado y gestionado por estudiantes de la Facultad de Mercadeo de la Universidad Santo Tomás. Un espacio único para conectar con profesionales, marcas y creadores de contenido, compartir experiencias, ideas y descubrir oportunidades que transforman el futuro.</p>
             </div>
             <div class="about-image">
-                <img src="https://i.ibb.co/C5khhh8V/Screenshot-2025-09-29-at-11-41-33-PM.png" alt="TrendBoosters Event" style="border-radius: 20px;">
+                <img src="https://i.ibb.co/xSdd3rzW/Nuestros-estudiantes-y-docentes-Tomasinos-celebrando-el-di-a-del-Mercado-logo-19-de-mayo-en-su-cl.jpg" alt="TrendBoosters Event" style="border-radius: 20px;">
             </div>
         </div>
     </section>
@@ -949,27 +966,27 @@
         <h2 class="section-title">Ejes Temáticos</h2>
         <div class="pillars-grid">
             <div class="pillar-card">
+                <div class="pillar-front">Profesionalismo</div>
+                <div class="pillar-back">
+                    <p>Cada profesional tiene su propia forma de aportar, y en nuestra diversidad encontramos caminos únicos para resolver desafíos y crear valor juntos.</p>
+                </div>
+            </div>
+            <div class="pillar-card">
                 <div class="pillar-front">Comunidad</div>
                 <div class="pillar-back">
-                    <p>Cuando se unen personas con objetivos en común, se crean comunidades capaces de promover una marca o idea.</p>
+                    <p>Al reunir personas con objetivos y pasiones similares, impulsamos la creación de redes capaces de fortalecer y expandir cualquier marca o proyecto.</p>
                 </div>
             </div>
             <div class="pillar-card">
                 <div class="pillar-front">Tendencias</div>
                 <div class="pillar-back">
-                    <p>El hoy no hace parte del ayer, pero sí del futuro.</p>
+                    <p>Las tendencias marcan el presente y preparan el terreno para el futuro, facilitando la adaptación en un mundo en constante cambio.</p>
                 </div>
             </div>
             <div class="pillar-card">
                 <div class="pillar-front">Emprendimiento</div>
                 <div class="pillar-back">
-                    <p>Una idea se puede convertir en un cambio de por vida.</p>
-                </div>
-            </div>
-            <div class="pillar-card">
-                <div class="pillar-front">Profesionalismo</div>
-                <div class="pillar-back">
-                    <p>La forma en que tú y yo somos profesionales es distinta, pero la variedad hace que podamos llegar a diferentes soluciones.</p>
+                    <p>Una idea genuina puede transformarse en acciones que marcan la vida y el entorno de quienes se atreven a emprender.</p>
                 </div>
             </div>
         </div>
@@ -1031,25 +1048,68 @@
                     <div class="time-header">16:00</div>
                     <div class="time-header">17:00</div>
 
-                    <!-- Auditorio Mayor Row -->
+                    <!-- Hall de Exposiciones Row -->
                     <div class="salon-header">
-                        <div class="salon-name">🎭 Auditorio Mayor</div>
+                        <div class="salon-name">🚶 Hall de Exposiciones</div>
                         <div class="salon-floor">Piso 2</div>
                     </div>
-                    <div class="time-cell"></div>
                     <div class="time-cell">
-                        <div class="schedule-event" data-start="09:00" data-end="10:00">
-                            <div class="event-time-schedule">09:00 - 10:00</div>
-                            <div class="event-title-schedule">Inauguración y Keynote</div>
-                            <div class="event-speaker">Dr. Ovidio Claros - CCB</div>
+                        <div class="schedule-event" data-start="08:00" data-end="09:00" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(212, 175, 55, 0.1)); border-left-color: #d4af37;">
+                            <div class="event-time-schedule">8:00 - 9:00 AM</div>
+                            <div class="event-title-schedule">Registro</div>
+                        </div>
+                    </div>
+                    <div class="time-cell" style="grid-column: span 8;">
+                        <div class="schedule-event" data-start="12:00" data-end="14:00" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(212, 175, 55, 0.1)); border-left-color: #d4af37;">
+                            <div class="event-time-schedule">12:00 - 2:00 PM</div>
+                            <div class="event-title-schedule">Paramo x Davivienda</div>
                         </div>
                     </div>
                     <div class="time-cell"></div>
+
+                    <!-- Auditorio Mayor Row -->
+                    <div class="salon-header">
+                        <div class="salon-name">🎭 Auditorio Mayor</div>
+                        <div class="salon-floor">Piso 3</div>
+                    </div>
                     <div class="time-cell"></div>
+                    <div class="time-cell">
+                        <div class="schedule-event" data-start="09:15" data-end="10:00">
+                            <div class="event-time-schedule">9:15 - 10:00 AM</div>
+                            <div class="event-title-schedule">Espacio para Charla</div>
+                        </div>
+                    </div>
+                    <div class="time-cell">
+                        <div class="schedule-event" data-start="10:00" data-end="11:00">
+                            <div class="event-time-schedule">10:00 - 11:00 AM</div>
+                            <div class="event-title-schedule">Espacio para Charla</div>
+                        </div>
+                    </div>
+                    <div class="time-cell">
+                        <div class="schedule-event" data-start="11:00" data-end="12:00" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(212, 175, 55, 0.1)); border-left-color: #d4af37;">
+                            <div class="event-time-schedule">11:00 AM - 12:00 PM</div>
+                            <div class="event-title-schedule">Foro Paramo! Creatividad en el Mercadeo</div>
+                        </div>
+                    </div>
+                    <div class="time-cell">
+                        <div class="schedule-event" data-start="12:00" data-end="13:00">
+                            <div class="event-time-schedule">12:00 - 1:00 PM</div>
+                            <div class="event-title-schedule">Espacio para Charla</div>
+                        </div>
+                    </div>
                     <div class="time-cell"></div>
-                    <div class="time-cell"></div>
-                    <div class="time-cell"></div>
-                    <div class="time-cell"></div>
+                    <div class="time-cell">
+                        <div class="schedule-event" data-start="14:00" data-end="14:45" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(212, 175, 55, 0.1)); border-left-color: #d4af37;">
+                            <div class="event-time-schedule">2:00 - 2:45 PM</div>
+                            <div class="event-title-schedule">Paramo!Davivienda</div>
+                        </div>
+                    </div>
+                    <div class="time-cell">
+                        <div class="schedule-event" data-start="14:45" data-end="16:45">
+                            <div class="event-time-schedule">2:45 - 4:45 PM</div>
+                            <div class="event-title-schedule">Espacio para Charla</div>
+                        </div>
+                    </div>
                     <div class="time-cell"></div>
                     <div class="time-cell"></div>
 
@@ -1059,55 +1119,72 @@
                         <div class="salon-floor">Piso 2</div>
                     </div>
                     <div class="time-cell"></div>
+                    <div class="time-cell"></div>
+                    <div class="time-cell"></div>
+                    <div class="time-cell"></div>
+                    <div class="time-cell"></div>
+                    <div class="time-cell"></div>
                     <div class="time-cell">
-                        <div class="schedule-event" data-start="09:30" data-end="10:30">
-                            <div class="event-time-schedule">09:30 - 10:30</div>
-                            <div class="event-title-schedule">Creación de Contenido para Redes</div>
-                            <div class="event-speaker">Content Creators</div>
+                        <div class="schedule-event" data-start="14:30" data-end="15:15">
+                            <div class="event-time-schedule">2:30 - 3:15 PM</div>
+                            <div class="event-title-schedule">Espacio para Charla</div>
                         </div>
                     </div>
-                    <div class="time-cell"></div>
-                    <div class="time-cell"></div>
-                    <div class="time-cell"></div>
-                    <div class="time-cell"></div>
-                    <div class="time-cell"></div>
-                    <div class="time-cell"></div>
+                    <div class="time-cell">
+                        <div class="schedule-event" data-start="15:45" data-end="16:30">
+                            <div class="event-time-schedule">3:45 - 4:30 PM</div>
+                            <div class="event-title-schedule">Espacio para Charla</div>
+                        </div>
+                    </div>
                     <div class="time-cell"></div>
                     <div class="time-cell"></div>
 
                     <!-- Aula Magistral Row -->
                     <div class="salon-header">
                         <div class="salon-name">📚 Aula Magistral</div>
-                        <div class="salon-floor">Piso 3</div>
+                        <div class="salon-floor">Aula 401</div>
+                    </div>
+                    <div class="time-cell"></div>
+                    <div class="time-cell" style="grid-column: span 2;">
+                        <div class="schedule-event" data-start="08:30" data-end="10:00" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(212, 175, 55, 0.1)); border-left-color: #d4af37;">
+                            <div class="event-time-schedule">8:30 - 10:00 AM</div>
+                            <div class="event-title-schedule">Taller de AppSheet y Gemini: Haz crecer tu emprendimiento</div>
+                        </div>
+                    </div>
+                    <div class="time-cell"></div>
+                    <div class="time-cell"></div>
+                    <div class="time-cell"></div>
+                    <div class="time-cell"></div>
+                    <div class="time-cell" style="grid-column: span 2;">
+                        <div class="schedule-event" data-start="15:30" data-end="17:00" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(212, 175, 55, 0.1)); border-left-color: #d4af37;">
+                            <div class="event-time-schedule">3:30 - 5:00 PM</div>
+                            <div class="event-title-schedule">Taller de AppSheet y Gemini: Haz crecer tu emprendimiento</div>
+                        </div>
+                    </div>
+                    <div class="time-cell"></div>
+
+                    <!-- Aula Magistral 2 Row -->
+                    <div class="salon-header">
+                        <div class="salon-name">📚 Aula Magistral 2</div>
+                        <div class="salon-floor">Aula 402</div>
                     </div>
                     <div class="time-cell"></div>
                     <div class="time-cell"></div>
                     <div class="time-cell" style="grid-column: span 2;">
-                        <div class="schedule-event" data-start="10:00" data-end="11:30">
-                            <div class="event-time-schedule">10:00 - 11:30</div>
-                            <div class="event-title-schedule">Workshop: Data Analytics</div>
-                            <div class="event-speaker">Taller práctico</div>
+                        <div class="schedule-event" data-start="10:00" data-end="11:45">
+                            <div class="event-time-schedule">10:00 - 11:45 AM</div>
+                            <div class="event-title-schedule">Espacio para taller</div>
                         </div>
                     </div>
                     <div class="time-cell"></div>
                     <div class="time-cell"></div>
-                    <div class="time-cell"></div>
-                    <div class="time-cell"></div>
-                    <div class="time-cell"></div>
-                    <div class="time-cell"></div>
-
-                    <!-- Pasillo Segundo Piso Row -->
-                    <div class="salon-header">
-                        <div class="salon-name">🚶 Pasillo 2do Piso</div>
-                        <div class="salon-floor">Networking</div>
-                    </div>
-                    <div class="time-cell"></div>
-                    <div class="time-cell" style="grid-column: span 8;">
-                        <div class="schedule-event" data-start="09:00" data-end="17:00">
-                            <div class="event-time-schedule">09:00 - 17:00</div>
-                            <div class="event-title-schedule">Stands de Marcas y Networking Continuo</div>
+                    <div class="time-cell" style="grid-column: span 2;">
+                        <div class="schedule-event" data-start="13:45" data-end="15:30">
+                            <div class="event-time-schedule">1:45 - 3:30 PM</div>
+                            <div class="event-title-schedule">Espacio para taller</div>
                         </div>
                     </div>
+                    <div class="time-cell"></div>
                     <div class="time-cell"></div>
                 </div>
             </div>
@@ -1121,54 +1198,52 @@
             </div>
             <div class="faq-list">
                 <div class="faq-item">
-                    <div class="faq-question">
-                        <div style="display: flex; align-items: center;">
-                            <span class="faq-icon">👥</span>
-                            <span>¿Quiénes pueden asistir?</span>
-                        </div>
-                        <span class="faq-toggle">+</span>
+                    <div class="faq-question-simple">
+                        <span class="faq-icon">👥</span>
+                        <span class="faq-question-text">¿Quiénes pueden asistir?</span>
                     </div>
-                    <div class="faq-answer">
-                        Está dirigido a estudiantes, docentes, profesionales y todas las personas interesadas en conocer tendencias de mercado, innovación y sostenibilidad desde una perspectiva práctica.
+                    <div class="faq-answer-simple">
+                        Estudiantes, docentes, profesionales y cualquier persona interesada en tendencias, innovación y sostenibilidad práctica.
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question">
-                        <div style="display: flex; align-items: center;">
-                            <span class="faq-icon">💰</span>
-                            <span>¿Tiene algún costo la entrada?</span>
-                        </div>
-                        <span class="faq-toggle">+</span>
+                    <div class="faq-question-simple">
+                        <span class="faq-icon">💰</span>
+                        <span class="faq-question-text">¿Tiene algún costo la entrada?</span>
                     </div>
-                    <div class="faq-answer">
-                        No, la entrada es gratuita. Sin embargo, es necesario registrarse previamente para asegurar el cupo y recibir la confirmación de asistencia.
+                    <div class="faq-answer-simple">
+                        No. La entrada es completamente gratuita, solo debes registrarte previamente para reservar tu cupo y recibir confirmación.
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question">
-                        <div style="display: flex; align-items: center;">
-                            <span class="faq-icon">🎟️</span>
-                            <span>¿Qué incluye la inscripción?</span>
-                        </div>
-                        <span class="faq-toggle">+</span>
+                    <div class="faq-question-simple">
+                        <span class="faq-icon">🎟️</span>
+                        <span class="faq-question-text">¿Qué incluye la inscripción?</span>
                     </div>
-                    <div class="faq-answer">
-                        El registro te da acceso a todas las charlas, talleres y experiencias programadas durante la jornada, además de materiales de apoyo y la posibilidad de participar en actividades interactivas y de networking.
+                    <div class="faq-answer-simple">
+                        El registro te da acceso total a charlas, talleres, experiencias, materiales de apoyo y espacios para crear contactos.
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question">
-                        <div style="display: flex; align-items: center;">
-                            <span class="faq-icon">⏰</span>
-                            <span>¿Para qué se me pide la jornada en la que quiero asistir?</span>
-                        </div>
-                        <span class="faq-toggle">+</span>
+                    <div class="faq-question-simple">
+                        <span class="faq-icon">⏰</span>
+                        <span class="faq-question-text">¿Por qué se solicita la jornada de asistencia?</span>
                     </div>
-                    <div class="faq-answer">
-                        Por temas de aforo, puedes asistir durante toda la jornada; sin embargo, puede que exista prioridad según lo que la persona indicó en la manilla.
+                    <div class="faq-answer-simple">
+                        Para gestionar el aforo y organizar la experiencia, tu jornada preferida se indicará en tu manilla y será tomada en cuenta.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question-simple">
+                        <span class="faq-icon">🔐</span>
+                        <span class="faq-question-text">¿Existe registro especial o requisitos para el acceso?</span>
+                    </div>
+                    <div class="faq-answer-simple">
+                        Al registrarte y llegar a la Universidad, se validará tu identidad y recibirás una manilla con QR para ingresar y participar con seguridad.
                     </div>
                 </div>
             </div>
@@ -1203,7 +1278,6 @@
 
     <footer>
         <p>Organizado por estudiantes de la Facultad de Mercadeo | @mercadeosantoto</p>
-        <p style="margin-top: 10px;">Universidad Santo Tomás · Campus Doctor Angélico</p>
     </footer>
 
     <script>
@@ -1250,20 +1324,26 @@
         updateNowBanner();
         setInterval(updateNowBanner, 60000);
 
-        // FAQ Accordion functionality
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const faqItem = question.parentElement;
-                const isActive = faqItem.classList.contains('active');
-                
-                // Close all FAQs
-                document.querySelectorAll('.faq-item').forEach(item => {
-                    item.classList.remove('active');
+        // FAQ Accordion functionality - Using the working code
+        const questions = document.querySelectorAll('.faq-question');
+
+        questions.forEach(question => {
+            question.addEventListener('click', (event) => {
+                // El elemento '.faq-item' al que se le hizo clic
+                const currentItem = event.currentTarget.closest('.faq-item');
+
+                // Verificamos si el item clickeado ya estaba activo
+                const wasActive = currentItem.classList.contains('active');
+
+                // Primero, cerramos todos los items para asegurar un estado limpio
+                questions.forEach(q => {
+                    q.closest('.faq-item').classList.remove('active');
                 });
-                
-                // Open clicked FAQ if it wasn't active
-                if (!isActive) {
-                    faqItem.classList.add('active');
+
+                // Si el item no estaba activo, lo abrimos.
+                // Si ya estaba activo, el bucle anterior ya lo cerró y no hacemos nada más.
+                if (!wasActive) {
+                    currentItem.classList.add('active');
                 }
             });
         });Banner();
