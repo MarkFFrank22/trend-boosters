@@ -1,32 +1,4 @@
-<section class="ecosystem-section">
-        <div class="ecosystem-header">
-            <h2>El emprendedor en el centro<br><span class="highlight">y todo el ecosistema en el mismo lugar</span></h2>
-        </div>
-        <div class="ecosystem-grid">
-            <div class="ecosystem-card">
-                <div style="width: 100%; height: 100%; background: #2a2a2a;"></div>
-                <div class="ecosystem-overlay">INSPÍRATE</div>
-            </div>
-            <div class="ecosystem-card middle">
-                <div class="ecosystem-text">
-                    <div class="tracks-label">Ejes Temáticos:</div>
-                    <div class="tracks-grid">
-                        <div class="track-item">💼 Profesionalismo</div>
-                        <div class="track-item">🤝 Comunidad</div>
-                        <div class="track-item">📈 Tendencias</div>
-                        <div class="track-item">🚀 Emprendimiento</div>
-                    </div>
-                    <p style="margin-top: 25px; font-size: 0.95em; opacity: 0.8;">
-                        Conectamos profesionales con futuros profesionales en un espacio único para compartir experiencias, ideas y oportunidades.
-                    </p>
-                </div>
-            </div>
-            <div class="ecosystem-card">
-                <div style="width: 100%; height: 100%; background: #3a3a2a;"></div>
-                <div class="ecosystem-overlay">CONECTA</div>
-            </div>
-        </div>
-    </section><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -84,7 +56,7 @@
 
         .hero {
             min-height: 100vh;
-            background: linear-gradient(135deg, #c41e3a 0%, #8b0000 100%);
+            background: linear-gradient(135deg, #000000 0%, #c41e3a 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -100,89 +72,109 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 30% 50%, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+            background: radial-gradient(circle at 30% 50%, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.9) 100%);
         }
 
         .hero::after {
             content: '';
             position: absolute;
-            width: 200%;
-            height: 200%;
+            width: 500%;
+            height: 500%;
             background-image: 
-                radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 40% 80%, rgba(139, 0, 0, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 90% 20%, rgba(196, 30, 58, 0.2) 0%, transparent 50%);
-            animation: moveBackground 30s ease-in-out infinite;
+                radial-gradient(circle at 20% 30%, rgba(0, 0, 0, 0.9) 0%, transparent 30%),
+                radial-gradient(circle at 80% 70%, rgba(10, 0, 0, 0.8) 0%, transparent 30%),
+                radial-gradient(circle at 40% 80%, rgba(40, 0, 0, 0.9) 0%, transparent 35%),
+                radial-gradient(circle at 90% 20%, rgba(80, 5, 10, 0.85) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(60, 0, 0, 0.8) 0%, transparent 45%),
+                radial-gradient(circle at 10% 60%, rgba(30, 0, 0, 0.9) 0%, transparent 45%),
+                radial-gradient(circle at 70% 40%, rgba(0, 0, 0, 0.7) 0%, transparent 35%),
+                radial-gradient(circle at 30% 10%, rgba(70, 3, 8, 0.8) 0%, transparent 40%),
+                radial-gradient(circle at 60% 90%, rgba(50, 0, 0, 0.85) 0%, transparent 38%),
+                radial-gradient(circle at 15% 85%, rgba(20, 0, 0, 0.9) 0%, transparent 42%);
+            animation: extremeLavaLamp 15s ease-in-out infinite;
+            filter: blur(70px);
         }
 
-        @keyframes moveBackground {
+        @keyframes extremeLavaLamp {
             0%, 100% {
-                transform: translate(0, 0) rotate(0deg);
+                transform: translate(0, 0) scale(1) rotate(0deg);
+            }
+            12% {
+                transform: translate(-20%, -25%) scale(1.35) rotate(35deg);
             }
             25% {
-                transform: translate(-5%, -5%) rotate(5deg);
+                transform: translate(18%, -28%) scale(0.8) rotate(-45deg);
+            }
+            37% {
+                transform: translate(-25%, 20%) scale(1.4) rotate(50deg);
             }
             50% {
-                transform: translate(-3%, 5%) rotate(-3deg);
+                transform: translate(22%, -18%) scale(0.85) rotate(-40deg);
+            }
+            62% {
+                transform: translate(-18%, 25%) scale(1.3) rotate(42deg);
             }
             75% {
-                transform: translate(5%, -3%) rotate(7deg);
+                transform: translate(20%, -22%) scale(0.9) rotate(-38deg);
+            }
+            87% {
+                transform: translate(-15%, 18%) scale(1.25) rotate(33deg);
             }
         }
 
         .hero-content {
-            max-width: 1400px;
+            max-width: 1600px;
             width: 100%;
             position: relative;
             z-index: 1;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            display: flex;
+            flex-direction: column;
             align-items: center;
+            gap: 50px;
+            padding: 40px 20px;
         }
 
-        .hero-left {
+        .hero-main {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
         }
 
-        .hero-right {
+        .hero-images-bottom {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            align-items: center;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            width: 100%;
+            max-width: 1200px;
         }
 
-        .hero-image {
-            width: 100%;
+        .bottom-image-card {
+            position: relative;
             border-radius: 20px;
             overflow: hidden;
-            aspect-ratio: 4/3;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
         }
 
-        .hero-image img {
+        .bottom-image-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .bottom-image-card img {
             width: 100%;
-            height: 100%;
+            aspect-ratio: 16/9;
             object-fit: cover;
         }
 
-        .hero-image:nth-child(1) {
-            grid-column: 2;
-            grid-row: 1;
-        }
-
-        .hero-image:nth-child(2) {
-            grid-column: 2;
-            grid-row: 2;
-        }
-
-        .hero-image:nth-child(3) {
-            grid-column: 1;
-            grid-row: 1 / 3;
-            aspect-ratio: 3/4;
+        .bottom-image-label {
+            position: absolute;
+            bottom: 25px;
+            left: 25px;
+            font-size: 2em;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
         }
 
         .hero-top {
@@ -359,7 +351,7 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            padding: 40px;
+            padding: 30px 20px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -369,6 +361,7 @@
             transition: opacity 0.3s ease;
             background: rgba(0, 0, 0, 0.95);
             color: #fff;
+            overflow-y: auto;
         }
 
         .pillar-card:hover .pillar-front {
@@ -380,10 +373,11 @@
         }
 
         .pillar-back p {
-            font-size: 0.9em;
-            line-height: 1.6;
+            font-size: clamp(0.7em, 2vw, 0.85em);
+            line-height: 1.5;
             opacity: 0.9;
             color: #fff;
+            margin: 0;
         }
 
         .pillar-card:nth-child(1) .pillar-front {
@@ -402,119 +396,6 @@
             background: linear-gradient(135deg, #a78bfa 0%, #c4b5fd 100%);
         }
 
-        .ecosystem-section {
-            background: #0a0a0a;
-            padding: 100px 20px;
-            display: none;
-        }
-
-        .ecosystem-header {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .ecosystem-header h2 {
-            font-size: 2.2em;
-            margin-bottom: 10px;
-            line-height: 1.3;
-        }
-
-        .ecosystem-header .highlight {
-            font-weight: 700;
-        }
-
-        .ecosystem-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-            align-items: start;
-        }
-
-        .ecosystem-card {
-            position: relative;
-            aspect-ratio: 1;
-            border-radius: 50%;
-            overflow: hidden;
-            background: #1a1a1a;
-        }
-
-        .ecosystem-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: grayscale(30%);
-        }
-
-        .ecosystem-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8em;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .ecosystem-card.middle {
-            background: #000;
-        }
-
-        .ecosystem-text {
-            padding: 40px;
-            text-align: center;
-        }
-
-        .tracks-label {
-            color: #c41e3a;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .tracks-list {
-            font-size: 0.9em;
-            line-height: 1.8;
-            opacity: 0.8;
-        }
-
-        .tracks-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .track-item {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 12px;
-            border-radius: 8px;
-            font-size: 0.9em;
-        }
-
-        .learn-more {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 15px 40px;
-            background: #ffd700;
-            color: #000;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .learn-more:hover {
-            background: #ffed4e;
-            transform: translateY(-2px);
-        }
-
         .agenda-section {
             background: #1a1a2e;
             padding: 100px 20px;
@@ -523,182 +404,6 @@
         .agenda-container {
             max-width: 1400px;
             margin: 0 auto;
-        }
-
-        .agenda-tabs {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 40px;
-            overflow-x: auto;
-            padding-bottom: 10px;
-        }
-
-        .tab-button {
-            padding: 12px 30px;
-            background: #0a0a0a;
-            border: 2px solid #333;
-            border-radius: 8px;
-            color: #fff;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .tab-button:hover {
-            border-color: #ffd700;
-        }
-
-        .tab-button.active {
-            background: #ffd700;
-            color: #000;
-            border-color: #ffd700;
-        }
-
-        .schedule-wrapper {
-            overflow-x: auto;
-            margin-bottom: 40px;
-        }
-
-        .schedule-grid {
-            display: grid;
-            grid-template-columns: 150px repeat(10, 180px);
-            gap: 1px;
-            background: #333;
-            border-radius: 10px;
-            overflow: hidden;
-            min-width: max-content;
-        }
-
-        .time-header {
-            background: #000;
-            padding: 15px;
-            text-align: center;
-            font-weight: 600;
-            color: #fff;
-            font-size: 0.95em;
-        }
-
-        .time-salon {
-            background: #000;
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            font-weight: 600;
-            gap: 5px;
-            color: #fff;
-        }
-
-        .salon-header {
-            background: #0a0a0a;
-            padding: 20px 10px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .salon-name {
-            font-weight: 700;
-            font-size: 1em;
-            color: #fff;
-        }
-
-        .salon-floor {
-            font-size: 0.85em;
-            opacity: 0.7;
-            color: #fff;
-        }
-
-        .time-cell {
-            background: #1a1a1a;
-            padding: 10px;
-            min-height: 80px;
-        }
-
-        .schedule-event {
-            background: linear-gradient(135deg, rgba(196, 30, 58, 0.3), rgba(196, 30, 58, 0.1));
-            border-left: 3px solid #c41e3a;
-            padding: 12px;
-            border-radius: 6px;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .schedule-event:hover {
-            background: linear-gradient(135deg, rgba(196, 30, 58, 0.5), rgba(196, 30, 58, 0.2));
-            transform: translateY(-2px);
-        }
-
-        .schedule-event.active {
-            border-left-color: #4caf50;
-            background: linear-gradient(135deg, rgba(76, 175, 80, 0.3), rgba(76, 175, 80, 0.1));
-        }
-
-        .event-title-schedule {
-            font-size: 0.9em;
-            font-weight: 600;
-            line-height: 1.3;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .event-time-schedule {
-            font-size: 0.9em;
-            color: #fff;
-            font-weight: 600;
-        }
-
-        .event-speaker {
-            font-size: 0.75em;
-            opacity: 0.8;
-            display: -webkit-box;
-            -webkit-line-clamp: 1;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .now-banner {
-            background: #c41e3a;
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-            font-size: 1.3em;
-            font-weight: 600;
-            margin-bottom: 40px;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-            letter-spacing: 1px;
-        }
-
-        .agenda-grid {
-            display: none;
-        }
-
-        .venue-card {
-            background: #0a0a0a;
-            border-radius: 15px;
-            padding: 30px;
-            border-top: 3px solid #ffd700;
-            display: none;
-        }
-
-        .event-item {
-            background: #1a1a1a;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 12px;
-            border-left: 3px solid #333;
-            transition: all 0.3s ease;
-            display: none;
         }
 
         .cta-section {
@@ -804,17 +509,15 @@
         }
 
         .sponsor-logo {
-            height: 80px;
+            height: 60px;
             width: auto;
             object-fit: contain;
             flex-shrink: 0;
-            filter: grayscale(100%);
-            opacity: 0.7;
+            opacity: 0.9;
             transition: all 0.3s ease;
         }
 
         .sponsor-logo:hover {
-            filter: grayscale(0%);
             opacity: 1;
             transform: scale(1.1);
         }
@@ -836,7 +539,7 @@
             font-size: 0.95em;
         }
 
-                    @media (max-width: 968px) {
+        @media (max-width: 968px) {
             .about-grid {
                 grid-template-columns: 1fr;
             }
@@ -849,38 +552,24 @@
                 max-width: 200px;
             }
 
-            .ecosystem-grid {
+            .pillar-back {
+                padding: 20px 15px;
+            }
+
+            .pillar-back p {
+                font-size: 0.75em;
+                line-height: 1.4;
+            }
+
+            .hero-images-bottom {
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
 
-            .hero-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .hero-right {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-image:nth-child(1),
-            .hero-image:nth-child(2),
-            .hero-image:nth-child(3) {
-                grid-column: 1;
-                grid-row: auto;
-                aspect-ratio: 4/3;
-            }
-
-            .hero-info {
-                grid-template-columns: 1fr;
-            }
-
-            .schedule-grid {
-                font-size: 0.85em;
-            }
-
-            .tracks-grid {
-                grid-template-columns: 1fr;
+            .bottom-image-label {
+                font-size: 1.5em;
+                bottom: 20px;
+                left: 20px;
             }
         }
 
@@ -889,12 +578,12 @@
                 grid-template-columns: 1fr;
             }
 
-            .schedule-wrapper {
-                font-size: 0.8em;
-            }
-
             .rolling-banner {
                 font-size: 0.9em;
+            }
+
+            .bottom-image-label {
+                font-size: 1.2em;
             }
         }
     </style>
@@ -909,47 +598,45 @@
     
     <section class="hero">
         <div class="hero-content">
-            <div class="hero-left">
+            <div class="hero-main">
                 <div class="hero-top">Estudiantes de la <strong>Facultad de Mercadeo de la SantoTo</strong> presentan:</div>
                 <h1 class="hero-title">Trend</h1>
                 <h2 class="hero-subtitle"><span class="rocket-icon">🚀</span> Boosters</h2>
                 
                 <div class="hero-info">
                     <div class="info-item">
-                        <div class="info-label">Lunes</div>
-                        <div class="info-value">10<span style="font-size: 0.6em;"> de noviembre del 2025</span></div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-label">Universidad Santo Tomás</div>
-                        <div class="info-value" style="font-size: 1.2em;">Campus Doctor Angélico<br><span style="font-size: 0.7em; opacity: 0.8;">Cra 9 #72-90</span></div>
+                        <div class="info-value" style="font-size: 1.6em;">Lunes, 10 de Noviembre</div>
+                        <div class="info-value" style="font-size: 1.3em; margin-top: 10px; opacity: 0.9;">8 AM a 5 PM</div>
                     </div>
                 </div>
 
                 <a href="https://www.eventbrite.com/e/trendboosters-tickets-1439883172329" class="cta-button" target="_blank">
                     Asegura tu cupo presencial gratis →
                 </a>
+
+                <div class="hero-info" style="margin-top: 30px;">
+                    <div class="info-item">
+                        <div class="info-value" style="font-size: 1.1em;">Universidad Santo Tomás<br><strong style="font-size: 1.2em;">Campus Doctor Angélico</strong><br><span style="font-size: 0.9em; opacity: 0.8;">Cra 9 #72-90</span></div>
+                    </div>
+                </div>
             </div>
 
-            <div class="hero-right">
-                <div class="hero-image">
-                    <img src="https://i.ibb.co/C5khhh8V/Screenshot-2025-09-29-at-11-41-33-PM.png" alt="TrendBoosters Event">
+            <div class="hero-images-bottom">
+                <div class="bottom-image-card">
+                    <img src="https://i.ibb.co/NgcHG5HX/347677343-944979920037920-8818329463793212604-n.jpg" alt="Charlas">
+                    <div class="bottom-image-label">Charlas</div>
                 </div>
-                <div class="hero-image">
-                    <img src="https://i.ibb.co/JWsdRnjv/348464562-2439157062913459-679452860965265455-n.jpg" alt="TrendBoosters Event">
+                <div class="bottom-image-card">
+                    <img src="https://i.ibb.co/C5khhh8V/Screenshot-2025-09-29-at-11-41-33-PM.png" alt="Talleres">
+                    <div class="bottom-image-label">Talleres</div>
                 </div>
-                <div class="hero-image">
-                    <img src="https://i.ibb.co/NgcHG5HX/347677343-944979920037920-8818329463793212604-n.jpg" alt="TrendBoosters Event">
+                <div class="bottom-image-card">
+                    <img src="https://i.ibb.co/JWsdRnjv/348464562-2439157062913459-679452860965265455-n.jpg" alt="Activaciones">
+                    <div class="bottom-image-label">Activaciones</div>
                 </div>
             </div>
         </div>
     </section>
-
-    <div class="rolling-banner" style="display: none;">
-        <div class="rolling-content">
-            <div class="rolling-text">↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓</div>
-            <div class="rolling-text">↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓</div>
-        </div>
-    </div>
 
     <section class="about-section">
         <div class="about-grid">
@@ -993,202 +680,42 @@
         </div>
     </section>
 
-    <section class="ecosystem-section">
-        <div class="ecosystem-header">
-            <h2>El emprendedor en el centro<br><span class="highlight">y todo el ecosistema en el mismo lugar</span></h2>
-        </div>
-        <div class="ecosystem-grid">
-            <div class="ecosystem-card">
-                <div style="width: 100%; height: 100%; background: #2a2a2a;"></div>
-                <div class="ecosystem-overlay">INSPÍRATE</div>
-            </div>
-            <div class="ecosystem-card middle">
-                <div class="ecosystem-text">
-                    <div class="tracks-label">Ejes Temáticos:</div>
-                    <div class="tracks-grid">
-                        <div class="track-item">💼 Profesionalismo</div>
-                        <div class="track-item">🤝 Comunidad</div>
-                        <div class="track-item">📈 Tendencias</div>
-                        <div class="track-item">🚀 Emprendimiento</div>
-                    </div>
-                    <p style="margin-top: 25px; font-size: 0.95em; opacity: 0.8;">
-                        Conectamos profesionales con futuros profesionales en un espacio único para compartir experiencias, ideas y oportunidades.
-                    </p>
-                </div>
-            </div>
-            <div class="ecosystem-card">
-                <div style="width: 100%; height: 100%; background: #3a3a2a;"></div>
-                <div class="ecosystem-overlay">CONECTA</div>
-            </div>
-        </div>
-    </section>
-
     <section class="agenda-section">
         <div class="agenda-container">
-            <h2 class="section-title">Agenda del Evento</h2>
+            <h2 class="section-title">Speakers</h2>
             
-            <div class="now-banner" id="nowBanner">
-                ⏰ SUCEDIENDO AHORA
-            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto 60px;">
+                <div style="text-align: center;">
+                    <div style="position: relative; border-radius: 20px; overflow: hidden; margin-bottom: 20px;">
+                        <img src="https://i.ibb.co/9H9HZCWR/Screenshot-2025-10-03-at-4-06-01-PM.png" alt="Cápsula Laboratorio Creativo" style="width: 100%; aspect-ratio: 1; object-fit: cover;">
+                    </div>
+                    <h3 style="font-size: 1.5em; margin-bottom: 10px; color: #fff;">Cápsula Laboratorio Creativo</h3>
+                    <a href="https://www.instagram.com/capsula.lc/" target="_blank" style="display: inline-flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; font-size: 1.1em; transition: opacity 0.3s;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        @paramopresenta
+                    </a>
+                </div>
 
-            <div class="schedule-wrapper">
-                <div class="schedule-grid">
-                    <!-- Header Row -->
-                    <div class="time-salon">
-                        <span>Hora</span>
-                        <span style="font-size: 0.85em; opacity: 0.7;">Ubicación</span>
+                <div style="text-align: center;">
+                    <div style="position: relative; border-radius: 20px; overflow: hidden; margin-bottom: 20px;">
+                        <img src="https://i.ibb.co/HDg1BKpB/pramo-presenta1-cover.jpg" alt="Páramo Presenta" style="width: 100%; aspect-ratio: 1; object-fit: cover;">
                     </div>
-                    <div class="time-header">08:00</div>
-                    <div class="time-header">09:00</div>
-                    <div class="time-header">10:00</div>
-                    <div class="time-header">11:00</div>
-                    <div class="time-header">12:00</div>
-                    <div class="time-header">13:00</div>
-                    <div class="time-header">14:00</div>
-                    <div class="time-header">15:00</div>
-                    <div class="time-header">16:00</div>
-                    <div class="time-header">17:00</div>
-
-                    <!-- Hall de Exposiciones Row -->
-                    <div class="salon-header">
-                        <div class="salon-name">🚶 Hall de Exposiciones</div>
-                        <div class="salon-floor">Piso 2</div>
-                    </div>
-                    <div class="time-cell">
-                        <div class="schedule-event" data-start="08:00" data-end="09:00" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(212, 175, 55, 0.1)); border-left-color: #d4af37;">
-                            <div class="event-time-schedule">8:00 - 9:00 AM</div>
-                            <div class="event-title-schedule">Registro</div>
-                        </div>
-                    </div>
-                    <div class="time-cell" style="grid-column: span 8;">
-                        <div class="schedule-event" data-start="12:00" data-end="14:00" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(212, 175, 55, 0.1)); border-left-color: #d4af37;">
-                            <div class="event-time-schedule">12:00 - 2:00 PM</div>
-                            <div class="event-title-schedule">Paramo x Davivienda</div>
-                        </div>
-                    </div>
-                    <div class="time-cell"></div>
-
-                    <!-- Auditorio Mayor Row -->
-                    <div class="salon-header">
-                        <div class="salon-name">🎭 Auditorio Mayor</div>
-                        <div class="salon-floor">Piso 3</div>
-                    </div>
-                    <div class="time-cell"></div>
-                    <div class="time-cell">
-                        <div class="schedule-event" data-start="09:15" data-end="10:00">
-                            <div class="event-time-schedule">9:15 - 10:00 AM</div>
-                            <div class="event-title-schedule">Espacio para Charla</div>
-                        </div>
-                    </div>
-                    <div class="time-cell">
-                        <div class="schedule-event" data-start="10:00" data-end="11:00">
-                            <div class="event-time-schedule">10:00 - 11:00 AM</div>
-                            <div class="event-title-schedule">Espacio para Charla</div>
-                        </div>
-                    </div>
-                    <div class="time-cell">
-                        <div class="schedule-event" data-start="11:00" data-end="12:00" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(212, 175, 55, 0.1)); border-left-color: #d4af37;">
-                            <div class="event-time-schedule">11:00 AM - 12:00 PM</div>
-                            <div class="event-title-schedule">Foro Paramo! Creatividad en el Mercadeo</div>
-                        </div>
-                    </div>
-                    <div class="time-cell">
-                        <div class="schedule-event" data-start="12:00" data-end="13:00">
-                            <div class="event-time-schedule">12:00 - 1:00 PM</div>
-                            <div class="event-title-schedule">Espacio para Charla</div>
-                        </div>
-                    </div>
-                    <div class="time-cell"></div>
-                    <div class="time-cell">
-                        <div class="schedule-event" data-start="14:00" data-end="14:45" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(212, 175, 55, 0.1)); border-left-color: #d4af37;">
-                            <div class="event-time-schedule">2:00 - 2:45 PM</div>
-                            <div class="event-title-schedule">Paramo!Davivienda</div>
-                        </div>
-                    </div>
-                    <div class="time-cell">
-                        <div class="schedule-event" data-start="14:45" data-end="16:45">
-                            <div class="event-time-schedule">2:45 - 4:45 PM</div>
-                            <div class="event-title-schedule">Espacio para Charla</div>
-                        </div>
-                    </div>
-                    <div class="time-cell"></div>
-                    <div class="time-cell"></div>
-
-                    <!-- Auditorio Menor Row -->
-                    <div class="salon-header">
-                        <div class="salon-name">🎪 Auditorio Menor</div>
-                        <div class="salon-floor">Piso 2</div>
-                    </div>
-                    <div class="time-cell"></div>
-                    <div class="time-cell"></div>
-                    <div class="time-cell"></div>
-                    <div class="time-cell"></div>
-                    <div class="time-cell"></div>
-                    <div class="time-cell"></div>
-                    <div class="time-cell">
-                        <div class="schedule-event" data-start="14:30" data-end="15:15">
-                            <div class="event-time-schedule">2:30 - 3:15 PM</div>
-                            <div class="event-title-schedule">Espacio para Charla</div>
-                        </div>
-                    </div>
-                    <div class="time-cell">
-                        <div class="schedule-event" data-start="15:45" data-end="16:30">
-                            <div class="event-time-schedule">3:45 - 4:30 PM</div>
-                            <div class="event-title-schedule">Espacio para Charla</div>
-                        </div>
-                    </div>
-                    <div class="time-cell"></div>
-                    <div class="time-cell"></div>
-
-                    <!-- Aula Magistral Row -->
-                    <div class="salon-header">
-                        <div class="salon-name">📚 Aula Magistral</div>
-                        <div class="salon-floor">Aula 401</div>
-                    </div>
-                    <div class="time-cell"></div>
-                    <div class="time-cell" style="grid-column: span 2;">
-                        <div class="schedule-event" data-start="08:30" data-end="10:00" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(212, 175, 55, 0.1)); border-left-color: #d4af37;">
-                            <div class="event-time-schedule">8:30 - 10:00 AM</div>
-                            <div class="event-title-schedule">Taller de AppSheet y Gemini: Haz crecer tu emprendimiento</div>
-                        </div>
-                    </div>
-                    <div class="time-cell"></div>
-                    <div class="time-cell"></div>
-                    <div class="time-cell"></div>
-                    <div class="time-cell"></div>
-                    <div class="time-cell" style="grid-column: span 2;">
-                        <div class="schedule-event" data-start="15:30" data-end="17:00" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(212, 175, 55, 0.1)); border-left-color: #d4af37;">
-                            <div class="event-time-schedule">3:30 - 5:00 PM</div>
-                            <div class="event-title-schedule">Taller de AppSheet y Gemini: Haz crecer tu emprendimiento</div>
-                        </div>
-                    </div>
-                    <div class="time-cell"></div>
-
-                    <!-- Aula Magistral 2 Row -->
-                    <div class="salon-header">
-                        <div class="salon-name">📚 Aula Magistral 2</div>
-                        <div class="salon-floor">Aula 402</div>
-                    </div>
-                    <div class="time-cell"></div>
-                    <div class="time-cell"></div>
-                    <div class="time-cell" style="grid-column: span 2;">
-                        <div class="schedule-event" data-start="10:00" data-end="11:45">
-                            <div class="event-time-schedule">10:00 - 11:45 AM</div>
-                            <div class="event-title-schedule">Espacio para taller</div>
-                        </div>
-                    </div>
-                    <div class="time-cell"></div>
-                    <div class="time-cell"></div>
-                    <div class="time-cell" style="grid-column: span 2;">
-                        <div class="schedule-event" data-start="13:45" data-end="15:30">
-                            <div class="event-time-schedule">1:45 - 3:30 PM</div>
-                            <div class="event-title-schedule">Espacio para taller</div>
-                        </div>
-                    </div>
-                    <div class="time-cell"></div>
-                    <div class="time-cell"></div>
+                    <h3 style="font-size: 1.5em; margin-bottom: 10px; color: #fff;">Páramo Presenta</h3>
+                    <a href="https://www.instagram.com/paramopresenta/" target="_blank" style="display: inline-flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; font-size: 1.1em; transition: opacity 0.3s;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        @paramopresenta
+                    </a>
                 </div>
             </div>
+
+            <div style="background: #fff; padding: 60px 40px; border-radius: 20px; text-align: center; max-width: 900px; margin: 0 auto 60px;">
+                <h3 style="font-size: 2em; color: #000; margin-bottom: 20px; font-weight: 700;">Estamos cerrando unos detalles.</h3>
+                <p style="font-size: 1.2em; color: #333; margin-bottom: 10px;">La agenda definitiva estará disponible el 27 de octubre.</p>
+            </div>
+
+            <p style="text-align: center; font-size: 1.1em; color: #fff; opacity: 0.9; max-width: 1000px; margin: 0 auto;">
+                De momento, prepárate para un espacio lleno de mercadeo, creación de contenido, música en vivo, entre otros, desde las 9 AM a las 5 PM.
+            </p>
         </div>
     </section>
 
@@ -1240,7 +767,7 @@
 
                 <div class="faq-item">
                     <div class="faq-question-simple">
-                        <span class="faq-icon">🔐</span>
+                        <span class="faq-icon">🔒</span>
                         <span class="faq-question-text">¿Existe registro especial o requisitos para el acceso?</span>
                     </div>
                     <div class="faq-answer-simple">
@@ -1264,121 +791,21 @@
     <section class="sponsors-section">
         <h2 class="sponsors-title">Evento con talento de:</h2>
         <div class="sponsors-scroll">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Logo_de_la_Santo_Tom%C3%A1s.svg/1200px-Logo_de_la_Santo_Tom%C3%A1s.svg.png" alt="Universidad Santo Tomás" class="sponsor-logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Logo_de_la_Santo_Tom%C3%A1s.svg/1200px-Logo_de_la_Santo_Tom%C3%A1s.svg.png" alt="Universidad Santo Tomás" class="sponsor-logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Logo_de_la_Santo_Tom%C3%A1s.svg/1200px-Logo_de_la_Santo_Tom%C3%A1s.svg.png" alt="Universidad Santo Tomás" class="sponsor-logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Logo_de_la_Santo_Tom%C3%A1s.svg/1200px-Logo_de_la_Santo_Tom%C3%A1s.svg.png" alt="Universidad Santo Tomás" class="sponsor-logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Logo_de_la_Santo_Tom%C3%A1s.svg/1200px-Logo_de_la_Santo_Tom%C3%A1s.svg.png" alt="Universidad Santo Tomás" class="sponsor-logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Logo_de_la_Santo_Tom%C3%A1s.svg/1200px-Logo_de_la_Santo_Tom%C3%A1s.svg.png" alt="Universidad Santo Tomás" class="sponsor-logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Logo_de_la_Santo_Tom%C3%A1s.svg/1200px-Logo_de_la_Santo_Tom%C3%A1s.svg.png" alt="Universidad Santo Tomás" class="sponsor-logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Logo_de_la_Santo_Tom%C3%A1s.svg/1200px-Logo_de_la_Santo_Tom%C3%A1s.svg.png" alt="Universidad Santo Tomás" class="sponsor-logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Logo_de_la_Santo_Tom%C3%A1s.svg/1200px-Logo_de_la_Santo_Tom%C3%A1s.svg.png" alt="Universidad Santo Tomás" class="sponsor-logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Logo_de_la_Santo_Tom%C3%A1s.svg/1200px-Logo_de_la_Santo_Tom%C3%A1s.svg.png" alt="Universidad Santo Tomás" class="sponsor-logo">
+            <img src="https://i.ibb.co/d4pVkwkR/Logo-Santoto-SP-Bogota-horizontal-positivo.png" alt="Universidad Santo Tomás" class="sponsor-logo">
+            <img src="https://i.ibb.co/d4pVkwkR/Logo-Santoto-SP-Bogota-horizontal-positivo.png" alt="Universidad Santo Tomás" class="sponsor-logo">
+            <img src="https://i.ibb.co/d4pVkwkR/Logo-Santoto-SP-Bogota-horizontal-positivo.png" alt="Universidad Santo Tomás" class="sponsor-logo">
+            <img src="https://i.ibb.co/d4pVkwkR/Logo-Santoto-SP-Bogota-horizontal-positivo.png" alt="Universidad Santo Tomás" class="sponsor-logo">
+            <img src="https://i.ibb.co/d4pVkwkR/Logo-Santoto-SP-Bogota-horizontal-positivo.png" alt="Universidad Santo Tomás" class="sponsor-logo">
+            <img src="https://i.ibb.co/d4pVkwkR/Logo-Santoto-SP-Bogota-horizontal-positivo.png" alt="Universidad Santo Tomás" class="sponsor-logo">
+            <img src="https://i.ibb.co/d4pVkwkR/Logo-Santoto-SP-Bogota-horizontal-positivo.png" alt="Universidad Santo Tomás" class="sponsor-logo">
+            <img src="https://i.ibb.co/d4pVkwkR/Logo-Santoto-SP-Bogota-horizontal-positivo.png" alt="Universidad Santo Tomás" class="sponsor-logo">
+            <img src="https://i.ibb.co/d4pVkwkR/Logo-Santoto-SP-Bogota-horizontal-positivo.png" alt="Universidad Santo Tomás" class="sponsor-logo">
+            <img src="https://i.ibb.co/d4pVkwkR/Logo-Santoto-SP-Bogota-horizontal-positivo.png" alt="Universidad Santo Tomás" class="sponsor-logo">
         </div>
     </section>
 
     <footer>
         <p>Organizado por estudiantes de la Facultad de Mercadeo | @mercadeosantoto</p>
     </footer>
-
-    <script>
-        function updateNowBanner() {
-            const now = new Date();
-            const hours = now.getHours();
-            const minutes = now.getMinutes();
-            const currentTime = hours * 60 + minutes;
-
-            // Update schedule grid events
-            const scheduleEvents = document.querySelectorAll('.schedule-event');
-            let hasActiveScheduleEvent = false;
-
-            scheduleEvents.forEach(event => {
-                const startTime = event.dataset.start;
-                const endTime = event.dataset.end;
-                
-                if (startTime && endTime) {
-                    const [startH, startM] = startTime.split(':').map(Number);
-                    const [endH, endM] = endTime.split(':').map(Number);
-                    
-                    const start = startH * 60 + startM;
-                    const end = endH * 60 + endM;
-                    
-                    if (currentTime >= start && currentTime <= end) {
-                        event.classList.add('active');
-                        hasActiveScheduleEvent = true;
-                    } else {
-                        event.classList.remove('active');
-                    }
-                }
-            });
-
-            const nowBanner = document.getElementById('nowBanner');
-            if (!hasActiveScheduleEvent) {
-                nowBanner.innerHTML = '📅 Próximos eventos';
-                nowBanner.style.background = '#1a1a2e';
-            } else {
-                nowBanner.innerHTML = '⏰ SUCEDIENDO AHORA';
-                nowBanner.style.background = '#c41e3a';
-            }
-        }
-
-        updateNowBanner();
-        setInterval(updateNowBanner, 60000);
-
-        // FAQ Accordion functionality - Using the working code
-        const questions = document.querySelectorAll('.faq-question');
-
-        questions.forEach(question => {
-            question.addEventListener('click', (event) => {
-                // El elemento '.faq-item' al que se le hizo clic
-                const currentItem = event.currentTarget.closest('.faq-item');
-
-                // Verificamos si el item clickeado ya estaba activo
-                const wasActive = currentItem.classList.contains('active');
-
-                // Primero, cerramos todos los items para asegurar un estado limpio
-                questions.forEach(q => {
-                    q.closest('.faq-item').classList.remove('active');
-                });
-
-                // Si el item no estaba activo, lo abrimos.
-                // Si ya estaba activo, el bucle anterior ya lo cerró y no hacemos nada más.
-                if (!wasActive) {
-                    currentItem.classList.add('active');
-                }
-            });
-        });Banner();
-        setInterval(updateNowBanner, 60000); = parseInt(timeRange[5]);
-                    const endPeriod = timeRange[6];
-
-                    if (startPeriod === 'PM' && startHour !== 12) startHour += 12;
-                    if (startPeriod === 'AM' && startHour === 12) startHour = 0;
-                    if (endPeriod === 'PM' && endHour !== 12) endHour += 12;
-                    if (endPeriod === 'AM' && endHour === 12) endHour = 0;
-
-                    const startTime = startHour * 60 + startMin;
-                    const endTime = endHour * 60 + endMin;
-
-                    if (currentTime >= startTime && currentTime <= endTime) {
-                        event.style.borderLeft = '3px solid #4caf50';
-                        event.style.background = 'rgba(76, 175, 80, 0.15)';
-                        hasActiveEvent = true;
-                    } else {
-                        event.style.borderLeft = '3px solid #333';
-                        event.style.background = '#1a1a1a';
-                    }
-                }
-            });
-
-            const nowBanner = document.getElementById('nowBanner');
-            if (!hasActiveEvent) {
-                nowBanner.innerHTML = '📅 Próximos eventos';
-                nowBanner.style.background = '#1a1a2e';
-            }
-        }
-
-        updateNowBanner();
-        setInterval(updateNowBanner, 60000);
-    </script>
 </body>
 </html>
