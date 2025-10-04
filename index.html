@@ -2,9 +2,31 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TrendBoosters 2025 | Universidad Santo Tomás</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="TrendBoosters 2025 - Evento de mercadeo, tendencias y emprendimiento. Universidad Santo Tomás, 10 de Noviembre, entrada gratuita.">
+    <meta name="keywords" content="TrendBoosters, mercadeo, tendencias, emprendimiento, Universidad Santo Tomás, evento gratuito, Bogotá">
+    <meta name="author" content="Facultad de Mercadeo - Universidad Santo Tomás">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="TrendBoosters 2025 | Universidad Santo Tomás">
+    <meta property="og:description" content="Un espacio único para conectar con profesionales, marcas y creadores de contenido. Evento gratuito el 10 de Noviembre.">
+    <meta property="og:type" content="event">
+    <meta property="og:url" content="https://markffrank22.github.io/trend-boosters/">
+    <meta property="og:image" content="https://i.ibb.co/NgcHG5HX/347677343-944979920037920-8818329463793212604-n.jpg">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="TrendBoosters 2025 | Universidad Santo Tomás">
+    <meta name="twitter:description" content="Un espacio único para conectar con profesionales, marcas y creadores de contenido.">
+    <meta name="twitter:image" content="https://i.ibb.co/NgcHG5HX/347677343-944979920037920-8818329463793212604-n.jpg">
+    
+    <!-- Preload Critical Images -->
+    <link rel="preload" as="image" href="https://i.ibb.co/NgcHG5HX/347677343-944979920037920-8818329463793212604-n.jpg">
+    <link rel="preload" as="image" href="https://i.ibb.co/C5khhh8V/Screenshot-2025-09-29-at-11-41-33-PM.png">
+    <link rel="preload" as="image" href="https://i.ibb.co/JWsdRnjv/348464562-2439157062913459-679452860965265455-n.jpg">
     
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F82MVG4WR9"></script>
@@ -42,6 +64,7 @@
             display: flex;
             animation: scroll 15s linear infinite;
             white-space: nowrap;
+            will-change: transform;
         }
 
         .rolling-text {
@@ -93,6 +116,7 @@
                 radial-gradient(circle at 15% 85%, rgba(20, 0, 0, 0.9) 0%, transparent 42%);
             animation: extremeLavaLamp 15s ease-in-out infinite;
             filter: blur(70px);
+            will-change: transform;
         }
 
         @keyframes extremeLavaLamp {
@@ -184,7 +208,7 @@
         }
 
         .hero-title {
-            font-size: clamp(3em, 10vw, 7em);
+            font-size: clamp(2.5rem, 8vw + 1rem, 7rem);
             font-weight: 900;
             margin-bottom: 0;
             letter-spacing: -2px;
@@ -192,7 +216,7 @@
         }
 
         .hero-subtitle {
-            font-size: clamp(2em, 6vw, 4em);
+            font-size: clamp(1.5rem, 5vw + 0.5rem, 4rem);
             font-weight: 300;
             margin-bottom: 40px;
             display: flex;
@@ -245,6 +269,11 @@
             background: transparent;
             color: #fff;
             transform: translateY(-2px);
+        }
+
+        .cta-button:focus {
+            outline: 2px solid #fff;
+            outline-offset: 2px;
         }
 
         .section {
@@ -332,6 +361,11 @@
             transform: scale(1.05);
         }
 
+        .pillar-card:focus-within {
+            outline: 2px solid #fff;
+            outline-offset: 2px;
+        }
+
         .pillar-front {
             position: absolute;
             width: 100%;
@@ -362,6 +396,7 @@
             background: rgba(0, 0, 0, 0.95);
             color: #fff;
             overflow-y: auto;
+            backdrop-filter: blur(10px);
         }
 
         .pillar-card:hover .pillar-front {
@@ -396,81 +431,128 @@
             background: linear-gradient(135deg, #a78bfa 0%, #c4b5fd 100%);
         }
 
-        .agenda-section {
+        /* Nueva sección de speakers horizontal */
+        .speakers-section {
             background: #2a2a3e;
             padding: 100px 20px;
         }
 
-        .agenda-container {
-            max-width: 1000px;
+        .speakers-container {
+            max-width: 1400px;
             margin: 0 auto;
         }
 
-        .speaker-card {
-            display: block;
-            text-decoration: none;
-            color: inherit;
+        .speaker-horizontal-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            margin-bottom: 60px;
             border-radius: 20px;
             overflow: hidden;
-            margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
         }
 
-        .speaker-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        .speaker-horizontal-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
         }
 
-        .speaker-card-content {
-            display: grid;
-            grid-template-columns: 350px 1fr;
-            gap: 0;
-            align-items: stretch;
+        .speaker-horizontal-card:focus {
+            outline: 2px solid #fff;
+            outline-offset: 2px;
         }
 
-        .speaker-image {
+        /* Versión reverse para alternar el layout */
+        .speaker-horizontal-card.reverse {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .speaker-horizontal-card.reverse .speaker-image-container {
+            order: 2;
+        }
+
+        .speaker-horizontal-card.reverse .speaker-content {
+            order: 1;
+        }
+
+        .speaker-image-container {
+            position: relative;
+            overflow: hidden;
+            min-height: 300px;
+        }
+
+        .speaker-horizontal-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.3s ease;
         }
 
-        .speaker-info {
-            padding: 40px 50px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+        .speaker-horizontal-card:hover .speaker-horizontal-image {
+            transform: scale(1.05);
         }
 
-        .speaker-card.paramo .speaker-info {
-            background: #4a4a4a;
+        .speaker-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            padding: 40px 30px 30px;
+            color: white;
         }
 
-        .speaker-card.capsula .speaker-info {
-            background: #5a7a8a;
-        }
-
-        .speaker-name {
-            font-size: 2em;
-            font-weight: 700;
+        .speaker-overlay-name {
+            font-size: 2.5em;
+            font-weight: 800;
             margin-bottom: 10px;
-            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
-        .speaker-instagram {
+        .speaker-overlay-instagram {
             display: flex;
             align-items: center;
             gap: 8px;
-            font-size: 1em;
-            color: #fff;
-            opacity: 0.95;
-            margin-bottom: 20px;
+            font-size: 1.1em;
+            opacity: 0.9;
         }
 
-        .speaker-description {
-            font-size: 1.05em;
-            line-height: 1.7;
+        .speaker-content {
+            padding: 50px 40px;
+            background: #3a3a4e;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: white;
+        }
+
+        .speaker-description-main {
+            font-size: 1.3em;
+            line-height: 1.6;
+            margin-bottom: 25px;
             color: #fff;
+            font-weight: 400;
+        }
+
+        .speaker-description-secondary {
+            font-size: 1.1em;
+            line-height: 1.7;
+            color: #e0e0e0;
             opacity: 0.9;
+        }
+
+        /* Nuevo estilo para texto destacado */
+        .highlight {
+            background: #fff;
+            color: #000;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+            white-space: nowrap;
         }
 
         .agenda-notice {
@@ -605,6 +687,7 @@
             display: flex;
             animation: sponsorScroll 15s linear infinite;
             gap: 60px;
+            will-change: transform;
         }
 
         .sponsor-logo {
@@ -638,13 +721,16 @@
             font-size: 0.95em;
         }
 
+        /* Mejoras en responsive design */
         @media (max-width: 968px) {
             .about-grid {
                 grid-template-columns: 1fr;
+                gap: 40px;
             }
 
             .pillars-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
             }
 
             .pillar-card {
@@ -671,27 +757,50 @@
                 left: 20px;
             }
 
-            .speaker-card-content {
+            /* Responsive para speakers horizontales */
+            .speaker-horizontal-card,
+            .speaker-horizontal-card.reverse {
                 grid-template-columns: 1fr;
+                margin-bottom: 40px;
             }
-
-            .speaker-image {
-                width: 100%;
-                height: 250px;
+            
+            .speaker-horizontal-card.reverse .speaker-image-container,
+            .speaker-horizontal-card.reverse .speaker-content {
+                order: initial;
+            }
+            
+            .speaker-overlay-name {
+                font-size: 2em;
+            }
+            
+            .speaker-content {
+                padding: 35px 30px;
+            }
+            
+            .speaker-description-main {
+                font-size: 1.1em;
+            }
+            
+            .speaker-description-secondary {
+                font-size: 1em;
             }
         }
 
         @media (max-width: 640px) {
             .pillars-grid {
                 grid-template-columns: 1fr;
+                gap: 15px;
             }
 
             .rolling-banner {
                 font-size: 0.9em;
+                padding: 12px 0;
             }
 
             .bottom-image-label {
                 font-size: 1.2em;
+                bottom: 15px;
+                left: 15px;
             }
 
             .agenda-notice {
@@ -701,23 +810,104 @@
             .agenda-notice h3 {
                 font-size: 1.6em;
             }
+
+            .hero-content {
+                padding: 20px 15px;
+                gap: 30px;
+            }
+
+            .cta-button {
+                padding: 15px 35px;
+                font-size: 1em;
+            }
+
+            /* Responsive móvil para speakers */
+            .speaker-overlay {
+                padding: 25px 20px 20px;
+            }
+            
+            .speaker-overlay-name {
+                font-size: 1.6em;
+            }
+            
+            .speaker-overlay-instagram {
+                font-size: 0.95em;
+            }
+            
+            .speaker-content {
+                padding: 25px 20px;
+            }
+            
+            .speaker-description-main {
+                font-size: 1em;
+                margin-bottom: 20px;
+            }
+            
+            .speaker-description-secondary {
+                font-size: 0.95em;
+            }
+            
+            .highlight {
+                padding: 1px 4px;
+                font-size: 0.95em;
+            }
+        }
+
+        /* Mejoras de accesibilidad */
+        @media (prefers-reduced-motion: reduce) {
+            .rolling-content,
+            .sponsors-scroll,
+            .hero::after {
+                animation: none;
+            }
+            
+            .pillar-card,
+            .bottom-image-card,
+            .speaker-horizontal-card,
+            .cta-button {
+                transition: none;
+            }
+        }
+
+        /* Mejoras para modo oscuro */
+        @media (prefers-color-scheme: dark) {
+            .faq-section {
+                background: #1a1a1a;
+            }
+            
+            .faq-title {
+                color: #fff;
+            }
+            
+            .faq-item {
+                background: #2a2a2a;
+                border: 1px solid #333;
+            }
+            
+            .faq-question-text {
+                color: #fff;
+            }
+            
+            .faq-answer-simple {
+                color: #ccc;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="rolling-banner">
+    <div class="rolling-banner" role="banner" aria-label="Información del evento">
         <div class="rolling-content">
-            <div class="rolling-text">↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓</div>
-            <div class="rolling-text">↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓</div>
+            <div class="rolling-text">↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓</div>
+            <div class="rolling-text">↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓</div>
         </div>
     </div>
     
-    <section class="hero">
+    <section class="hero" aria-labelledby="hero-title">
         <div class="hero-content">
             <div class="hero-main">
                 <div class="hero-top">Estudiantes de la <strong>Facultad de Mercadeo de la SantoTo</strong> presentan:</div>
-                <h1 class="hero-title">Trend</h1>
-                <h2 class="hero-subtitle"><span class="rocket-icon">🚀</span> Boosters</h2>
+                <h1 id="hero-title" class="hero-title">Trend</h1>
+                <h2 class="hero-subtitle"><span class="rocket-icon" role="img" aria-label="cohete">🚀</span> Boosters</h2>
                 
                 <div class="hero-info">
                     <div class="info-item">
@@ -726,69 +916,86 @@
                     </div>
                 </div>
 
-                <a href="https://www.eventbrite.com/e/trendboosters-tickets-1439883172329" class="cta-button" target="_blank">
+                <a href="https://www.eventbrite.com/e/trendboosters-tickets-1439883172329" 
+                   class="cta-button" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   aria-label="Registrarse para TrendBoosters en Eventbrite (abre en nueva ventana)">
                     Asegura tu cupo presencial →
                 </a>
                 <p style="margin-top: 15px; font-size: 0.9em; opacity: 0.8;">Evento gratis y abierto al público</p>
 
                 <div class="hero-info" style="margin-top: 30px;">
                     <div class="info-item">
-                        <div class="info-value" style="font-size: 1.1em;">Universidad Santo Tomás<br><strong style="font-size: 1.2em;">Campus Doctor Angélico</strong><br><span style="font-size: 0.9em; opacity: 0.8;">Cra 9 #72-90</span></div>
+                        <div class="info-value" style="font-size: 1.1em;">Universidad Santo Tomás<br><strong style="font-size: 1.2em;">Campus Doctor Angélico</strong><br><span style="font-size: 0.9em; opacity: 0.8;">Carrera 9 #51-11, Bogotá</span></div>
                     </div>
                 </div>
             </div>
 
             <div class="hero-images-bottom">
                 <div class="bottom-image-card">
-                    <img src="https://i.ibb.co/NgcHG5HX/347677343-944979920037920-8818329463793212604-n.jpg" alt="Charlas">
+                    <img src="https://i.ibb.co/NgcHG5HX/347677343-944979920037920-8818329463793212604-n.jpg" 
+                         alt="Charlas con expertos en marketing y tendencias" 
+                         width="400" 
+                         height="225">
                     <div class="bottom-image-label">Charlas</div>
                 </div>
                 <div class="bottom-image-card">
-                    <img src="https://i.ibb.co/C5khhh8V/Screenshot-2025-09-29-at-11-41-33-PM.png" alt="Talleres">
+                    <img src="https://i.ibb.co/C5khhh8V/Screenshot-2025-09-29-at-11-41-33-PM.png" 
+                         alt="Talleres prácticos de marketing digital" 
+                         width="400" 
+                         height="225">
                     <div class="bottom-image-label">Talleres</div>
                 </div>
                 <div class="bottom-image-card">
-                    <img src="https://i.ibb.co/JWsdRnjv/348464562-2439157062913459-679452860965265455-n.jpg" alt="Activaciones">
+                    <img src="https://i.ibb.co/JWsdRnjv/348464562-2439157062913459-679452860965265455-n.jpg" 
+                         alt="Activaciones de marca y networking" 
+                         width="400" 
+                         height="225">
                     <div class="bottom-image-label">Activaciones</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="about-section">
+    <section class="about-section" aria-labelledby="about-title">
         <div class="about-grid">
             <div class="about-text">
-                <h2>¿Qué es TrendBoosters?</h2>
-                <p>Un evento creado y gestionado por estudiantes de la Facultad de Mercadeo de la Universidad Santo Tomás. Un espacio único para conectar con profesionales, marcas y creadores de contenido, compartir experiencias, ideas y descubrir oportunidades que transforman el futuro.</p>
+                <h2 id="about-title">¿Qué es TrendBoosters?</h2>
+                <p>Un evento creado y gestionado por estudiantes de la Facultad de Mercadeo de la Universidad Santo Tomás. Un espacio único para conectar con profesionales, marcas y creadores de contenido que están definiendo el futuro del marketing y las tendencias.</p>
             </div>
             <div class="about-image">
-                <img src="https://i.ibb.co/xSdd3rzW/Nuestros-estudiantes-y-docentes-Tomasinos-celebrando-el-di-a-del-Mercado-logo-19-de-mayo-en-su-cl.jpg" alt="TrendBoosters Event" style="border-radius: 20px;">
+                <img src="https://i.ibb.co/xSdd3rzW/Nuestros-estudiantes-y-docentes-Tomasinos-celebrando-el-di-a-del-Mercado-logo-19-de-mayo-en-su-cl.jpg" 
+                     alt="Estudiantes y docentes de la Universidad Santo Tomás celebrando el día del Marketing" 
+                     loading="lazy"
+                     width="600" 
+                     height="400">
             </div>
         </div>
     </section>
 
-    <section class="pillars-section">
-        <h2 class="section-title">Ejes Temáticos</h2>
-        <div class="pillars-grid">
-            <div class="pillar-card">
+    <section class="pillars-section" aria-labelledby="pillars-title">
+        <h2 id="pillars-title" class="section-title">Ejes Temáticos</h2>
+        <div class="pillars-grid" role="list">
+            <div class="pillar-card" role="listitem" tabindex="0">
                 <div class="pillar-front">Profesionalismo</div>
                 <div class="pillar-back">
                     <p>Cada profesional tiene su propia forma de aportar, y en nuestra diversidad encontramos caminos únicos para resolver desafíos y crear valor juntos.</p>
                 </div>
             </div>
-            <div class="pillar-card">
+            <div class="pillar-card" role="listitem" tabindex="0">
                 <div class="pillar-front">Comunidad</div>
                 <div class="pillar-back">
                     <p>Al reunir personas con objetivos y pasiones similares, impulsamos la creación de redes capaces de fortalecer y expandir cualquier marca o proyecto.</p>
                 </div>
             </div>
-            <div class="pillar-card">
+            <div class="pillar-card" role="listitem" tabindex="0">
                 <div class="pillar-front">Tendencias</div>
                 <div class="pillar-back">
                     <p>Las tendencias marcan el presente y preparan el terreno para el futuro, facilitando la adaptación en un mundo en constante cambio.</p>
                 </div>
             </div>
-            <div class="pillar-card">
+            <div class="pillar-card" role="listitem" tabindex="0">
                 <div class="pillar-front">Emprendimiento</div>
                 <div class="pillar-back">
                     <p>Una idea genuina puede transformarse en acciones que marcan la vida y el entorno de quienes se atreven a emprender.</p>
@@ -797,40 +1004,78 @@
         </div>
     </section>
 
-    <section class="agenda-section">
-        <div class="agenda-container">
-            <h2 class="section-title">Speakers</h2>
+    <!-- Nueva sección de speakers horizontal con enlaces -->
+    <section class="speakers-section" aria-labelledby="speakers-title">
+        <div class="speakers-container">
+            <h2 id="speakers-title" class="section-title">Speakers</h2>
             
-            <a href="https://www.instagram.com/paramopresenta/" target="_blank" class="speaker-card paramo">
-                <div class="speaker-card-content">
-                    <img src="https://i.ibb.co/HDg1BKpB/pramo-presenta1-cover.jpg" alt="Páramo Presenta" class="speaker-image">
-                    <div class="speaker-info">
-                        <h3 class="speaker-name">Páramo Presenta</h3>
-                        <div class="speaker-instagram">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            <!-- Páramo Presenta -->
+            <a href="https://www.instagram.com/paramopresenta/" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="speaker-horizontal-card" 
+               aria-label="Visitar Instagram de Páramo Presenta (abre en nueva ventana)">
+                <div class="speaker-image-container">
+                    <img src="https://i.ibb.co/HDg1BKpB/pramo-presenta1-cover.jpg" 
+                         alt="Páramo Presenta - Promotora musical colombiana" 
+                         class="speaker-horizontal-image"
+                         loading="lazy"
+                         width="700" 
+                         height="400">
+                    <div class="speaker-overlay">
+                        <h3 class="speaker-overlay-name">Páramo Presenta</h3>
+                        <div class="speaker-overlay-instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.848 0 3.204-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
                             @paramopresenta
                         </div>
-                        <p class="speaker-description">La promotora musical colombiana que ha reinventado la audiencia en vivo en Latinoamérica. Nacida de la pasión por la música, hoy es responsable de festivales icónicos como Estéreo Picnic, Baum Festival, Festival Cordillera.</p>
-                        <p class="speaker-description" style="margin-top: 10px;">Con el respaldo de Live Nation y más de una década construyendo sueños sobre escenarios, Páramo Presenta no solo organiza eventos, crea recuerdos que quedan para siempre.</p>
                     </div>
+                </div>
+                <div class="speaker-content">
+                    <p class="speaker-description-main">
+                        La promotora musical colombiana que ha reinventado la experiencia en vivo en Latinoamérica. Nacida de la pasión por la música, hoy es responsable de festivales icónicos como <span class="highlight">Estéreo Picnic</span>, <span class="highlight">Baum Festival</span>, <span class="highlight">Festival Cordillera</span>.
+                    </p>
+                    <p class="speaker-description-secondary">
+                        Con el respaldo de Live Nation y más de una década construyendo sueños sobre escenarios, Páramo Presenta no solo organiza eventos, crea recuerdos que quedan para siempre.
+                    </p>
                 </div>
             </a>
 
-            <a href="https://www.instagram.com/capsula.lc/" target="_blank" class="speaker-card capsula">
-                <div class="speaker-card-content">
-                    <img src="https://i.ibb.co/9H9HZCWR/Screenshot-2025-10-03-at-4-06-01-PM.png" alt="Cápsula Laboratorio Creativo" class="speaker-image">
-                    <div class="speaker-info">
-                        <h3 class="speaker-name">Cápsula Laboratorio Creativo</h3>
-                        <div class="speaker-instagram">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            <!-- Cápsula Laboratorio Creativo -->
+            <a href="https://www.instagram.com/capsula.lc/" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="speaker-horizontal-card reverse" 
+               aria-label="Visitar Instagram de Cápsula Laboratorio Creativo (abre en nueva ventana)">
+                <div class="speaker-image-container">
+                    <img src="https://i.ibb.co/9H9HZCWR/Screenshot-2025-10-03-at-4-06-01-PM.png" 
+                         alt="Cápsula Laboratorio Creativo - Agencia de marketing digital" 
+                         class="speaker-horizontal-image"
+                         loading="lazy"
+                         width="700" 
+                         height="400">
+                    <div class="speaker-overlay">
+                        <h3 class="speaker-overlay-name">Cápsula Laboratorio Creativo</h3>
+                        <div class="speaker-overlay-instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.848 0 3.204-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
                             @capsula.lc
                         </div>
-                        <p class="speaker-description">Cápsula ha revolucionado la forma de conectar marcas con audiencias a través de ideas frescas, estrategia y producción audiovisual de alto impacto.</p>
-                        <p class="speaker-description" style="margin-top: 10px;">Han trabajado con clientes como Saúl, Ford, Volkswagen, Laika, Codere, Rappi, entre otros. Llevando a cada proyecto experiencias creativas que inspiran y transforman.</p>
                     </div>
+                </div>
+                <div class="speaker-content">
+                    <p class="speaker-description-main">
+                        Cápsula ha revolucionado la forma de conectar marcas con audiencias a través de ideas frescas, estrategia y producción audiovisual de alto impacto.
+                    </p>
+                    <p class="speaker-description-secondary">
+                        Han trabajado con clientes como <span class="highlight">Sajú</span>, <span class="highlight">Ford</span>, <span class="highlight">Volkswagen</span>, <span class="highlight">Laika</span>, <span class="highlight">Codere</span>, <span class="highlight">Rappi</span>, entre otros. Llevando a cada proyecto experiencias memorables que generan vínculos emocionales duraderos.
+                    </p>
                 </div>
             </a>
 
+            <!-- Aviso de agenda -->
             <div class="agenda-notice">
                 <h3>Agenda del evento</h3>
                 <h3 style="font-size: 1.8em; margin-top: 10px;">Estamos cerrando unos detalles.</h3>
@@ -843,15 +1088,15 @@
         </div>
     </section>
 
-    <section class="faq-section">
+    <section class="faq-section" aria-labelledby="faq-title">
         <div class="faq-container">
             <div class="faq-header">
-                <h2 class="faq-title">Respondemos tus dudas</h2>
+                <h2 id="faq-title" class="faq-title">Respondemos tus dudas</h2>
             </div>
-            <div class="faq-list">
-                <div class="faq-item">
+            <div class="faq-list" role="list">
+                <div class="faq-item" role="listitem">
                     <div class="faq-question-simple">
-                        <span class="faq-icon">👥</span>
+                        <span class="faq-icon" role="img" aria-label="personas">👥</span>
                         <span class="faq-question-text">¿Quiénes pueden asistir?</span>
                     </div>
                     <div class="faq-answer-simple">
@@ -859,9 +1104,9 @@
                     </div>
                 </div>
 
-                <div class="faq-item">
+                <div class="faq-item" role="listitem">
                     <div class="faq-question-simple">
-                        <span class="faq-icon">💰</span>
+                        <span class="faq-icon" role="img" aria-label="dinero">💰</span>
                         <span class="faq-question-text">¿Tiene algún costo la entrada?</span>
                     </div>
                     <div class="faq-answer-simple">
@@ -869,9 +1114,9 @@
                     </div>
                 </div>
 
-                <div class="faq-item">
+                <div class="faq-item" role="listitem">
                     <div class="faq-question-simple">
-                        <span class="faq-icon">🎟️</span>
+                        <span class="faq-icon" role="img" aria-label="ticket">🎟️</span>
                         <span class="faq-question-text">¿Qué incluye la inscripción?</span>
                     </div>
                     <div class="faq-answer-simple">
@@ -879,9 +1124,9 @@
                     </div>
                 </div>
 
-                <div class="faq-item">
+                <div class="faq-item" role="listitem">
                     <div class="faq-question-simple">
-                        <span class="faq-icon">⏰</span>
+                        <span class="faq-icon" role="img" aria-label="reloj">⏰</span>
                         <span class="faq-question-text">¿Por qué se solicita la jornada de asistencia?</span>
                     </div>
                     <div class="faq-answer-simple">
@@ -889,9 +1134,9 @@
                     </div>
                 </div>
 
-                <div class="faq-item">
+                <div class="faq-item" role="listitem">
                     <div class="faq-question-simple">
-                        <span class="faq-icon">🔒</span>
+                        <span class="faq-icon" role="img" aria-label="candado">🔒</span>
                         <span class="faq-question-text">¿Existe registro especial o requisitos para el acceso?</span>
                     </div>
                     <div class="faq-answer-simple">
@@ -902,33 +1147,88 @@
         </div>
     </section>
 
-    <section class="cta-section">
+    <section class="cta-section" aria-labelledby="cta-title">
         <div class="cta-content">
-            <h2>¿Listo para la experiencia?</h2>
+            <h2 id="cta-title">¿Listo para la experiencia?</h2>
             <p>No te pierdas esta oportunidad única de conectar con líderes, aprender de expertos y ser parte de una comunidad que está construyendo el futuro.</p>
-            <a href="https://www.eventbrite.com/e/trendboosters-tickets-1439883172329" class="cta-button" target="_blank" style="font-size: 1.2em; padding: 20px 60px;">
+            <a href="https://www.eventbrite.com/e/trendboosters-tickets-1439883172329" 
+               class="cta-button" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               style="font-size: 1.2em; padding: 20px 60px;"
+               aria-label="Reservar cupo para TrendBoosters en Eventbrite (abre en nueva ventana)">
                 Reserva tu cupo aquí →
             </a>
         </div>
     </section>
 
-    <section class="sponsors-section">
-        <h2 class="sponsors-title">Evento con talento de:</h2>
-        <div class="sponsors-scroll">
-            <img src="https://i.ibb.co/d4pVkwkR/Logo-Santoto-SP-Bogota-horizontal-positivo.png" alt="Universidad Santo Tomás" class="sponsor-logo">
-            <img src="https://i.ibb.co/d4pVkwkR/Logo-Santoto-SP-Bogota-horizontal-positivo.png" alt="Universidad Santo Tomás" class="sponsor-logo">
-            <img src="https://i.ibb.co/d4pVkwkR/Logo-Santoto-SP-Bogota-horizontal-positivo.png" alt="Universidad Santo Tomás" class="sponsor-logo">
-            <img src="https://i.ibb.co/d4pVkwkR/Logo-Santoto-SP-Bogota-horizontal-positivo.png" alt="Universidad Santo Tomás" class="sponsor-logo">
-            <img src="https://i.ibb.co/d4pVkwkR/Logo-Santoto-SP-Bogota-horizontal-positivo.png" alt="Universidad Santo Tomás" class="sponsor-logo">
-            <img src="https://i.ibb.co/d4pVkwkR/Logo-Santoto-SP-Bogota-horizontal-positivo.png" alt="Universidad Santo Tomás" class="sponsor-logo">
-            <img src="https://i.ibb.co/d4pVkwkR/Logo-Santoto-SP-Bogota-horizontal-positivo.png" alt="Universidad Santo Tomás" class="sponsor-logo">
-            <img src="https://i.ibb.co/d4pVkwkR/Logo-Santoto-SP-Bogota-horizontal-positivo.png" alt="Universidad Santo Tomás" class="sponsor-logo">
-            <img src="https://i.ibb.co/d4pVkwkR/Logo-Santoto-SP-Bogota-horizontal-positivo.png" alt="Universidad Santo Tomás" class="sponsor-logo">
-            <img src="https://i.ibb.co/d4pVkwkR/Logo-Santoto-SP-Bogota-horizontal-positivo.png" alt="Universidad Santo Tomás" class="sponsor-logo">
+    <section class="sponsors-section" aria-labelledby="sponsors-title">
+        <h2 id="sponsors-title" class="sponsors-title">Evento con talento de:</h2>
+        <div class="sponsors-scroll" role="img" aria-label="Logos de patrocinadores en carrusel">
+            <img src="https://i.ibb.co/d4pVkwkR/Logo-Santoto-SP-Bogota-horizontal-positivo.png" 
+                 alt="Universidad Santo Tomás" 
+                 class="sponsor-logo"
+                 loading="lazy"
+                 width="200" 
+                 height="60">
+            <img src="https://i.ibb.co/d4pVkwkR/Logo-Santoto-SP-Bogota-horizontal-positivo.png" 
+                 alt="Universidad Santo Tomás" 
+                 class="sponsor-logo"
+                 loading="lazy"
+                 width="200" 
+                 height="60">
+            <img src="https://i.ibb.co/d4pVkwkR/Logo-Santoto-SP-Bogota-horizontal-positivo.png" 
+                 alt="Universidad Santo Tomás" 
+                 class="sponsor-logo"
+                 loading="lazy"
+                 width="200" 
+                 height="60">
+            <img src="https://i.ibb.co/d4pVkwkR/Logo-Santoto-SP-Bogota-horizontal-positivo.png" 
+                 alt="Universidad Santo Tomás" 
+                 class="sponsor-logo"
+                 loading="lazy"
+                 width="200" 
+                 height="60">
+            <img src="https://i.ibb.co/d4pVkwkR/Logo-Santoto-SP-Bogota-horizontal-positivo.png" 
+                 alt="Universidad Santo Tomás" 
+                 class="sponsor-logo"
+                 loading="lazy"
+                 width="200" 
+                 height="60">
+            <img src="https://i.ibb.co/d4pVkwkR/Logo-Santoto-SP-Bogota-horizontal-positivo.png" 
+                 alt="Universidad Santo Tomás" 
+                 class="sponsor-logo"
+                 loading="lazy"
+                 width="200" 
+                 height="60">
+            <img src="https://i.ibb.co/d4pVkwkR/Logo-Santoto-SP-Bogota-horizontal-positivo.png" 
+                 alt="Universidad Santo Tomás" 
+                 class="sponsor-logo"
+                 loading="lazy"
+                 width="200" 
+                 height="60">
+            <img src="https://i.ibb.co/d4pVkwkR/Logo-Santoto-SP-Bogota-horizontal-positivo.png" 
+                 alt="Universidad Santo Tomás" 
+                 class="sponsor-logo"
+                 loading="lazy"
+                 width="200" 
+                 height="60">
+            <img src="https://i.ibb.co/d4pVkwkR/Logo-Santoto-SP-Bogota-horizontal-positivo.png" 
+                 alt="Universidad Santo Tomás" 
+                 class="sponsor-logo"
+                 loading="lazy"
+                 width="200" 
+                 height="60">
+            <img src="https://i.ibb.co/d4pVkwkR/Logo-Santoto-SP-Bogota-horizontal-positivo.png" 
+                 alt="Universidad Santo Tomás" 
+                 class="sponsor-logo"
+                 loading="lazy"
+                 width="200" 
+                 height="60">
         </div>
     </section>
 
-    <footer>
+    <footer role="contentinfo">
         <p>Organizado por estudiantes de la Facultad de Mercadeo | @mercadeosantoto</p>
     </footer>
 </body>
