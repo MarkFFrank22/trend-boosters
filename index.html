@@ -31,6 +31,7 @@
     <meta name="twitter:image" content="https://i.ibb.co/NgcHG5HX/347677343-944979920037920-8818329463793212604-n.jpg">
     
     <!-- Preload Critical Images -->
+     <link rel="preload" as="image" href="https://i.ibb.co/wr7NLhSy/logobase.png">
     <link rel="preload" as="image" href="https://i.ibb.co/3YTjZ5H1/2expertos.png">
     <link rel="preload" as="image" href="hhttps://i.ibb.co/pjVGvYJt/talleres2.png">
     <link rel="preload" as="image" href="https://i.ibb.co/zW1Yk3b8/1activaciones-de-marca.png">
@@ -167,7 +168,37 @@
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
+        .hero-logo {
+            max-width: 400px;
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
+            transition: transform 0.3s ease;
+        }
 
+        .hero-logo:hover {
+            transform: scale(1.05);
+        }
+
+        /* Responsive para el logo */
+        @media (max-width: 768px) {
+            .hero-logo {
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-logo {
+                max-width: 250px;
+            }
+        }
+
+        /* Oculta los títulos de texto originales */
+        .hero-title, .hero-subtitle {
+            display: none;
+        }
+        
         .hero {
             min-height: 100vh;
             background: linear-gradient(135deg, #000000 0%, #c41e3a 100%);
@@ -496,19 +527,19 @@
         }
 
         .pillar-card:nth-child(1) .pillar-front {
-            background: linear-gradient(135deg, #e74c5c 0%, #ff6b6b 100%);
+            background: linear-gradient(135deg, #3A7BD5 0%, #3A6073 100%);
         }
 
         .pillar-card:nth-child(2) .pillar-front {
-            background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+            background: linear-gradient(135deg, #43CEA2 0%, #185A9D 100%);
         }
 
         .pillar-card:nth-child(3) .pillar-front {
-            background: linear-gradient(135deg, #5abfb8 0%, #7dd3c0 100%);
+            background: linear-gradient(135deg, #56AB2F 0%, #A8E063 100%);
         }
 
         .pillar-card:nth-child(4) .pillar-front {
-            background: linear-gradient(135deg, #a78bfa 0%, #c4b5fd 100%);
+            background: linear-gradient(135deg, #FF9966 0%, #FF5E62 100%);
         }
 
         /* Nueva sección de speakers horizontal */
@@ -978,13 +1009,14 @@
         </div>
     </div>
     
-    <section class="hero" aria-labelledby="hero-title">
+      <section class="hero" aria-labelledby="hero-title">
         <div class="hero-content">
             <div class="hero-main">
                 <div class="hero-top">Estudiantes de la <strong>Facultad de Mercadeo de la SantoTo</strong> presentan:</div>
-                <h1 id="hero-title" class="hero-title">Trend</h1>
-                <h2 class="hero-subtitle"><span class="rocket-icon" role="img" aria-label="cohete">🚀</span> Boosters</h2>
-                
+                <img src="https://i.ibb.co/wr7NLhSy/logobase.png" 
+                     alt="TrendBoosters 2025" 
+                     class="hero-logo"
+                     loading="eager">       
                 <div class="hero-info">
                     <div class="info-item">
                         <div class="info-value" style="font-size: 1.6em;">Lunes, 10 de Noviembre</div>
