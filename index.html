@@ -33,7 +33,7 @@
     <!-- Preload Critical Images -->
      <link rel="preload" as="image" href="https://i.ibb.co/wr7NLhSy/logobase.png">
     <link rel="preload" as="image" href="https://i.ibb.co/3YTjZ5H1/2expertos.png">
-    <link rel="preload" as="image" href="hhttps://i.ibb.co/pjVGvYJt/talleres2.png">
+    <link rel="preload" as="image" href="https://i.ibb.co/pjVGvYJt/talleres2.png">
     <link rel="preload" as="image" href="https://i.ibb.co/zW1Yk3b8/1activaciones-de-marca.png">
     
 <!-- Google tag (gtag.js) - CONFIGURACIÓN MEJORADA -->
@@ -226,16 +226,16 @@
             width: 500%;
             height: 500%;
             background-image: 
-                radial-gradient(circle at 20% 30%, rgba(0, 0, 0, 0.9) 0%, transparent 30%),
-                radial-gradient(circle at 80% 70%, rgba(10, 0, 0, 0.8) 0%, transparent 30%),
-                radial-gradient(circle at 40% 80%, #1e0000e6 0%, transparent 35%),
-                radial-gradient(circle at 90% 20%, #1e0000e6 0%, transparent 40%),
+                radial-gradient(circle at 20% 30%, #000000e6 0%, transparent 30%),
+                radial-gradient(circle at 80% 70%, #0a0000cc 0%, transparent 30%),
+                radial-gradient(circle at 40% 80%, #400101e6 0%, transparent 35%),
+                radial-gradient(circle at 90% 20%, #340000e6 0%, transparent 40%),
                 radial-gradient(circle at 50% 50%, #cd3333 0%, transparent 45%),
-                radial-gradient(circle at 10% 60%, #1e0000e6 0%, transparent 45%),
-                radial-gradient(circle at 70% 40%, rgba(0, 0, 0, 0.7) 0%, transparent 35%),
-                radial-gradient(circle at 30% 10%, rgba(70, 3, 8, 0.8) 0%, transparent 40%),
-                radial-gradient(circle at 60% 90%, #cd3333 0%, transparent 38%),
-                radial-gradient(circle at 15% 85%, rgba(20, 0, 0, 0.9) 0%, transparent 42%);
+                radial-gradient(circle at 10% 60%, #cd3333 0%, transparent 45%),
+                radial-gradient(circle at 70% 40%, #862424 0%, transparent 35%),
+                radial-gradient(circle at 30% 10%, #460308cc 0%, transparent 40%),
+                radial-gradient(circle at 60% 90%, #460308cc 0%, transparent 38%),
+                radial-gradient(circle at 15% 85%, #140000e6 0%, transparent 42%);
             animation: extremeLavaLamp 15s ease-in-out infinite;
             filter: blur(70px);
             will-change: transform;
@@ -620,6 +620,26 @@
             gap: 8px;
             font-size: 1.1em;
             opacity: 0.9;
+        }
+        .speaker-overlay-linkedin {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 1.1em;
+        opacity: 0.9;
+        }
+        .speaker-overlay-website {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        .speaker-overlay-website svg {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            vertical-align: middle;
         }
 
      .speaker-content {
@@ -1108,6 +1128,38 @@
         <div class="speakers-container">
             <h2 id="speakers-title" class="section-title">Speakers</h2>
             
+            <!-- Google Developer Experts -->
+            <a href="https://gdg.community.dev/gdg-bogota/" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="speaker-horizontal-card reverse" 
+               aria-label="Visitar Website de Google Developer Experts (abre en nueva ventana)">
+                <div class="speaker-image-container">
+                    <img src="https://i.ibb.co/Q2pbDjz/google.jpg" 
+                         alt="Google Developer Experts - Comunidad de desarrolladores" 
+                         class="speaker-horizontal-image"
+                         loading="lazy"
+                         width="700" 
+                         height="400">
+                    <div class="speaker-overlay">
+                        <h3 class="speaker-overlay-name"></h3>
+                        <div class="speaker-overlay-website">
+                        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+                            <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm5.93 6h-3.197c-.136-1.499-.41-2.899-.808-4.008A8.042 8.042 0 0 1 17.93 8zM12 4.062c.355.782.658 1.97.843 3.938h-1.686c.184-1.967.488-3.156.843-3.938zm-2.924.93c-.398 1.108-.672 2.509-.808 4.008H5.07a8.042 8.042 0 0 1 4.006-4.008zM4.062 12c0-.699.079-1.378.218-2h3.41c-.048.66-.073 1.328-.073 2s.025 1.34.073 2h-3.41A7.937 7.937 0 0 1 4.062 12zm1.008 4h3.197c.136 1.499.41 2.899.808 4.008A8.042 8.042 0 0 1 5.07 16zm7.928 3.938c-.355-.782-.658-1.97-.843-3.938h1.686c-.184 1.967-.488 3.156-.843 3.938zM14.924 19.07c.398-1.108.672-2.509.808-4.008h3.197a8.042 8.042 0 0 1-4.005 4.008zM18.53 14h-3.41c.048-.66.073-1.328.073-2s-.025-1.34-.073-2h3.41c.14.622.218 1.301.218 2s-.078 1.378-.218 2zM12 20c-1.08 0-2.112-.172-3.07-.48.362-.926.632-2.161.773-3.52h4.594c.142 1.359.411 2.594.773 3.52A7.955 7.955 0 0 1 12 20z"/>
+                        </svg>
+                
+                        </div>
+                    </div>
+                </div>
+                <div class="speaker-content">
+                    <p class="speaker-description-main">
+                        <b> Haz crecer tu emprendimiento con la ayuda de la inteligencia artificial sin saber de código por Leonardo Del Valle</b> 
+                    </p>
+                    <p class="speaker-description-secondary">
+                    Descubre las fortalezas de creación de aplicaciones sin código, orientadas al negocio y que ayudan a acelerar los procesos de enfoque del desarrollo de empresas. En este taller aprenderás a utilizar las plantillas de AppSheet más adecuadas y rápidas integraciones con la nube de Google a través de Gemini 2.5 lite.                    </p>
+                </div>
+            </a>
+
             <!-- Páramo Presenta -->
             <a href="https://www.instagram.com/paramopresenta/" 
                target="_blank" 
@@ -1170,6 +1222,38 @@
                     </p>
                     <p class="speaker-description-secondary">
                         Han trabajado con clientes como <span class="highlight">Sajú</span>, <span class="highlight">Ford</span>, <span class="highlight">Volkswagen</span>, <span class="highlight">Laika</span>, <span class="highlight">Codere</span>, <span class="highlight">Rappi</span>, entre otros. Llevando a cada proyecto experiencias memorables que generan vínculos emocionales duraderos.
+                    </p>
+                </div>
+            </a>
+                        <!-- Simon Maya Ospina de Wingo -->
+            <a href="https://www.linkedin.com/in/simonmaya/" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="speaker-horizontal-card" 
+               aria-label="Visitar LinkedIn de Simon Maya Ospina (abre en nueva ventana)">
+                <div class="speaker-image-container">
+                    <img src="https://i.ibb.co/GvMCjxH7/SIMON-MAYA.webp" 
+                         alt="Simon Maya Ospina de Wingo - Experto en marketing digital" 
+                         class="speaker-horizontal-image"
+                         loading="lazy"
+                         width="700" 
+                         height="400">
+                    <div class="speaker-overlay">
+                        <h3 class="speaker-overlay-name">Simon Maya Ospina</h3>
+                        <div class="speaker-overlay-linkedin">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M19 0h-14C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM7 20H4v-9h3v9zm-1.5-10.25a1.75 1.75 0 1 1 0-3.5 1.75 1.75 0 0 1 0 3.5zm13.5 10.25h-3v-4.5c0-1.08-.02-2.48-1.51-2.48-1.51 0-1.74 1.18-1.74 2.4v4.58h-3v-9h2.88v1.23h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.59v4.74z"/>
+                    </svg>
+                    @simonmaya
+                    </div>
+                    </div>
+                </div>
+                <div class="speaker-content">
+                    <p class="speaker-description-main">
+                        Se unió a Wingo desde julio de 2021. Con amplia experiencia en branding, marketing digital, comunicaciones y expansión de negocios, ha liderado iniciativas clave para fortalecer la presencia de Wingo en <span class="highlight">Latinoamérica y el Caribe.</span>
+                    </p>
+                    <p class="speaker-description-secondary">
+                        Previamente, se desempeñó en roles estratégicos en empresas como DiDi, Avianca y Uber. Cuenta con una Maestría en Marketing Management del CESA, otra en Marketing & Trade Management de ESIC, y es Comunicador Social y Periodista de la Universidad Pontificia Bolivariana. 
                     </p>
                 </div>
             </a>
