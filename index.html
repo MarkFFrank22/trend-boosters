@@ -36,14 +36,14 @@
     <link rel="preload" as="image" href="https://i.ibb.co/pjVGvYJt/talleres2.png">
     <link rel="preload" as="image" href="https://i.ibb.co/zW1Yk3b8/1activaciones-de-marca.png">
     
-<!-- Google tag (gtag.js) - CONFIGURACIÓN MEJORADA -->
+<!-- Google tag (gtag.js) - CONFIGURACIÓN AVANZADA -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F82MVG4WR9"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         
-        // Configuración mejorada de Google Analytics 4
+        // Configuración avanzada de Google Analytics 4
         gtag('config', 'G-F82MVG4WR9', {
             // Enhanced Measurement para mejor seguimiento
             enhanced_measurement: true,
@@ -57,10 +57,13 @@
             // Permitir señales de personalización de anuncios
             allow_ad_personalization_signals: true,
             
-            // Configuración de dimensiones personalizadas
+            // Configuración de dimensiones personalizadas mejoradas
             custom_map: {
                 'custom_parameter_1': 'traffic_source_detail',
-                'custom_parameter_2': 'user_engagement_level'
+                'custom_parameter_2': 'user_engagement_level',
+                'custom_parameter_3': 'section_interaction',
+                'custom_parameter_4': 'scroll_depth',
+                'custom_parameter_5': 'session_quality'
             },
             
             // Configuración de conversiones
@@ -75,7 +78,7 @@
             page_location: window.location.href
         });
         
-        // Función para trackear eventos de conversión
+        // Función para trackear eventos de conversión mejorada
         function trackRegistration() {
             gtag('event', 'conversion', {
                 'send_to': 'G-F82MVG4WR9',
@@ -89,44 +92,131 @@
                 'event_category': 'conversion',
                 'event_label': 'eventbrite_registration',
                 'page_location': window.location.href,
-                'traffic_source_detail': document.referrer || 'direct'
+                'traffic_source_detail': document.referrer || 'direct',
+                'session_quality': 'high_intent'
             });
         }
         
-        // Función para trackear engagement con secciones
+        // Función para trackear engagement con secciones mejorada
         function trackSectionView(sectionName) {
             gtag('event', 'section_view', {
                 'event_category': 'engagement',
                 'event_label': sectionName,
-                'user_engagement_level': 'high'
+                'user_engagement_level': 'high',
+                'section_interaction': 'view'
             });
         }
         
-        // Auto-tracking de scroll profundo
+        // Nueva función para trackear navegación
+        function trackNavigation(destination) {
+            gtag('event', 'navigation_click', {
+                'event_category': 'navigation',
+                'event_label': destination,
+                'section_interaction': 'menu_click'
+            });
+        }
+        
+        // Nueva función para trackear interacciones con elementos
+        function trackElementInteraction(elementType, elementName) {
+            gtag('event', 'element_interaction', {
+                'event_category': 'engagement',
+                'event_label': elementType,
+                'value': elementName,
+                'section_interaction': 'click'
+            });
+        }
+        
+        // Auto-tracking de scroll profundo mejorado
         let scrollTracked = false;
+        let mediumScrollTracked = false;
         window.addEventListener('scroll', function() {
-            if (!scrollTracked && window.scrollY > window.innerHeight * 0.75) {
+            const scrollPercent = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
+            
+            if (!mediumScrollTracked && scrollPercent >= 50) {
+                gtag('event', 'scroll_milestone', {
+                    'event_category': 'engagement',
+                    'event_label': '50_percent_scroll',
+                    'user_engagement_level': 'medium',
+                    'scroll_depth': '50'
+                });
+                mediumScrollTracked = true;
+            }
+            
+            if (!scrollTracked && scrollPercent >= 75) {
                 gtag('event', 'scroll_deep', {
                     'event_category': 'engagement',
                     'event_label': '75_percent_scroll',
-                    'user_engagement_level': 'high'
+                    'user_engagement_level': 'high',
+                    'scroll_depth': '75'
                 });
                 scrollTracked = true;
             }
         });
         
-        // Tracking de tiempo en página
+        // Tracking de tiempo en página mejorado con más milestones
         let timeOnPage = 0;
         setInterval(function() {
             timeOnPage += 30;
-            if (timeOnPage === 120) { // 2 minutos
-                gtag('event', 'time_on_page', {
+            
+            if (timeOnPage === 60) { // 1 minuto
+                gtag('event', 'time_milestone', {
+                    'event_category': 'engagement',
+                    'event_label': '1_minute',
+                    'value': 60,
+                    'session_quality': 'engaged'
+                });
+            } else if (timeOnPage === 120) { // 2 minutos
+                gtag('event', 'time_milestone', {
                     'event_category': 'engagement',
                     'event_label': '2_minutes',
-                    'value': 120
+                    'value': 120,
+                    'session_quality': 'highly_engaged'
+                });
+            } else if (timeOnPage === 300) { // 5 minutos
+                gtag('event', 'time_milestone', {
+                    'event_category': 'engagement',
+                    'event_label': '5_minutes',
+                    'value': 300,
+                    'session_quality': 'very_engaged'
                 });
             }
         }, 30000);
+        
+        // Nuevo tracking de exit intent
+        let exitIntentTracked = false;
+        document.addEventListener('mouseleave', function(e) {
+            if (e.clientY <= 0 && !exitIntentTracked) {
+                gtag('event', 'exit_intent', {
+                    'event_category': 'engagement',
+                    'event_label': 'potential_exit',
+                    'user_engagement_level': 'exit_risk'
+                });
+                exitIntentTracked = true;
+            }
+        });
+        
+        // Tracking de visibilidad de secciones usando Intersection Observer
+        if ('IntersectionObserver' in window) {
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const sectionId = entry.target.id || entry.target.className;
+                        gtag('event', 'section_visible', {
+                            'event_category': 'visibility',
+                            'event_label': sectionId,
+                            'section_interaction': 'visible'
+                        });
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            // Observar secciones cuando el DOM esté listo
+            document.addEventListener('DOMContentLoaded', function() {
+                document.querySelectorAll('section, .hero, .new-about-section, .pillars-section, .speakers-section, .cta-section, .faq-section').forEach(section => {
+                    sectionObserver.observe(section);
+                });
+            });
+        }
     </script>
     <style>
         * {
@@ -135,11 +225,67 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
             background: #0a0a0a;
             color: #fff;
             overflow-x: hidden;
+        }
+
+        /* Barra de navegación superior */
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 12px 0;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-bar.visible {
+            transform: translateY(0);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9em;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: rgba(196, 30, 58, 0.2);
+            color: #c41e3a;
         }
 
         .rolling-banner {
@@ -194,6 +340,16 @@
             }
         }
 
+        @media (max-width: 1000px) {
+            .evento-talento-banner {
+                flex-direction: column !important;
+                gap: 20px !important;
+            }
+            
+            .evento-talento-banner img {
+                height: 60px !important;
+            }
+        }
         /* Oculta los títulos de texto originales */
         .hero-title, .hero-subtitle {
             display: none;
@@ -719,6 +875,81 @@
             line-height: 1.6;
         }
 
+        /* Nueva sección de agenda independiente */
+.agenda-section {
+    background: linear-gradient(to bottom, #3533cd 0%, #1a1a1a 100%);
+    padding: 100px 20px;
+}
+
+.agenda-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.agenda-title {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 60px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.agenda-main-notice {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 60px 40px;
+    border-radius: 20px;
+    text-align: center;
+    margin: 0 auto 40px;
+    max-width: 900px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.agenda-main-notice h3 {
+    font-size: 2.2em;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.agenda-main-notice p {
+    font-size: 1.2em;
+    color: #555;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.agenda-additional-info {
+    text-align: center;
+    font-size: 1.1em;
+    color: #fff;
+    opacity: 0.9;
+    max-width: 1000px;
+    margin: 0 auto;
+    line-height: 1.6;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive para agenda */
+@media (max-width: 768px) {
+    .agenda-main-notice {
+        padding: 40px 25px;
+    }
+    
+    .agenda-main-notice h3 {
+        font-size: 1.8em;
+    }
+    
+    .agenda-main-notice p {
+        font-size: 1.1em;
+    }
+    
+    .agenda-additional-info {
+        font-size: 1em;
+        padding: 0 20px;
+    }
+}
+
         .cta-section {
             background: #000;
             padding: 100px 20px;
@@ -773,7 +1004,7 @@
             background: #fff;
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 10px #0000000d;
         }
 
         .faq-question-simple {
@@ -802,7 +1033,7 @@
         }
 
         .sponsors-section {
-            background: #121212;
+            background: #000000;
             padding: 10px 10px;
             overflow: hidden;
             display: grid;
@@ -838,13 +1069,13 @@
             transform: scale(1.1);
         }
 
-        .keyframes sponsorScroll {
+        @keyframes sponsorScroll {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
 
         footer {
-            background: ##121212;
+            background: #121212;
             padding: 40px 20px;
             text-align: center;
             border-top: 1px solid #222;
@@ -857,6 +1088,15 @@
 
         /* Mejoras en responsive design */
         @media (max-width: 968px) {
+            .nav-links {
+                gap: 15px;
+            }
+            
+            .nav-links a {
+                padding: 6px 12px;
+                font-size: 0.85em;
+            }
+            
             .pillars-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 20px;
@@ -916,6 +1156,17 @@
         }
 
         @media (max-width: 640px) {
+            .nav-links {
+                gap: 10px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-links a {
+                padding: 4px 8px;
+                font-size: 0.8em;
+            }
+            
             .pillars-grid {
                 grid-template-columns: 1fr;
                 gap: 15px;
@@ -984,6 +1235,10 @@
 
         /* Mejoras de accesibilidad */
         @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            
             .rolling-content,
             .sponsors-scroll,
             .hero::after {
@@ -993,7 +1248,8 @@
             .pillar-card,
             .bottom-image-card,
             .speaker-horizontal-card,
-            .cta-button {
+            .cta-button,
+            .nav-bar {
                 transition: none;
             }
         }
@@ -1024,6 +1280,20 @@
     </style>
 </head>
 <body>
+    <!-- Barra de navegación superior -->
+    <nav class="nav-bar" id="navBar">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="#inicio" onclick="trackNavigation('inicio')">Inicio</a></li>
+                <li><a href="#ejes" onclick="trackNavigation('ejes')">Ejes Temáticos</a></li>
+                <li><a href="#speakers" onclick="trackNavigation('speakers')">Speakers</a></li>
+                <li><a href="#agenda" onclick="trackNavigation('agenda')">Agenda</a></li>
+                <li><a href="#faq" onclick="trackNavigation('faq')">Q&A</a></li>
+                <li><a href="#registro" onclick="trackNavigation('registro')">Registro</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <div class="rolling-banner" role="banner" aria-label="Información del evento">
         <div class="rolling-content">
             <div class="rolling-text">↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A ↓ conoce más abajo ↓ ejes temáticos ↓ agenda ↓ Q&A </div>
@@ -1031,7 +1301,7 @@
         </div>
     </div>
     
-      <section class="hero" aria-labelledby="hero-title">
+      <section id="inicio" class="hero" aria-labelledby="hero-title">
         <div class="hero-content">
             <div class="hero-main">
                 <div class="hero-top">Estudiantes de la <strong>Facultad de Mercadeo de la SantoTo</strong> presentan:</div>
@@ -1050,6 +1320,7 @@
                    class="cta-button" 
                    target="_blank" 
                    rel="noopener noreferrer"
+                   onclick="trackRegistration()"
                    aria-label="Registrarse para TrendBoosters en Eventbrite (abre en nueva ventana)">
                     Asegura tu cupo presencial ↗
                 </a>
@@ -1063,21 +1334,21 @@
             </div>
 
             <div class="hero-images-bottom">
-                <div class="bottom-image-card">
+                <div class="bottom-image-card" onclick="trackElementInteraction('preview_card', 'expertos')">
                     <img src="https://i.ibb.co/3YTjZ5H1/2expertos.png" 
                          alt="Charlas con expertos en marketing y tendencias" 
                          width="400" 
                          height="225">
                     <div class="bottom-image-label">Charlas con expertos</div>
                 </div>
-                <div class="bottom-image-card">
+                <div class="bottom-image-card" onclick="trackElementInteraction('preview_card', 'talleres')">
                     <img src="https://i.ibb.co/pjVGvYJt/talleres2.png" 
                          alt="Talleres prácticos de marketing digital" 
                          width="400" 
                          height="225">
                     <div class="bottom-image-label">Talleres prácticos</div>
                 </div>
-                <div class="bottom-image-card">
+                <div class="bottom-image-card" onclick="trackElementInteraction('preview_card', 'activaciones')">
                     <img src="https://i.ibb.co/zW1Yk3b8/1activaciones-de-marca.png" 
                          alt="Activaciones de marca y networking" 
                          width="400" 
@@ -1089,34 +1360,34 @@
     </section>
 
     <!-- Nueva sección compacta con fondo blanco -->
-    <section class="new-about-section">
+    <section id="acerca" class="new-about-section">
         <div class="new-about-content">
             <p><b>Date la oportunidad de conectar con historias, profesionales, marcas y tendencias que han logrado destacarse en el mundo del mercadeo.</b></p>
         </div>
     </section>
 
-    <section class="pillars-section" aria-labelledby="pillars-title">
+    <section id="ejes" class="pillars-section" aria-labelledby="pillars-title">
         <h2 id="pillars-title" class="section-title">Ejes Temáticos</h2>
         <div class="pillars-grid" role="list">
-            <div class="pillar-card" role="listitem" tabindex="0">
+            <div class="pillar-card" role="listitem" tabindex="0" onclick="trackElementInteraction('pillar', 'profesionalismo')">
                 <div class="pillar-front">Profesionalismo</div>
                 <div class="pillar-back">
                     <p>Cada profesional tiene su propia forma de aportar, y en nuestra diversidad encontramos caminos únicos para resolver desafíos y crear valor juntos.</p>
                 </div>
             </div>
-            <div class="pillar-card" role="listitem" tabindex="0">
+            <div class="pillar-card" role="listitem" tabindex="0" onclick="trackElementInteraction('pillar', 'comunidad')">
                 <div class="pillar-front">Comunidad</div>
                 <div class="pillar-back">
                     <p>Al reunir personas con objetivos y pasiones similares, impulsamos la creación de redes capaces de fortalecer y expandir cualquier marca o proyecto.</p>
                 </div>
             </div>
-            <div class="pillar-card" role="listitem" tabindex="0">
+            <div class="pillar-card" role="listitem" tabindex="0" onclick="trackElementInteraction('pillar', 'tendencias')">
                 <div class="pillar-front">Tendencias</div>
                 <div class="pillar-back">
                     <p>Las tendencias marcan el presente y preparan el terreno para el futuro, facilitando la adaptación en un mundo en constante cambio.</p>
                 </div>
             </div>
-            <div class="pillar-card" role="listitem" tabindex="0">
+            <div class="pillar-card" role="listitem" tabindex="0" onclick="trackElementInteraction('pillar', 'emprendimiento')">
                 <div class="pillar-front">Emprendimiento</div>
                 <div class="pillar-back">
                     <p>Una idea genuina puede transformarse en acciones que marcan la vida y el entorno de quienes se atreven a emprender.</p>
@@ -1126,7 +1397,7 @@
     </section>
 
     <!-- Nueva sección de speakers horizontal con enlaces -->
-    <section class="speakers-section" aria-labelledby="speakers-title">
+    <section id="speakers" class="speakers-section" aria-labelledby="speakers-title">
         <div class="speakers-container">
             <h2 id="speakers-title" class="section-title">Speakers</h2>
             
@@ -1135,6 +1406,7 @@
                target="_blank" 
                rel="noopener noreferrer"
                class="speaker-horizontal-card" 
+               onclick="trackElementInteraction('speaker_card', 'google_developer_experts')"
                aria-label="Visitar Website de Google Developer Experts (abre en nueva ventana)">
                 <div class="speaker-image-container">
                     <img src="https://i.ibb.co/B5RLVyHQ/googledef.jpg" 
@@ -1165,6 +1437,7 @@
                target="_blank" 
                rel="noopener noreferrer"
                class="speaker-horizontal-card" 
+               onclick="trackElementInteraction('speaker_card', 'henan_isaza')"
                aria-label="Visitar LinkedIn de Henan Isaza (abre en nueva ventana)">
                 <div class="speaker-image-container">
                     <img src="https://i.ibb.co/Q5hz2r8/Hernan-Isaza.jpg" 
@@ -1198,6 +1471,7 @@
                target="_blank" 
                rel="noopener noreferrer"
                class="speaker-horizontal-card" 
+               onclick="trackElementInteraction('speaker_card', 'paramo_presenta')"
                aria-label="Visitar Instagram de Páramo Presenta (abre en nueva ventana)">
                 <div class="speaker-image-container">
                     <img src="https://i.ibb.co/HDg1BKpB/pramo-presenta1-cover.jpg" 
@@ -1231,6 +1505,7 @@
                target="_blank" 
                rel="noopener noreferrer"
                class="speaker-horizontal-card" 
+               onclick="trackElementInteraction('speaker_card', 'capsula_lc')"
                aria-label="Visitar Instagram de Cápsula Laboratorio Creativo (abre en nueva ventana)">
                 <div class="speaker-image-container">
                     <img src="https://i.ibb.co/DDL2FyWN/capsula2.jpg" 
@@ -1263,6 +1538,7 @@
                target="_blank" 
                rel="noopener noreferrer"
                class="speaker-horizontal-card" 
+               onclick="trackElementInteraction('speaker_card', 'simon_maya')"
                aria-label="Visitar LinkedIn de Simon Maya Ospina (abre en nueva ventana)">
                 <div class="speaker-image-container">
                     <img src="https://i.ibb.co/GvMCjxH7/SIMON-MAYA.webp" 
@@ -1291,16 +1567,26 @@
                 </div>
             </a>
 
-            <!-- Aviso de agenda -->
-            <div class="agenda-notice">
-                <h3 style="font-size: 1.8em; margin-top: 10px;">Estamos cerrando unos detalles.</h3>
-                <p><b>🗓️ La agenda definitiva estará disponible el 27 de octubre.</b> De momento, prepárate para un espacio lleno de mercadeo, innovación, creación y música en vivo desde las 9 AM a las 5 PM.</p>
-            </div>
+
 
         </div>
     </section>
 
-    <section class="faq-section" aria-labelledby="faq-title">
+<section id="agenda" class="agenda-section" aria-labelledby="agenda-title">
+    <div class="agenda-container">
+        <h2 id="agenda-title" class="agenda-title">Agenda del Evento</h2>
+        
+        <div class="agenda-main-notice">
+            <h3>🗓️ Estamos cerrando unos detalles</h3>
+            <p><b>La agenda definitiva estará disponible el 27 de octubre.</b> De momento, prepárate para un espacio lleno de mercadeo, innovación, creación y música en vivo desde las 9 AM a las 5 PM.</p>
+        </div>
+        
+        <div class="agenda-additional-info">
+            <p>Mantente atento a nuestras redes sociales para recibir todas las actualizaciones sobre horarios detallados, espacios de networking, talleres interactivos y actividades especiales que tenemos preparadas para este evento único.</p>
+        </div>
+    </div>
+</section>
+    <section id="faq" class="faq-section" aria-labelledby="faq-title">
         <div class="faq-container">
             <div class="faq-header">
                 <h2 id="faq-title" class="faq-title">Respondemos tus dudas</h2>
@@ -1359,7 +1645,7 @@
         </div>
     </section>
 
-    <section class="cta-section" aria-labelledby="cta-title">
+    <section id="registro" class="cta-section" aria-labelledby="cta-title">
         <div class="cta-content">
             <h2 id="cta-title">¿Listo para la experiencia?</h2>
             <p>No te pierdas esta oportunidad única de conectar con líderes, aprender de expertos y ser parte de una comunidad que está construyendo el futuro.</p>
@@ -1367,6 +1653,7 @@
                class="cta-button" 
                target="_blank" 
                rel="noopener noreferrer"
+               onclick="trackRegistration()"
                style="font-size: 1.2em; padding: 20px 60px;"
                aria-label="Reservar cupo para TrendBoosters en Eventbrite (abre en nueva ventana)">
                 Reserva tu cupo aquí ↗
@@ -1374,18 +1661,71 @@
         </div>
     </section>
 
-    <section class="sponsors-section" aria-labelledby="sponsors-title">
-<div class="evento-talento-banner" style="margin:1px auto; max-width:1000px;">
+<section class="sponsors-section">
+<div class="evento-talento-banner" style="margin:1px auto; max-width:1000px; display: flex; justify-content: center; align-items: center; gap: 40px;">
   <a href="https://www.instagram.com/copu___/" target="_blank" rel="noopener noreferrer">
-    <img src="https://i.ibb.co/RkBxrFJW/copu1.png" alt="COPU Instagram" style="width:30%; border-radius:20px; box-shadow:0 0px 0px rgba(0,0,0,0.25);" loading="lazy">
+    <img src="https://i.ibb.co/RkBxrFJW/copu1.png" alt="COPU Instagram" style="width:auto; height:120px; border-radius:20px; box-shadow:0 0cm 0px rgba(0,0,0,0.25);" loading="lazy">
   </a>
   <a href="https://usantotomas.edu.co/inicio" target="_blank" rel="noopener noreferrer">
-    <img src="https://i.ibb.co/Ngq3fc5G/usta1.png" alt="USTA" style="width:30%; border-radius:20px; box-shadow:0 0px 0px rgba(0,0,0,0.25);" loading="lazy">
+    <img src="https://i.ibb.co/Ngq3fc5G/usta1.png" alt="USTA" style="width:auto; height:120px; border-radius:20px; box-shadow:0 0px 0px rgba(0,0,0,0.25);" loading="lazy">
   </a>
 </div>
-    </section>
+</section>
     <footer role="contentinfo">
-        <p>Organizado por estudiantes de la Facultad de Mercadeo | @mercadeosantoto</p>
+        <p>© 2025 TrendBoosters - Estudiantes de Mercadeo Universidad Santo Tomás. Todos los derechos reservados.</p>
     </footer>
+
+    <script>
+        // Control de la barra de navegación
+        window.addEventListener('scroll', function() {
+            const navBar = document.getElementById('navBar');
+            const heroHeight = document.querySelector('.hero').offsetHeight;
+            
+            if (window.scrollY > heroHeight / 3) {
+                navBar.classList.add('visible');
+            } else {
+                navBar.classList.remove('visible');
+            }
+        });
+
+        // Navegación activa
+        const navLinks = document.querySelectorAll('.nav-links a');
+        const sections = document.querySelectorAll('section[id], .hero, .new-about-section');
+
+        function updateActiveNav() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id') || 'inicio';
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Optimización de performance
+        let ticking = false;
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(updateActiveNav);
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', () => {
+            requestTick();
+            ticking = false;
+        });
+
+        // Inicializar navegación activa
+        document.addEventListener('DOMContentLoaded', updateActiveNav);
+    </script>
 </body>
 </html>
