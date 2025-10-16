@@ -357,7 +357,7 @@
         
         .hero {
             min-height: 100vh;
-            background: linear-gradient(135deg, #000000 0%, #c41e3a 100%);
+            background: linear-gradient(135deg, #000000 0%, #a0001b 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -366,63 +366,6 @@
             overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 50%, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.9) 100%);
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            width: 500%;
-            height: 500%;
-            background-image: 
-                radial-gradient(circle at 20% 30%, #000000e6 0%, transparent 30%),
-                radial-gradient(circle at 80% 70%, #0a0000cc 0%, transparent 30%),
-                radial-gradient(circle at 40% 80%, #400101e6 0%, transparent 35%),
-                radial-gradient(circle at 90% 20%, #340000e6 0%, transparent 40%),
-                radial-gradient(circle at 50% 50%, #cd3333 0%, transparent 45%),
-                radial-gradient(circle at 10% 60%, #cd3333 0%, transparent 45%),
-                radial-gradient(circle at 70% 40%, #862424 0%, transparent 35%),
-                radial-gradient(circle at 30% 10%, #460308cc 0%, transparent 40%),
-                radial-gradient(circle at 60% 90%, #460308cc 0%, transparent 38%),
-                radial-gradient(circle at 15% 85%, #140000e6 0%, transparent 42%);
-            animation: extremeLavaLamp 200s ease-in-out infinite;
-            filter: blur(70px);
-            will-change: transform;
-        }
-
-        @keyframes extremeLavaLamp {
-            0%, 100% {
-                transform: translate(0, 0) scale(1) rotate(0deg);
-            }
-            12% {
-                transform: translate(-20%, -25%) scale(1.35) rotate(35deg);
-            }
-            25% {
-                transform: translate(18%, -28%) scale(0.8) rotate(-45deg);
-            }
-            37% {
-                transform: translate(-25%, 20%) scale(1.4) rotate(50deg);
-            }
-            50% {
-                transform: translate(22%, -18%) scale(0.85) rotate(-40deg);
-            }
-            62% {
-                transform: translate(-18%, 25%) scale(1.3) rotate(42deg);
-            }
-            75% {
-                transform: translate(20%, -22%) scale(0.9) rotate(-38deg);
-            }
-            87% {
-                transform: translate(-15%, 18%) scale(1.25) rotate(33deg);
-            }
-        }
 
         .hero-content {
             max-width: 1600px;
