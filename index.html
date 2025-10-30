@@ -785,7 +785,14 @@
             font-weight: 600;
             white-space: nowrap;
         }
-
+        .agenda-subtitle {
+            text-align: center;
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            color: #fff;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
         .agenda-notice {
             background: #fff;
             padding: 60px 40px;
@@ -819,80 +826,248 @@
         }
 
         /* Nueva sección de agenda independiente */
+/* Nueva sección de agenda independiente con visualización interactiva */
 .agenda-section {
     background: linear-gradient(to bottom, #3533cd 0%, #1a1a1a 100%);
     padding: 100px 20px;
 }
 
 .agenda-container {
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
 }
 
 .agenda-title {
     text-align: center;
     font-size: 2.5em;
-    margin-bottom: 60px;
-    font-weight: 700;
-    color: #fff;
-}
-
-.agenda-main-notice {
-    background: rgba(255, 255, 255, 0.95);
-    padding: 60px 40px;
-    border-radius: 20px;
-    text-align: center;
-    margin: 0 auto 40px;
-    max-width: 900px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
-}
-
-.agenda-main-notice h3 {
-    font-size: 2.2em;
-    color: #333;
     margin-bottom: 20px;
     font-weight: 700;
-}
-
-.agenda-main-notice p {
-    font-size: 1.2em;
-    color: #555;
-    margin: 0;
-    line-height: 1.6;
-}
-
-.agenda-additional-info {
-    text-align: center;
-    font-size: 1.1em;
     color: #fff;
+}
+
+.schedule-wrapper {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-height: 80vh;
+    overflow-y: auto;
+    overflow-x: auto;
+    margin-bottom: 40px;
+}
+
+.schedule {
+    display: grid;
+    grid-gap: 0;
+    background: transparent;
+    min-width: 900px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    grid-template-rows:
+        [tracks] auto
+        [time-0830] 0.3fr [time-0835] 0.3fr [time-0840] 0.3fr [time-0845] 0.3fr [time-0850] 0.3fr [time-0855] 0.3fr
+        [time-0900] 0.3fr [time-0905] 0.3fr [time-0910] 0.3fr [time-0915] 0.3fr [time-0920] 0.3fr [time-0925] 0.3fr
+        [time-0930] 0.3fr [time-0935] 0.3fr [time-0940] 0.3fr [time-0945] 0.3fr [time-0950] 0.3fr [time-0955] 0.3fr
+        [time-1000] 0.3fr [time-1005] 0.3fr [time-1010] 0.3fr [time-1015] 0.3fr [time-1020] 0.3fr [time-1025] 0.3fr
+        [time-1030] 0.3fr [time-1035] 0.3fr [time-1040] 0.3fr [time-1045] 0.3fr [time-1050] 0.3fr [time-1055] 0.3fr
+        [time-1100] 0.3fr [time-1105] 0.3fr [time-1110] 0.3fr [time-1115] 0.3fr [time-1120] 0.3fr [time-1125] 0.3fr
+        [time-1130] 0.3fr [time-1135] 0.3fr [time-1140] 0.3fr [time-1145] 0.3fr [time-1150] 0.3fr [time-1155] 0.3fr
+        [time-1200] 0.3fr [time-1205] 0.3fr [time-1210] 0.3fr [time-1215] 0.3fr [time-1220] 0.3fr [time-1225] 0.3fr
+        [time-1230] 0.3fr [time-1235] 0.3fr [time-1240] 0.3fr [time-1245] 0.3fr [time-1250] 0.3fr [time-1255] 0.3fr
+        [time-1300] 0.3fr [time-1305] 0.3fr [time-1310] 0.3fr [time-1315] 0.3fr [time-1320] 0.3fr [time-1325] 0.3fr
+        [time-1330] 0.3fr [time-1335] 0.3fr [time-1340] 0.3fr [time-1345] 0.3fr [time-1350] 0.3fr [time-1355] 0.3fr
+        [time-1400] 0.3fr [time-1405] 0.3fr [time-1410] 0.3fr [time-1415] 0.3fr [time-1420] 0.3fr [time-1425] 0.3fr
+        [time-1430] 0.3fr [time-1435] 0.3fr [time-1440] 0.3fr [time-1445] 0.3fr [time-1450] 0.3fr [time-1455] 0.3fr
+        [time-1500] 0.3fr [time-1505] 0.3fr [time-1510] 0.3fr [time-1515] 0.3fr [time-1520] 0.3fr [time-1525] 0.3fr
+        [time-1530] 0.3fr [time-1535] 0.3fr [time-1540] 0.3fr [time-1545] 0.3fr [time-1550] 0.3fr [time-1555] 0.3fr
+        [time-1600] 0.3fr [time-1605] 0.3fr [time-1610] 0.3fr [time-1615] 0.3fr [time-1620] 0.3fr [time-1625] 0.3fr
+        [time-1630] 0.3fr [time-1635] 0.3fr [time-1640] 0.3fr [time-1645] 0.3fr [time-1650] 0.3fr [time-1655] 0.3fr
+        [time-1700] 0.3fr [time-1705] 0.3fr [time-1710] 0.3fr [time-1715] 0.3fr [time-1720] 0.3fr [time-1725] 0.3fr
+        [time-1730] 0.3fr [time-1735] 0.3fr [time-1740] 0.3fr [time-1745] 0.3fr [time-1750] 0.3fr [time-1755] 0.3fr
+        [time-1800];
+    grid-template-columns:
+        [times] 90px
+        [track-1-start] 1fr
+        [track-1-end track-2-start] 1fr
+        [track-2-end track-3-start] 1fr
+        [track-3-end];
+}
+
+.track-slot {
+    grid-row: tracks;
+    background: linear-gradient(135deg, #c41e3a 0%, #8b0000 100%);
+    padding: 15px 12px;
+    text-align: center;
+    font-weight: 700;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.track-name {
+    display: block;
+    font-size: 0.95em;
+    margin-bottom: 3px;
+}
+
+.track-location {
+    display: block;
+    font-size: 0.75em;
+    opacity: 0.95;
+}
+
+.time-slot {
+    grid-column: times;
+    background: linear-gradient(135deg, #c41e3a 0%, #8b0000 100%);
+    padding: 6px 4px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.7em;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 6px;
+    border-right: 2px solid rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 2;
+    color: #fff;
+}
+
+.session {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 10px;
+    border-left: 4px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+}
+
+.session:hover {
+    background: rgba(255, 255, 255, 0.18);
+    transform: scale(1.02);
+    z-index: 10;
+}
+
+.session-title {
+    font-size: 0.85em;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.session-time {
+    font-size: 0.7em;
     opacity: 0.9;
-    max-width: 1000px;
-    margin: 0 auto;
-    line-height: 1.6;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    display: block;
+}
+
+.session-presenter {
+    font-size: 0.65em;
+    opacity: 0.85;
+    font-style: italic;
+    display: block;
+}
+
+.session.opening { border-left-color: #f5576c; }
+.session.talk { border-left-color: #4facfe; }
+.session.workshop { border-left-color: #43e97b; }
+.session.panel { border-left-color: #ffd93d; }
+.session.lunch { border-left-color: #ff9a56; }
+.session.closing { border-left-color: #667eea; }
+
+.session.current-event {
+    background: rgba(255, 215, 0, 0.3);
+    border-left-width: 6px;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+    }
+}
+
+.session.current-event .session-title {
+    font-weight: 800;
+}
+
+.session.current-event::before {
+    content: '▶ Ahora';
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(255, 0, 0, 0.9);
+    color: white;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.65em;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.legend-color {
+    width: 35px;
+    height: 20px;
+    border-radius: 4px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.legend-text {
+    font-size: 0.95em;
+    font-weight: 600;
 }
 
 /* Responsive para agenda */
 @media (max-width: 768px) {
-    .agenda-main-notice {
-        padding: 40px 25px;
+    .schedule-wrapper {
+        padding: 15px;
     }
     
-    .agenda-main-notice h3 {
-        font-size: 1.8em;
+    .schedule {
+        min-width: 700px;
     }
     
-    .agenda-main-notice p {
-        font-size: 1.1em;
+    .track-name {
+        font-size: 0.9em;
     }
     
-    .agenda-additional-info {
-        font-size: 1em;
-        padding: 0 20px;
+    .session-title {
+        font-size: 0.85em;
     }
 }
 
+@media (max-width: 640px) {
+    .agenda-section {
+        padding: 60px 20px;
+    }
+}
         .cta-section {
             background: #000;
             padding: 100px 20px;
@@ -1577,17 +1752,145 @@ Antes de su etapa actual en Nu, trabajó con equipos creativos en Ogilvy, McCann
         </div>
     </section>
 
+<!-- Nueva sección de agenda con visualización interactiva -->
 <section id="agenda" class="agenda-section" aria-labelledby="agenda-title">
     <div class="agenda-container">
         <h2 id="agenda-title" class="agenda-title">Agenda del Evento</h2>
-        
-        <div class="agenda-main-notice">
-            <h3>🗓️ Estamos cerrando unos detalles</h3>
-            <p><b>La agenda definitiva estará disponible el 30 de octubre.</b> De momento, prepárate para un espacio lleno de mercadeo, innovación, creación y música en vivo desde las 8 AM a las 5 PM.</p>
+        <p class="agenda-subtitle">Programate y asiste a las charlas de tu interés.</p>
+
+        <div class="schedule-wrapper">
+            <div class="schedule" aria-labelledby="schedule-heading">
+                <!-- Track Headers -->
+                <span class="track-slot" aria-hidden="true" style="grid-column: track-1; grid-row: tracks;">
+                    <span class="track-name">🎭 Auditorio Mayor</span>
+                    <span class="track-location">Entrada por piso 2</span>
+                </span>
+                <span class="track-slot" aria-hidden="true" style="grid-column: track-2; grid-row: tracks;">
+                    <span class="track-name">🛍️ Hall Exposiciones</span>
+                    <span class="track-location">Piso 2</span>
+                </span>
+                <span class="track-slot" aria-hidden="true" style="grid-column: track-3; grid-row: tracks;">
+                    <span class="track-name">💡 Sala Google</span>
+                    <span class="track-location">Aula 403</span>
+                </span>
+
+                <!-- Time Slots -->
+                <h2 class="time-slot" style="grid-row: time-0830 / time-0900;">8:30</h2>
+                <h2 class="time-slot" style="grid-row: time-0900 / time-0930;">9:00</h2>
+                <h2 class="time-slot" style="grid-row: time-0930 / time-1000;">9:30</h2>
+                <h2 class="time-slot" style="grid-row: time-1000 / time-1030;">10:00</h2>
+                <h2 class="time-slot" style="grid-row: time-1030 / time-1100;">10:30</h2>
+                <h2 class="time-slot" style="grid-row: time-1100 / time-1130;">11:00</h2>
+                <h2 class="time-slot" style="grid-row: time-1130 / time-1200;">11:30</h2>
+                <h2 class="time-slot" style="grid-row: time-1200 / time-1230;">12:00</h2>
+                <h2 class="time-slot" style="grid-row: time-1230 / time-1300;">12:30</h2>
+                <h2 class="time-slot" style="grid-row: time-1300 / time-1330;">1:00</h2>
+                <h2 class="time-slot" style="grid-row: time-1330 / time-1400;">1:30</h2>
+                <h2 class="time-slot" style="grid-row: time-1400 / time-1430;">2:00</h2>
+                <h2 class="time-slot" style="grid-row: time-1430 / time-1500;">2:30</h2>
+                <h2 class="time-slot" style="grid-row: time-1500 / time-1530;">3:00</h2>
+                <h2 class="time-slot" style="grid-row: time-1530 / time-1600;">3:30</h2>
+                <h2 class="time-slot" style="grid-row: time-1600 / time-1630;">4:00</h2>
+                <h2 class="time-slot" style="grid-row: time-1630 / time-1700;">4:30</h2>
+                <h2 class="time-slot" style="grid-row: time-1700 / time-1730;">5:00</h2>
+                <h2 class="time-slot" style="grid-row: time-1730 / time-1800;">5:30</h2>
+
+                <!-- Sessions -->
+                <div class="session workshop" style="grid-column: track-3; grid-row: time-0830 / time-1000;">
+                    <h3 class="session-title">Taller AppSheet y Gemini</h3>
+                    <span class="session-time">8:30 - 10:00 AM</span>
+                </div>
+
+                <div class="session opening" style="grid-column: track-1; grid-row: time-0830 / time-0900;">
+                    <h3 class="session-title">Apertura</h3>
+                    <span class="session-time">8:30 - 9:00 AM</span>
+                </div>
+
+                <div class="session talk" style="grid-column: track-1; grid-row: time-0900 / time-0945;">
+                    <h3 class="session-title">No Montes una Agencia</h3>
+                    <span class="session-time">9:00 - 9:45 AM</span>
+                    <span class="session-presenter">Cápsula Laboratorio Creativo</span>
+                </div>
+
+                <div class="session talk" style="grid-column: track-1; grid-row: time-0945 / time-1030;">
+                    <h3 class="session-title">Juan David Pardo</h3>
+                    <span class="session-time">9:45 - 10:30 AM</span>
+                    <span class="session-presenter">Creative Marketing Manager</span>
+                </div>
+
+                <div class="session talk" style="grid-column: track-1; grid-row: time-1030 / time-1115;">
+                    <h3 class="session-title">Del advertisement al marketing de experiencia</h3>
+                    <span class="session-time">10:30 - 11:15 AM</span>
+                    <span class="session-presenter">Simon Maya Ospina - Wingo</span>
+                </div>
+
+                <div class="session panel" style="grid-column: track-1; grid-row: time-1115 / time-1200;">
+                    <h3 class="session-title">Creatividad en el Centro</h3>
+                    <span class="session-time">11:15 AM - 12:00 PM</span>
+                    <span class="session-presenter">Páramo Presenta, Delfina Dib, Warner Music</span>
+                </div>
+
+                <div class="session lunch" style="grid-column: track-1; grid-row: time-1200 / time-1400;">
+                    <h3 class="session-title">Almuerzo - Tiempo Libre</h3>
+                    <span class="session-time">12:00 - 2:00 PM</span>
+                </div>
+
+                <div class="session panel" style="grid-column: track-2; grid-row: time-1200 / time-1400;">
+                    <h3 class="session-title">Páramo x Davivienda</h3>
+                    <span class="session-time">12:00 - 2:00 PM</span>
+                </div>
+
+                <div class="session panel" style="grid-column: track-1; grid-row: time-1400 / time-1505;">
+                    <h3 class="session-title">Entre escenarios y marcas</h3>
+                    <span class="session-time">2:00 - 3:05 PM</span>
+                    <span class="session-presenter">Páramo Presenta y Davivienda</span>
+                </div>
+
+                <div class="session panel" style="grid-column: track-1; grid-row: time-1505 / time-1600;">
+                    <h3 class="session-title">El arte de las ideas: creatividad que conecta personas y marcas</h3>
+                    <span class="session-time">3:05 - 4:00 PM</span>
+                    <span class="session-presenter">Hernán Isaza - Marketing Manager</span>
+                </div>
+
+                <div class="session panel" style="grid-column: track-1; grid-row: time-1600 / time-1650;">
+                    <h3 class="session-title">Por Confirmar - Presenta COPU</h3>
+                    <span class="session-time">4:00 - 4:50 PM</span>
+                </div>
+
+                <div class="session closing" style="grid-column: track-1; grid-row: time-1650 / time-1700;">
+                    <h3 class="session-title">Cierre</h3>
+                    <span class="session-time">4:50 - 5:00 PM</span>
+                </div>
+
+                <div class="session workshop" style="grid-column: track-3; grid-row: time-1630 / time-1800;">
+                    <h3 class="session-title">Taller AppSheet y Gemini</h3>
+                    <span class="session-time">4:30 - 6:00 PM</span>
+                </div>
+            </div>
         </div>
-        
-        <div class="agenda-additional-info">
-            <p>Al inscribirte el 27 de octubre, recibirás un correo con la agenda detallada y toda la información necesaria para disfrutar del evento al máximo.</p>
+
+        <!-- Leyenda -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background: #f5576c;"></div>
+                <span class="legend-text">Apertura</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #4facfe;"></div>
+                <span class="legend-text">Charlas</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #43e97b;"></div>
+                <span class="legend-text">Talleres</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #ffd93d;"></div>
+                <span class="legend-text">Foros</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #ff9a56;"></div>
+                <span class="legend-text">Lunch</span>
+            </div>
         </div>
     </div>
 </section>
@@ -1680,7 +1983,79 @@ Antes de su etapa actual en Nu, trabajó con equipos creativos en Ogilvy, McCann
     <footer role="contentinfo">
         <p>© 2025 TrendBoosters - Estudiantes de Mercadeo Universidad Santo Tomás. Todos los derechos reservados.</p>
     </footer>
+<script>
+// Sistema de resaltado en tiempo real para agenda
+const ENABLE_LIVE_HIGHLIGHT = true;
 
+function timeToMinutes(hours, minutes) {
+    return hours * 60 + minutes;
+}
+
+function highlightCurrentEvent() {
+    if (!ENABLE_LIVE_HIGHLIGHT) return;
+    
+    const now = new Date();
+    const currentMinutes = now.getHours() * 60 + now.getMinutes();
+    
+    document.querySelectorAll('.session').forEach(session => {
+        session.classList.remove('current-event');
+    });
+    
+    document.querySelectorAll('.session').forEach(session => {
+        const timeText = session.querySelector('.session-time')?.textContent;
+        if (!timeText) return;
+        
+        const timeMatch = timeText.match(/(\d{1,2}):(\d{2})\s*-\s*(\d{1,2}):(\d{2})\s*(AM|PM)/i);
+        if (!timeMatch) return;
+        
+        let startHour = parseInt(timeMatch[1]);
+        const startMin = parseInt(timeMatch[2]);
+        let endHour = parseInt(timeMatch[3]);
+        const endMin = parseInt(timeMatch[4]);
+        const period = timeMatch[5].toUpperCase();
+        
+        if (period === 'PM' && startHour !== 12) {
+            startHour += 12;
+            endHour += 12;
+        } else if (period === 'AM' && startHour === 12) {
+            startHour = 0;
+            if (endHour === 12) endHour = 0;
+        }
+        
+        if (endHour < startHour) {
+            endHour += 12;
+        }
+        
+        const startMinutes = timeToMinutes(startHour, startMin);
+        const endMinutes = timeToMinutes(endHour, endMin);
+        
+        if (currentMinutes >= startMinutes && currentMinutes < endMinutes) {
+            session.classList.add('current-event');
+            
+            if (!session.hasAttribute('data-scrolled')) {
+                session.setAttribute('data-scrolled', 'true');
+                setTimeout(() => {
+                    const wrapper = document.querySelector('.schedule-wrapper');
+                    const sessionTop = session.offsetTop;
+                    wrapper.scrollTo({ top: sessionTop - 100, behavior: 'smooth' });
+                }, 500);
+            }
+        }
+    });
+}
+
+highlightCurrentEvent();
+setInterval(highlightCurrentEvent, 60000);
+
+document.querySelectorAll('.session').forEach(session => {
+    session.addEventListener('click', function() {
+        this.style.transform = 'scale(0.98)';
+        setTimeout(() => {
+            this.style.transform = '';
+        }, 200);
+    });
+});
+</script>
     <script>
         // Control de la barra de navegación
         window.addEventListener('scroll', function() {
