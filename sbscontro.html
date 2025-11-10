@@ -21,6 +21,114 @@
             overflow: hidden;
         }
 
+        /* PANTALLA DE AUTENTICACIÓN */
+        .auth-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+        }
+
+        .auth-container {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .auth-logo {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .auth-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+
+        .auth-subtitle {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 30px;
+        }
+
+        .auth-input-group {
+            margin-bottom: 20px;
+        }
+
+        .auth-input-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #666;
+            margin-bottom: 8px;
+            text-align: left;
+        }
+
+        .auth-input-group input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e0e4e8;
+            border-radius: 10px;
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s;
+        }
+
+        .auth-input-group input:focus {
+            outline: none;
+            border-color: #3533cd;
+            box-shadow: 0 0 0 3px rgba(53,51,205,0.1);
+        }
+
+        .auth-button {
+            width: 100%;
+            background: linear-gradient(135deg, #3533cd 0%, #5b59db 100%);
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 4px 12px rgba(53,51,205,0.3);
+        }
+
+        .auth-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(53,51,205,0.4);
+        }
+
+        .auth-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .auth-error {
+            background: #fee2e2;
+            color: #991b1b;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 13px;
+            margin-bottom: 20px;
+            border-left: 4px solid #ef4444;
+            display: none;
+        }
+
         .sidebar {
             width: 320px;
             background: linear-gradient(180deg, #0f0c29 0%, #1a1a2e 50%, #000000 100%);
@@ -29,6 +137,8 @@
             display: flex;
             flex-direction: column;
             box-shadow: 4px 0 20px rgba(0,0,0,0.3);
+            overflow-y: auto;
+            max-height: 100vh;
         }
 
         .logo {
@@ -96,6 +206,7 @@
             padding: 30px;
             overflow-y: auto;
             background: #f5f6fa;
+            -webkit-overflow-scrolling: touch;
         }
 
         .content-card {
@@ -249,6 +360,8 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .records-header h2 {
@@ -260,6 +373,7 @@
         .records-actions {
             display: flex;
             gap: 8px;
+            flex-wrap: wrap;
         }
 
         .records-actions .button {
@@ -271,6 +385,7 @@
             max-height: 300px;
             overflow-y: auto;
             padding-right: 8px;
+            -webkit-overflow-scrolling: touch;
         }
 
         .record-item {
@@ -339,6 +454,7 @@
             justify-content: center;
             align-items: center;
             z-index: 9999;
+            overflow-y: auto;
         }
 
         .loading-content, .confirmation-content {
@@ -347,6 +463,7 @@
             border-radius: 16px;
             text-align: center;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            margin: auto;
         }
 
         .spinner {
@@ -390,10 +507,12 @@
             display: flex;
             gap: 10px;
             margin-top: 20px;
+            flex-wrap: wrap;
         }
 
         .confirmation-buttons .button {
             flex: 1;
+            min-width: 100px;
         }
 
         .mode-content {
@@ -408,6 +527,7 @@
             display: flex;
             gap: 10px;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         @media (max-width: 1024px) {
@@ -418,15 +538,73 @@
             .sidebar {
                 width: 100%;
                 padding: 20px;
+                max-height: auto;
+                overflow: visible;
             }
 
             .main-content {
                 padding: 20px;
+                flex: 1;
+            }
+
+            .stat-card {
+                padding: 15px;
+            }
+
+            .stat-number {
+                font-size: 28px;
+            }
+
+            .manual-entry {
+                flex-direction: column;
+            }
+
+            .manual-entry input,
+            .button {
+                width: 100%;
+            }
+
+            .records-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .records-actions {
+                width: 100%;
+            }
+
+            .records-actions .button {
+                flex: 1;
             }
         }
     </style>
 </head>
 <body>
+    <!-- PANTALLA DE AUTENTICACIÓN -->
+    <div class="auth-overlay" id="authOverlay">
+        <div class="auth-container">
+            <div class="auth-logo">🔐</div>
+            <h1 class="auth-title">TrendBoosters</h1>
+            <p class="auth-subtitle">Control de Asistencia</p>
+            
+            <div class="auth-error" id="authError"></div>
+            
+            <div class="auth-input-group">
+                <label for="passwordInput">Contraseña de acceso</label>
+                <input 
+                    type="password" 
+                    id="passwordInput" 
+                    placeholder="Ingresa la contraseña" 
+                    autocomplete="off"
+                >
+            </div>
+            
+            <button class="auth-button" id="authButton" onclick="validatePassword()">
+                Acceder
+            </button>
+        </div>
+    </div>
+
     <div class="sidebar">
         <div class="logo">
             <h1><span class="rocket">🚀</span>Trend<br>Boosters</h1>
@@ -508,7 +686,7 @@
     <div class="confirmation-overlay" id="confirmationOverlay">
         <div class="confirmation-content">
             <div class="confirmation-icon">⚠️</div>
-            <div class="confirmation-title">Asistencia Recién Registrada</div>
+            <div class="confirmation-title">Asistencia Recientemente Registrada</div>
             <p style="color: #666; font-size: 14px;">Este código ya fue registrado:</p>
             <div class="confirmation-code" id="duplicateCode"></div>
             <p style="color: #666; font-size: 14px; margin-bottom: 10px;">¿Deseas registrarlo nuevamente?</p>
@@ -520,6 +698,7 @@
     </div>
 
     <script>
+        const CORRECT_PASSWORD = 'ACREDITACIONES123';
         let html5QrCode;
         let records = [];
         let isScanning = false;
@@ -532,9 +711,16 @@
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwin2KNZMoptNisCTlIIp0LRZJ7c5lIoM_07ks3xBUgGeFZRiXSCdeffOFyuQMMNn3m/exec';
 
         document.addEventListener('DOMContentLoaded', function() {
+            const passwordInput = document.getElementById('passwordInput');
+            
+            passwordInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    validatePassword();
+                }
+            });
+
             const manualCodeInput = document.getElementById('manualCode');
             
-            // Solo permitir números
             manualCodeInput.addEventListener('input', function(e) {
                 this.value = this.value.replace(/[^0-9]/g, '');
             });
@@ -545,7 +731,27 @@
                     submitManualCode();
                 }
             });
+
+            passwordInput.focus();
         });
+
+        function validatePassword() {
+            const passwordInput = document.getElementById('passwordInput');
+            const authError = document.getElementById('authError');
+            const password = passwordInput.value;
+
+            if (password === CORRECT_PASSWORD) {
+                authError.style.display = 'none';
+                document.getElementById('authOverlay').style.display = 'none';
+                document.getElementById('passwordInput').value = '';
+                document.getElementById('manualCode').focus();
+            } else {
+                authError.textContent = '❌ Contraseña incorrecta. Intenta nuevamente.';
+                authError.style.display = 'block';
+                passwordInput.value = '';
+                passwordInput.focus();
+            }
+        }
 
         function switchMode(mode) {
             const tabs = document.querySelectorAll('.mode-tab');
@@ -615,7 +821,7 @@
 
         function cancelDuplicateRegistration() {
             hideConfirmation();
-            showStatus('❌ Registro cancelado', 'info');
+            showStatus('✘ Registro cancelado', 'info');
         }
 
         async function confirmDuplicateRegistration() {
@@ -702,7 +908,6 @@
             if (!spaceName) {
                 showStatus('⚠️ Por favor, ingresa el nombre del espacio', 'error');
                 isProcessing = false;
-                // Rehabilitar el input
                 const codeInput = document.getElementById('manualCode');
                 codeInput.disabled = false;
                 codeInput.focus();
@@ -712,7 +917,6 @@
             if (!code || code.trim() === '') {
                 showStatus('⚠️ Código inválido', 'error');
                 isProcessing = false;
-                // Rehabilitar el input
                 const codeInput = document.getElementById('manualCode');
                 codeInput.disabled = false;
                 codeInput.value = '';
@@ -720,12 +924,10 @@
                 return;
             }
 
-            // Validar que el código tenga exactamente 8 caracteres numéricos
             const codeStr = code.trim();
             if (codeStr.length !== 8 || !/^\d{8}$/.test(codeStr)) {
                 showStatus('⚠️ Código inválido - Debe tener 8 dígitos', 'error');
                 isProcessing = false;
-                // Limpiar el input si está en modo manual
                 if (document.getElementById('manualMode').classList.contains('active')) {
                     const codeInput = document.getElementById('manualCode');
                     codeInput.value = '';
@@ -811,7 +1013,6 @@
 
                 html5QrCode = new Html5Qrcode("reader");
                 
-                // Configuración para cámara trasera en móviles
                 const config = {
                     fps: 10,
                     qrbox: { width: 250, height: 250 },
@@ -819,7 +1020,6 @@
                     disableFlip: false
                 };
 
-                // Intentar primero con cámara trasera usando facingMode
                 try {
                     await html5QrCode.start(
                         { facingMode: { exact: "environment" } },
@@ -830,7 +1030,6 @@
                     isScanning = true;
                     showStatus('📷 Escáner activo (cámara trasera)', 'info');
                 } catch (err1) {
-                    console.log('Intentando con facingMode environment sin exact...');
                     try {
                         await html5QrCode.start(
                             { facingMode: "environment" },
@@ -841,12 +1040,9 @@
                         isScanning = true;
                         showStatus('📷 Escáner activo', 'info');
                     } catch (err2) {
-                        console.log('Buscando cámaras disponibles...');
-                        // Si falla, listar todas las cámaras y usar la trasera si existe
                         const devices = await Html5Qrcode.getCameras();
                         
                         if (devices && devices.length > 0) {
-                            // Buscar cámara trasera por label
                             let rearCamera = devices.find(device => 
                                 device.label.toLowerCase().includes('back') ||
                                 device.label.toLowerCase().includes('rear') ||
@@ -854,7 +1050,6 @@
                                 device.label.toLowerCase().includes('environment')
                             );
                             
-                            // Si no se encuentra por label, usar la última (generalmente es la trasera)
                             const cameraToUse = rearCamera || devices[devices.length - 1];
                             
                             await html5QrCode.start(
@@ -911,7 +1106,7 @@
             }
             
             resetUI();
-            showStatus('⏹️ Escáner detenido', 'info');
+            showStatus('⏸️ Escáner detenido', 'info');
         }
 
         function resetUI() {
