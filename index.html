@@ -1429,7 +1429,8 @@
                      loading="eager">       
                 <div class="hero-info">
                     <div class="info-item">
-                        <div class="info-value" style="font-size: 1.6em;">Lunes, 10 de Noviembre</div>
+                         <div class="info-value" style="font-size: 3em;"> ¡Hoy!</div>
+                        <div class="info-value" style="font-size: 1.6em;"> Lunes, 10 de Noviembre</div>
                         <div class="info-value" style="font-size: 1.3em; margin-top: 10px; opacity: 0.9;">8:30 AM a 5 PM</div>
                     </div>
                 </div>
@@ -1476,7 +1477,151 @@
             </div>
         </div>
     </section>
+<!-- Nueva sección de agenda con visualización interactiva -->
+<section id="agenda" class="agenda-section" aria-labelledby="agenda-title">
+    <div class="agenda-container">
+        <h2 id="agenda-title" class="agenda-title">Agenda del Evento</h2>
+        <p class="agenda-subtitle">Programate y asiste a las charlas de tu interés.</p>
 
+        <div class="schedule-wrapper">
+            <div class="schedule" aria-labelledby="schedule-heading">
+                <!-- Track Headers -->
+                <span class="track-slot" aria-hidden="true" style="grid-column: track-1; grid-row: tracks;">
+                    <span class="track-name">🎭 Auditorio Mayor</span>
+                    <span class="track-location">Entrada por piso 2</span>
+                </span>
+                <span class="track-slot" aria-hidden="true" style="grid-column: track-2; grid-row: tracks;">
+                    <span class="track-name">🛍️ Hall Exposiciones</span>
+                    <span class="track-location">Piso 2</span>
+                </span>
+                <span class="track-slot" aria-hidden="true" style="grid-column: track-3; grid-row: tracks;">
+                    <span class="track-name">💡 Sala Google</span>
+                    <span class="track-location">Aula 403</span>
+                </span>
+
+                <!-- Time Slots -->
+                <h2 class="time-slot" style="grid-row: time-0830 / time-0900;">8:30</h2>
+                <h2 class="time-slot" style="grid-row: time-0900 / time-0930;">9:00</h2>
+                <h2 class="time-slot" style="grid-row: time-0930 / time-1000;">9:30</h2>
+                <h2 class="time-slot" style="grid-row: time-1000 / time-1030;">10:00</h2>
+                <h2 class="time-slot" style="grid-row: time-1030 / time-1100;">10:30</h2>
+                <h2 class="time-slot" style="grid-row: time-1100 / time-1130;">11:00</h2>
+                <h2 class="time-slot" style="grid-row: time-1130 / time-1200;">11:30</h2>
+                <h2 class="time-slot" style="grid-row: time-1200 / time-1230;">12:00</h2>
+                <h2 class="time-slot" style="grid-row: time-1230 / time-1300;">12:30</h2>
+                <h2 class="time-slot" style="grid-row: time-1300 / time-1330;">1:00</h2>
+                <h2 class="time-slot" style="grid-row: time-1330 / time-1400;">1:30</h2>
+                <h2 class="time-slot" style="grid-row: time-1400 / time-1430;">2:00</h2>
+                <h2 class="time-slot" style="grid-row: time-1430 / time-1500;">2:30</h2>
+                <h2 class="time-slot" style="grid-row: time-1500 / time-1530;">3:00</h2>
+                <h2 class="time-slot" style="grid-row: time-1530 / time-1600;">3:30</h2>
+                <h2 class="time-slot" style="grid-row: time-1600 / time-1630;">4:00</h2>
+                <h2 class="time-slot" style="grid-row: time-1630 / time-1700;">4:30</h2>
+                <h2 class="time-slot" style="grid-row: time-1700 / time-1730;">5:00</h2>
+                <h2 class="time-slot" style="grid-row: time-1730 / time-1800;">5:30</h2>
+
+                <!-- Sessions -->
+                <div class="session workshop" style="grid-column: track-3; grid-row: time-0830 / time-1000;">
+                    <h3 class="session-title">Taller AppSheet y Gemini</h3>
+                    <span class="session-time">8:30 - 10:00 AM</span>
+                                        <span class="session-presenter">Por Leonardo Del Valle (Google Developer Expert)</span>
+                </div>
+
+                <div class="session opening" style="grid-column: track-1; grid-row: time-0830 / time-0900;">
+                    <h3 class="session-title">Apertura</h3>
+                    <span class="session-time">8:30 - 9:00 AM</span>
+                </div>
+
+                <div class="session talk" style="grid-column: track-1; grid-row: time-0900 / time-0945;">
+                    <h3 class="session-title">No Montes una Agencia</h3>
+                    <span class="session-time">9:00 - 9:45 AM</span>
+                    <span class="session-presenter">Cápsula Laboratorio Creativo</span>
+                </div>
+
+                <div class="session talk" style="grid-column: track-1; grid-row: time-0945 / time-1030;">
+                    <h3 class="session-title">Juan David Pardo</h3>
+                    <span class="session-time">9:45 - 10:30 AM</span>
+                    <span class="session-presenter">Creative Marketing Manager</span>
+                </div>
+
+                <div class="session talk" style="grid-column: track-1; grid-row: time-1030 / time-1115;">
+                    <h3 class="session-title">Del advertisement al marketing de experiencia</h3>
+                    <span class="session-time">10:30 - 11:15 AM</span>
+                    <span class="session-presenter">Simon Maya Ospina - Wingo</span>
+                </div>
+
+                <div class="session panel" style="grid-column: track-1; grid-row: time-1115 / time-1200;">
+                    <h3 class="session-title">Creatividad en el Centro</h3>
+                    <span class="session-time">11:15 AM - 12:00 PM</span>
+                    <span class="session-presenter">Modera: Juan Ariza (Páramo) - Pablo Chilito (Bioma Agencia) - Daniela Franco (Ejecutiva Ind) - Ana Tautiva (Delfina Dib)</span>
+                </div>
+
+                <div class="session lunch" style="grid-column: track-1; grid-row: time-1200 / time-1400;">
+                    <h3 class="session-title">Almuerzo - Tiempo Libre</h3>
+                    <span class="session-time">12:00 - 2:00 PM</span>
+                </div>
+
+                <div class="session panel" style="grid-column: track-2; grid-row: time-1200 / time-1400;">
+                    <h3 class="session-title">Participe por Boletas para Beele, gracias a Páramo Presenta y Daviplata / Davivienda</h3>
+                    <span class="session-time">12:00 - 2:00 PM</span>
+                </div>
+
+                <div class="session panel" style="grid-column: track-1; grid-row: time-1400 / time-1505;">
+                    <h3 class="session-title">Entre escenarios y marcas</h3>
+                    <span class="session-time">2:00 - 3:05 PM</span>
+                    <span class="session-presenter">Modera: José Sopó (COPU) - Carlos Larrota (Davivienda) - Santiago Carreño (Páramo)</span>
+                </div>
+
+                <div class="session panel" style="grid-column: track-1; grid-row: time-1505 / time-1600;">
+                    <h3 class="session-title">El arte de las ideas: creatividad que conecta personas y marcas</h3>
+                    <span class="session-time">3:05 - 4:00 PM</span>
+                    <span class="session-presenter">Modera: Carlos Parra (Docente y Client Director en Colfondos) - Hernán Isaza (Marketing Manager en Netflix)</span>
+                </div>
+
+                <div class="session panel" style="grid-column: track-1; grid-row: time-1600 / time-1650;">
+                    <h3 class="session-title">Entre nosotras se crea mejor.</h3>
+                    <span class="session-time">4:00 - 4:50 PM</span>
+                     <span class="session-presenter">Modera: Rodolfo Velásquez (COPU) - Andrea Pinilla (DDB Colombia) - Laura Ballesteros (Edelman Latam)- Paula Zambrano (Saatchi & Saatchi)</span>
+                </div>
+
+                <div class="session closing" style="grid-column: track-1; grid-row: time-1650 / time-1700;">
+                    <h3 class="session-title">Cierre</h3>
+                    <span class="session-time">4:50 - 5:00 PM</span>
+                </div>
+
+                <div class="session workshop" style="grid-column: track-3; grid-row: time-1630 / time-1800;">
+                    <h3 class="session-title">Taller AppSheet y Gemini</h3>
+                    <span class="session-time">4:30 - 6:00 PM</span>
+                    <span class="session-presenter">Por Leonardo Del Valle (Google Developer Expert)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Leyenda -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background: #f5576c;"></div>
+                <span class="legend-text">Apertura</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #4facfe;"></div>
+                <span class="legend-text">Charlas</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #43e97b;"></div>
+                <span class="legend-text">Talleres</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #ffd93d;"></div>
+                <span class="legend-text">Foros</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #ff9a56;"></div>
+                <span class="legend-text">Lunch</span>
+            </div>
+        </div>
+    </div>
+</section>
     <!-- Nueva sección compacta con fondo blanco -->
     <section id="acerca" class="new-about-section">
         <div class="new-about-content">
@@ -1752,148 +1897,7 @@ Antes de su etapa actual en Nu, trabajó con equipos creativos en Ogilvy, McCann
         </div>
     </section>
 
-<!-- Nueva sección de agenda con visualización interactiva -->
-<section id="agenda" class="agenda-section" aria-labelledby="agenda-title">
-    <div class="agenda-container">
-        <h2 id="agenda-title" class="agenda-title">Agenda del Evento</h2>
-        <p class="agenda-subtitle">Programate y asiste a las charlas de tu interés.</p>
 
-        <div class="schedule-wrapper">
-            <div class="schedule" aria-labelledby="schedule-heading">
-                <!-- Track Headers -->
-                <span class="track-slot" aria-hidden="true" style="grid-column: track-1; grid-row: tracks;">
-                    <span class="track-name">🎭 Auditorio Mayor</span>
-                    <span class="track-location">Entrada por piso 2</span>
-                </span>
-                <span class="track-slot" aria-hidden="true" style="grid-column: track-2; grid-row: tracks;">
-                    <span class="track-name">🛍️ Hall Exposiciones</span>
-                    <span class="track-location">Piso 2</span>
-                </span>
-                <span class="track-slot" aria-hidden="true" style="grid-column: track-3; grid-row: tracks;">
-                    <span class="track-name">💡 Sala Google</span>
-                    <span class="track-location">Aula 403</span>
-                </span>
-
-                <!-- Time Slots -->
-                <h2 class="time-slot" style="grid-row: time-0830 / time-0900;">8:30</h2>
-                <h2 class="time-slot" style="grid-row: time-0900 / time-0930;">9:00</h2>
-                <h2 class="time-slot" style="grid-row: time-0930 / time-1000;">9:30</h2>
-                <h2 class="time-slot" style="grid-row: time-1000 / time-1030;">10:00</h2>
-                <h2 class="time-slot" style="grid-row: time-1030 / time-1100;">10:30</h2>
-                <h2 class="time-slot" style="grid-row: time-1100 / time-1130;">11:00</h2>
-                <h2 class="time-slot" style="grid-row: time-1130 / time-1200;">11:30</h2>
-                <h2 class="time-slot" style="grid-row: time-1200 / time-1230;">12:00</h2>
-                <h2 class="time-slot" style="grid-row: time-1230 / time-1300;">12:30</h2>
-                <h2 class="time-slot" style="grid-row: time-1300 / time-1330;">1:00</h2>
-                <h2 class="time-slot" style="grid-row: time-1330 / time-1400;">1:30</h2>
-                <h2 class="time-slot" style="grid-row: time-1400 / time-1430;">2:00</h2>
-                <h2 class="time-slot" style="grid-row: time-1430 / time-1500;">2:30</h2>
-                <h2 class="time-slot" style="grid-row: time-1500 / time-1530;">3:00</h2>
-                <h2 class="time-slot" style="grid-row: time-1530 / time-1600;">3:30</h2>
-                <h2 class="time-slot" style="grid-row: time-1600 / time-1630;">4:00</h2>
-                <h2 class="time-slot" style="grid-row: time-1630 / time-1700;">4:30</h2>
-                <h2 class="time-slot" style="grid-row: time-1700 / time-1730;">5:00</h2>
-                <h2 class="time-slot" style="grid-row: time-1730 / time-1800;">5:30</h2>
-
-                <!-- Sessions -->
-                <div class="session workshop" style="grid-column: track-3; grid-row: time-0830 / time-1000;">
-                    <h3 class="session-title">Taller AppSheet y Gemini</h3>
-                    <span class="session-time">8:30 - 10:00 AM</span>
-                </div>
-
-                <div class="session opening" style="grid-column: track-1; grid-row: time-0830 / time-0900;">
-                    <h3 class="session-title">Apertura</h3>
-                    <span class="session-time">8:30 - 9:00 AM</span>
-                </div>
-
-                <div class="session talk" style="grid-column: track-1; grid-row: time-0900 / time-0945;">
-                    <h3 class="session-title">No Montes una Agencia</h3>
-                    <span class="session-time">9:00 - 9:45 AM</span>
-                    <span class="session-presenter">Cápsula Laboratorio Creativo</span>
-                </div>
-
-                <div class="session talk" style="grid-column: track-1; grid-row: time-0945 / time-1030;">
-                    <h3 class="session-title">Juan David Pardo</h3>
-                    <span class="session-time">9:45 - 10:30 AM</span>
-                    <span class="session-presenter">Creative Marketing Manager</span>
-                </div>
-
-                <div class="session talk" style="grid-column: track-1; grid-row: time-1030 / time-1115;">
-                    <h3 class="session-title">Del advertisement al marketing de experiencia</h3>
-                    <span class="session-time">10:30 - 11:15 AM</span>
-                    <span class="session-presenter">Simon Maya Ospina - Wingo</span>
-                </div>
-
-                <div class="session panel" style="grid-column: track-1; grid-row: time-1115 / time-1200;">
-                    <h3 class="session-title">Creatividad en el Centro</h3>
-                    <span class="session-time">11:15 AM - 12:00 PM</span>
-                    <span class="session-presenter">Páramo Presenta, Delfina Dib, Warner Music</span>
-                </div>
-
-                <div class="session lunch" style="grid-column: track-1; grid-row: time-1200 / time-1400;">
-                    <h3 class="session-title">Almuerzo - Tiempo Libre</h3>
-                    <span class="session-time">12:00 - 2:00 PM</span>
-                </div>
-
-                <div class="session panel" style="grid-column: track-2; grid-row: time-1200 / time-1400;">
-                    <h3 class="session-title">Páramo x Davivienda</h3>
-                    <span class="session-time">12:00 - 2:00 PM</span>
-                </div>
-
-                <div class="session panel" style="grid-column: track-1; grid-row: time-1400 / time-1505;">
-                    <h3 class="session-title">Entre escenarios y marcas</h3>
-                    <span class="session-time">2:00 - 3:05 PM</span>
-                    <span class="session-presenter">Páramo Presenta y Davivienda</span>
-                </div>
-
-                <div class="session panel" style="grid-column: track-1; grid-row: time-1505 / time-1600;">
-                    <h3 class="session-title">El arte de las ideas: creatividad que conecta personas y marcas</h3>
-                    <span class="session-time">3:05 - 4:00 PM</span>
-                    <span class="session-presenter">Hernán Isaza - Marketing Manager</span>
-                </div>
-
-                <div class="session panel" style="grid-column: track-1; grid-row: time-1600 / time-1650;">
-                    <h3 class="session-title">Por Confirmar - Presenta COPU</h3>
-                    <span class="session-time">4:00 - 4:50 PM</span>
-                </div>
-
-                <div class="session closing" style="grid-column: track-1; grid-row: time-1650 / time-1700;">
-                    <h3 class="session-title">Cierre</h3>
-                    <span class="session-time">4:50 - 5:00 PM</span>
-                </div>
-
-                <div class="session workshop" style="grid-column: track-3; grid-row: time-1630 / time-1800;">
-                    <h3 class="session-title">Taller AppSheet y Gemini</h3>
-                    <span class="session-time">4:30 - 6:00 PM</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Leyenda -->
-        <div class="legend">
-            <div class="legend-item">
-                <div class="legend-color" style="background: #f5576c;"></div>
-                <span class="legend-text">Apertura</span>
-            </div>
-            <div class="legend-item">
-                <div class="legend-color" style="background: #4facfe;"></div>
-                <span class="legend-text">Charlas</span>
-            </div>
-            <div class="legend-item">
-                <div class="legend-color" style="background: #43e97b;"></div>
-                <span class="legend-text">Talleres</span>
-            </div>
-            <div class="legend-item">
-                <div class="legend-color" style="background: #ffd93d;"></div>
-                <span class="legend-text">Foros</span>
-            </div>
-            <div class="legend-item">
-                <div class="legend-color" style="background: #ff9a56;"></div>
-                <span class="legend-text">Lunch</span>
-            </div>
-        </div>
-    </div>
-</section>
     <section id="faq" class="faq-section" aria-labelledby="faq-title">
         <div class="faq-container">
             <div class="faq-header">
@@ -1985,7 +1989,7 @@ Antes de su etapa actual en Nu, trabajó con equipos creativos en Ogilvy, McCann
     </footer>
 <script>
 // Sistema de resaltado en tiempo real para agenda
-const ENABLE_LIVE_HIGHLIGHT = false;
+const ENABLE_LIVE_HIGHLIGHT = true;
 
 function timeToMinutes(hours, minutes) {
     return hours * 60 + minutes;
