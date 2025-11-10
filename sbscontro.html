@@ -859,47 +859,75 @@
                 return { success: false };
             }
 
-            return new Promise((resolve) => {
+            // Reintentar hasta 3 veces si falla
+            for (let attempt = 1; attempt <= 3; attempt++) {
                 try {
-                    const form = document.createElement('form');
-                    form.method = 'POST';
-                    form.action = GOOGLE_SCRIPT_URL;
-                    form.target = 'hidden_iframe_' + Date.now();
-                    form.style.display = 'none';
+                    const result = await new Promise((resolve, reject) => {
+                        const timeout = setTimeout(() => {
+                            reject(new Error('Timeout'));
+                        }, 5000);
 
-                    const fields = {
-                        date: record.date,
-                        space: record.space,
-                        code: record.code
-                    };
+                        const form = document.createElement('form');
+                        form.method = 'POST';
+                        form.action = GOOGLE_SCRIPT_URL;
+                        form.target = 'hidden_iframe_' + Date.now();
+                        form.style.display = 'none';
 
-                    for (const key in fields) {
-                        const input = document.createElement('input');
-                        input.type = 'hidden';
-                        input.name = key;
-                        input.value = fields[key];
-                        form.appendChild(input);
-                    }
+                        const fields = {
+                            date: record.date,
+                            space: record.space,
+                            code: record.code,
+                            timestamp: new Date().getTime()
+                        };
 
-                    const iframe = document.createElement('iframe');
-                    iframe.name = form.target;
-                    iframe.style.display = 'none';
-                    document.body.appendChild(iframe);
+                        for (const key in fields) {
+                            const input = document.createElement('input');
+                            input.type = 'hidden';
+                            input.name = key;
+                            input.value = fields[key];
+                            form.appendChild(input);
+                        }
 
-                    document.body.appendChild(form);
-                    form.submit();
+                        const iframe = document.createElement('iframe');
+                        iframe.name = form.target;
+                        iframe.style.display = 'none';
+                        
+                        iframe.onload = () => {
+                            clearTimeout(timeout);
+                            setTimeout(() => {
+                                try {
+                                    document.body.removeChild(form);
+                                    document.body.removeChild(iframe);
+                                } catch (e) {}
+                                resolve({ success: true });
+                            }, 500);
+                        };
 
-                    setTimeout(() => {
-                        document.body.removeChild(form);
-                        document.body.removeChild(iframe);
-                        resolve({ success: true });
-                    }, 800);
+                        iframe.onerror = () => {
+                            clearTimeout(timeout);
+                            reject(new Error('iframe error'));
+                        };
+
+                        document.body.appendChild(iframe);
+                        document.body.appendChild(form);
+                        form.submit();
+                    });
+
+                    console.log(`✅ Sheets: Intento ${attempt} exitoso`);
+                    return { success: true, attempt };
 
                 } catch (error) {
-                    console.error('Error:', error);
-                    resolve({ success: false });
+                    console.warn(`⚠️ Sheets: Intento ${attempt} falló -`, error.message);
+                    
+                    if (attempt < 3) {
+                        // Esperar antes de reintentar (escalada exponencial)
+                        await new Promise(r => setTimeout(r, 1000 * attempt));
+                    }
                 }
-            });
+            }
+
+            console.error('❌ Sheets: Falló después de 3 intentos');
+            return { success: false };
         }
 
         async function performRegistration(code, forceRegister = false) {
@@ -964,12 +992,16 @@
             updateRecordList();
             updateStats();
             
-            await sendToGoogleSheets(record);
+            const sheetsResult = await sendToGoogleSheets(record);
             
             showLoading(false);
             lastRegisteredCode = codeStr;
             
-            showStatus('✅ Asistencia registrada', 'success');
+            if (sheetsResult.success) {
+                showStatus('✅ Asistencia registrada y sincronizada', 'success');
+            } else {
+                showStatus('⚠️ Registrado localmente (verifica conexión a Sheets)', 'warning');
+            }
             
             if (navigator.vibrate) {
                 navigator.vibrate(200);
